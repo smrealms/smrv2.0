@@ -21,9 +21,9 @@ $retype_password = $_REQUEST['retype_password'];
 $HoF_name = trim($_REQUEST['HoF_name']);
 $ircNick = trim($_REQUEST['irc_nick']);
 $cellPhone = trim($_REQUEST['cell_phone']);
-$friendlyColor = $_REQUEST['friendly_color'];
-$neutralColor = $_REQUEST['neutral_color'];
-$enemyColor = $_REQUEST['enemy_color'];
+$friendlyColour = $_REQUEST['friendly_colour'];
+$neutralColour = $_REQUEST['neutral_colour'];
+$enemyColour = $_REQUEST['enemy_colour'];
 $overrideIcons = $_REQUEST['classicicons'];
 
 if (USE_COMPATIBILITY && $action == 'Link Account') {
@@ -282,19 +282,25 @@ else if (strpos(trim($action),'Alter Player')===0) {
 	$db->query('INSERT INTO news (time, news_message, game_id, dead_id,dead_alliance) VALUES (' . $db->escapeNumber(TIME) . ',' . $db->escape_string($news, FALSE) . ',' . $db->escapeNumber($player->getGameID()) . ',' . $db->escapeNumber($player->getAccountID()) . ',' . $db->escapeNumber($player->getAllianceID()) . ')');
 	$container['msg'] = '<span class="green">SUCCESS: </span>You have changed your player name.';
 }
-else if ($action == 'Update Colors') {
-	$account->setFriendlyColor($friendlyColor);
-	$account->setNeutralColor($neutralColor);
-	$account->setEnemyColor($enemyColor);
+else if ($action == 'Update Colours') {
+	if (strlen($friendlyColour) == 6) {
+		$account->setFriendlyColour($friendlyColour);
+	}
+	if (strlen($neutralColour) == 6) {
+		$account->setNeutralColour($neutralColour);
+	}
+	if (strlen($enemyColour) == 6) {
+		$account->setEnemyColour($enemyColour);
+	}
 	$account->update();
-	$container['msg'] = '<span class="green">SUCCESS: </span>You have set new colors.';
+	$container['msg'] = '<span class="green">SUCCESS: </span>You have set new colours.';
 }
-else if ($action == 'Default Colors') {
-	$account->setFriendlyColor('00AA00');
-	$account->setNeutralColor('FFD800');
-	$account->setEnemyColor('FF0000');
+else if ($action == 'Default Colours') {
+	$account->setFriendlyColour('00AA00');
+	$account->setNeutralColour('FFD800');
+	$account->setEnemyColour('FF0000');
 	$account->update();
-	$container['msg'] = '<span class="green">SUCCESS: </span>You have restored default colors.';
+	$container['msg'] = '<span class="green">SUCCESS: </span>You have restored default colours.';
 }
 
 forward($container);
