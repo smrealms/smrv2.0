@@ -412,9 +412,9 @@
         </div>       
         <div class="left">            
             <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
-                <input type="text" class="rounded" size="30" maxlength="30" name="login_username" />
+                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
                 <br /><br /><br /><br />
-                <input type="password" class="rounded" size="30" maxlength="30" name="login_password" />
+                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
                 <br /><br />
                 <input id="login_submit" type="image" src="images/login_button.png" />
                 <br /><br />
