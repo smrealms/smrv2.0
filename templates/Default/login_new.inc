@@ -335,7 +335,6 @@
 				canvasApp();
 	}
 	function canvasApp() {
-	//alert('test');
 		var theCanvas = document.getElementById('theCanvas');
 			if(!theCanvas || !theCanvas.getContext) return;
 			var ctx = theCanvas.getContext('2d'),
@@ -345,9 +344,8 @@
 				fadeIn = true,
 				loadImage = true,
 				imageDelay = 0;        
-	//alert('test');
+
 		function drawScreen() {
-	//alert('test');
 			ctx.globalAlpha = 1.0;
 			ctx.fillStyle = 'rgba(0, 0, 0, 1)';
 			ctx.fillRect(0,0,theCanvas.width,theCanvas.height);
