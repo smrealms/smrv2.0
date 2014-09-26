@@ -6,7 +6,7 @@
     <title>SMR Login</title>
     <style type="text/css">
 		html {    
-			background: #000000 url(../images/rockbackground.jpg) no-repeat center center;
+			background: #000000 url(images/rockbackground.jpg) no-repeat center center;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -78,7 +78,7 @@
 		}
 		div.left {
 			text-align: left;
-			background: url(../images/loginpanel.png) no-repeat;
+			background: url(images/loginpanel.png) no-repeat;
 			width: 280px;
 			height: 292px;
 			margin-top: 48px;
@@ -100,7 +100,7 @@
 		}
 		div.center {
 			text-align: center;
-			background: url(../images/centerpanel.png) no-repeat;
+			background: url(images/centerpanel.png) no-repeat;
 			width: 378px;
 			height: 292px;
 			margin-top: 48px;       
@@ -114,7 +114,7 @@
 		}
 		div.right {
 			text-align: left;
-			background: url(../images/registerpanel.png) no-repeat;
+			background: url(images/registerpanel.png) no-repeat;
 			width: 309px;
 			height: 374px;
 			margin-top: 48px;
@@ -129,7 +129,7 @@
 			position: absolute;
 			top: 565px;
 			margin-left: 10px;    
-			background: url(../images/alt_login.png) no-repeat;
+			background: url(images/alt_login.png) no-repeat;
 			width: 290px;
 			height: 80px;
 		}
@@ -176,7 +176,7 @@
 		#popup {
 			height: 100%;
 			width: 100%;
-			background: url(../images/tranbg.png);
+			background: url(images/tranbg.png);
 			position: absolute;
 			top: 0px;
 			left: 0px;    
@@ -188,7 +188,7 @@
 			height: 300px;
 			margin: 0 auto;
 			padding: 5px 10px 5px 10px;
-			background: url(../images/pop.png) no-repeat;    
+			background: url(images/pop.png) no-repeat;    
 			position: absolute;
 			top: 200px;
 			left: 25%;
