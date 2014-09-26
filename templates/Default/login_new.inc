@@ -388,7 +388,6 @@
 		  return myImagePath;
 		}
 		function fadeImage() {
-	//alert('test');
 			drawScreen();
 			myTime = window.setTimeout(fadeImage,20);
 		  }
@@ -412,14 +411,14 @@
             <a href="" target="_blank"><img class="menu" alt="" src="images/contact.gif" /></a>
         </div>       
         <div class="left">            
-            <form action="http://beta.smrealms.de/login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
-                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
+            <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
+                <input type="text" class="rounded" size="30" maxlength="30" name="login_username" />
                 <br /><br /><br /><br />
-                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
+                <input type="password" class="rounded" size="30" maxlength="30" name="login_password" />
                 <br /><br />
                 <input id="login_submit" type="image" src="images/login_button.png" />
                 <br /><br />
-                <a href="http://beta.smrealms.de/reset_password.php"><img alt="Reset Password" src="images/reset_button.png" /></a>               
+                <a href="reset_password.php"><img alt="Reset Password" src="images/reset_button.png" /></a>               
             </form>           
         </div>
         <div id="center22" class="center">
@@ -448,14 +447,14 @@
             </div>        
         </div>
         <div class="right">
-            <form id="Rform" action="http://beta.smrealms.de/login_create_processing.php" method="post" 
+            <form id="Rform" action="login_create_processing.php" method="post" 
             style="margin-top:80px; margin-left:30px; margin-right:20px;">
                 <div style="margin-left:20px;">                        
                 <input type="text" class="rounded" size="30" maxlength="30" name="login" />
                 <br /><br /><br /><br />
                 <input type="password" class="rounded" size="30" maxlength="30" name="password" />
                 <br /><br /><br />
-                <input type="text" class="rounded" size="30" maxlength="30" name="email" />                
+                <input type="email" class="rounded" size="30" maxlength="30" name="email" />                
                 </div>
                 <br />
                 <div style="margin-top:10px; margin-left:-4px;">
@@ -505,4 +504,3 @@
     </div>   
 </body>
 </html>
-      
