@@ -4,7 +4,7 @@ if(isset($MissionMessage)) { ?>
 	echo $MissionMessage;
 }
 
-$AvailableMissions =& $ThisPlayer->getAvailableMissions();
+$AvailableMissions = $ThisPlayer->getAvailableMissions();
 if(count($AvailableMissions) > 0) {
 	foreach($AvailableMissions as $MissionID => &$AvailableMission) { ?>
 		<span class="green">New Mission: </span><?php
@@ -14,7 +14,7 @@ if(count($AvailableMissions) > 0) {
 }
 
 
-$Missions =& $ThisPlayer->getActiveMissions();
+$Missions = $ThisPlayer->getActiveMissions();
 if(count($Missions) > 0) {
 	foreach($Missions as $MissionID => &$Mission) {
 		if(in_array($MissionID, $UnreadMissions)) { ?>
