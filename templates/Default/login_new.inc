@@ -65,12 +65,12 @@
 		.overlap3 {
 			position: absolute;
 			top: 216px;
-			margin-left: 80px;
+			margin-left: 50px;
 			margin-right: auto;    
 			z-index: 1;
 		}
 		.menu {
-			margin-right: 40px;
+			margin-right: 6px;
 		}
 		.top {
 			width: 1000px;
@@ -409,6 +409,7 @@
             <a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/forums.gif" /></a>
             <a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/irc.gif" /></a>
             <a href="" target="_blank"><img class="menu" alt="" src="images/contact.gif" /></a>
+			<img id="snapImage" type="image" class="menu cursor" alt="" src="images/shots.gif" />
         </div>       
         <div class="left">            
             <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
