@@ -6,7 +6,7 @@
     <title>SMR Login</title>
     <style type="text/css">
 		html {    
-			background: #000000 url(images/rockbackground.jpg) no-repeat center center;
+			background: #000000 url(images/login_new/rockbackground.jpg) no-repeat center center;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -78,7 +78,7 @@
 		}
 		div.left {
 			text-align: left;
-			background: url(images/loginpanel.png) no-repeat;
+			background: url(images/login_new/loginpanel.png) no-repeat;
 			width: 280px;
 			height: 292px;
 			margin-top: 48px;
@@ -100,7 +100,7 @@
 		}
 		div.center {
 			text-align: center;
-			background: url(images/centerpanel.png) no-repeat;
+			background: url(images/login_new/centerpanel.png) no-repeat;
 			width: 378px;
 			height: 292px;
 			margin-top: 48px;       
@@ -114,7 +114,7 @@
 		}
 		div.right {
 			text-align: left;
-			background: url(images/registerpanel.png) no-repeat;
+			background: url(images/login_new/registerpanel.png) no-repeat;
 			width: 309px;
 			height: 374px;
 			margin-top: 48px;
@@ -129,7 +129,7 @@
 			position: absolute;
 			top: 565px;
 			margin-left: 10px;    
-			background: url(images/alt_login.png) no-repeat;
+			background: url(images/login_new/alt_login.png) no-repeat;
 			width: 290px;
 			height: 80px;
 		}
@@ -176,7 +176,7 @@
 		#popup {
 			height: 100%;
 			width: 100%;
-			background: url(images/tranbg.png);
+			background: url(images/login_new/tranbg.png);
 			position: absolute;
 			top: 0px;
 			left: 0px;    
@@ -188,7 +188,7 @@
 			height: 300px;
 			margin: 0 auto;
 			padding: 5px 10px 5px 10px;
-			background: url(images/pop.png) no-repeat;    
+			background: url(images/login_new/pop.png) no-repeat;    
 			position: absolute;
 			top: 200px;
 			left: 25%;
@@ -240,15 +240,15 @@
     <div id="wapper">
         <div id="header"></div>
         <div id="container">
-        <span class="top"><img alt="" src="images/head.jpg" /></span>
-        <div class="overlap1"><img alt="" src="images/buckel.gif" /></div>
-        <div class="overlap2"><img alt="" src="images/menubar.png" /></div>
+        <span class="top"><img alt="" src="images/login_new/head.jpg" /></span>
+        <div class="overlap1"><img alt="" src="images/login_new/buckel.gif" /></div>
+        <div class="overlap2"><img alt="" src="images/login_new/menubar.png" /></div>
         <div class="overlap3 noWrap">
-            <a href="http://wiki.smrealms.de/index.php" target="_blank"><img class="menu" alt="" src="images/wiki.gif" /></a>
-            <a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/forums.gif" /></a>
-            <a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/irc.gif" /></a>
-            <a href="" target="_blank"><img class="menu" alt="" src="images/contact.gif" /></a>
-			<img id="snapImage" type="image" class="menu cursor" alt="" src="images/shots.gif" />
+            <a href="http://wiki.smrealms.de/index.php" target="_blank"><img class="menu" alt="" src="images/login_new/wiki.gif" /></a>
+            <a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/login_new/forums.gif" /></a>
+            <a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/login_new/irc.gif" /></a>
+            <a href="" target="_blank"><img class="menu" alt="" src="images/login_new/contact.gif" /></a>
+			<img id="snapImage" type="image" class="menu cursor" alt="" src="images/login_new/shots.gif" />
         </div>       
         <div class="left">            
             <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
@@ -256,9 +256,9 @@
                 <br /><br /><br /><br />
                 <input type="password" class="rounded" size="30" maxlength="30" name="password" />
                 <br /><br />
-                <input id="login_submit" type="image" src="images/login_button.png" />
+                <input id="login_submit" type="image" src="images/login_new/login_button.png" />
                 <br /><br />
-                <a href="reset_password.php"><img alt="Reset Password" src="images/reset_button.png" /></a>               
+                <a href="reset_password.php"><img alt="Reset Password" src="images/login_new/reset_button.png" /></a>               
             </form>           
         </div>
         <div id="center22" class="center">
@@ -300,20 +300,20 @@
                 <div style="margin-top:10px; margin-left:-4px;">
                     <label class="myCheckbox">
                     <input id="myCheck" type="hidden" name="agreement" value="unchecked" />
-                    <span><img id="myImage" src="images/unchecked.png" /></span>
+                    <span><img id="myImage" src="images/login_new/unchecked.png" /></span>
                     </label>
 				</div>
 				<br><br><br>
 			</form>  
 			<div style="text-align:right; margin-top:-4px; margin-right:20px;">
-                <input id="register_button" type="image" src="images/register_button.png" />
+                <input id="register_button" type="image" src="images/login_new/register_button.png" />
 			</div>            
         </div>
         <div class="clear"></div>
         <div class="altlogin noWrap">
-            <a href=""><img class="google" alt="" src="images/google.png" /></a>
-            <a href=""><img class="facebook" alt="" src="images/facebook.png" /></a>
-            <a href=""><img class="twitter" alt="" src="images/twitter.png" /></a>  
+            <a href=""><img class="google" alt="" src="images/login_new/google.png" /></a>
+            <a href=""><img class="facebook" alt="" src="images/login_new/facebook.png" /></a>
+            <a href=""><img class="twitter" alt="" src="images/login_new/twitter.png" /></a>  
         </div>        
         <div id="popup" style="display: none;"></div>
              <div id="window" style="display: none;">
@@ -337,18 +337,18 @@
              </div>          
         </div> 
 		<div id="footer">
-			<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/Google_Chrome_icon.png" /></a>
+			<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/login_new/Google_Chrome_icon.png" /></a>
 			<br />
 			This web page is best viewed with Google Chrome. Download it for free. 
 		</div>
     </div>
 	<script type="text/javascript">
 		$('#myImage').click(function() {        
-			if ($('#myImage').attr('src') == 'images/unchecked.png') {        
-				$('#myImage').attr('src','images/checked.png');
+			if ($('#myImage').attr('src') == 'images/login_new/unchecked.png') {        
+				$('#myImage').attr('src','images/login_new/checked.png');
 				$('#myCheck').val('checked');
 			} else {            
-				$('#myImage').attr('src','images/unchecked.png');
+				$('#myImage').attr('src','images/login_new/unchecked.png');
 				$('#myCheck').val('unchecked');            
 			}        
 		});	
