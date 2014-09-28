@@ -118,7 +118,7 @@ if (!isset($isCombinedSector)) {
 								if($isVisited) {
 									if($Sector->hasWarp()) {
 										if($GalaxyMap){ ?><a href="<?php echo $Sector->getWarpSector()->getGalaxyMapHREF(); ?>"><?php }
-										else if($isCombinedSector){ ?><a href="<?php echo $Sector->getWarpSector()->getCombinedMapHREF(); ?>"><?php } 
+										else if($isCombinedSector && $isCurrentSector){ ?><a href="<?php echo $Sector->getWarpSector()->getCombinedMapHREF(); ?>"><?php } 
 										else if($isCurrentSector){ ?><a href="<?php echo $Sector->getWarpSector()->getLocalMapHREF(); ?>"><?php } ?>
 											<div style="display:inline;" 
 												data-tip="Warp to #<?php echo $Sector->getWarp(); ?> (<?php echo $Sector->getWarpSector()->getGalaxyName(); ?>)">
@@ -179,7 +179,7 @@ if (!isset($isCombinedSector)) {
 							$UniGen['sector_id'] = $Sector->getSectorID(); ?>
 							<a class="move_hack" href="<?php echo SmrSession::getNewHREF($UniGen); ?>"></a><?php
 						} 
-						else if($isCombinedSector) { ?>
+						else if($isCombinedSector && $isLinkedSector) { ?>
 							<a class="move_hack" href="<?php echo $Sector->getCombinedMapHREF(); ?>"></a><?php
 						}
 						else if($GalaxyMap) { ?>
@@ -188,7 +188,7 @@ if (!isset($isCombinedSector)) {
 						else if($isLinkedSector) { ?>
 							<a class="move_hack" href="<?php echo $Sector->getLocalMapHREF(); ?>"></a><?php
 						}
-						else if($isCurrentSector) { ?>
+						else if($isCurrentSector && !$isCombinedSector) { ?>
 							<a class="move_hack" href="<?php echo Globals::getCurrentSectorHREF(); ?>"></a><?php
 						} ?>
 					</div>
