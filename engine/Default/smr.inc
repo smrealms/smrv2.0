@@ -613,6 +613,7 @@ function do_voodoo() {
 	}
 	if($var['body']) {
 		$PHP_OUTPUT = '';
+
 		if($var['body']=='error.php'||$var['body']=='bar_main.php') { // infinite includes for error/bar pages
 			include(get_file_loc($var['body']));
 		}
@@ -779,6 +780,7 @@ function doSkeletionAssigns(&$template,&$player,&$ship,&$sector,&$db,&$account) 
 		}
 		else {
 			$template->assign('LocalMapLink',Globals::getLocalMapHREF());
+			$template->assign('CombinedMapLink',Globals::getCombinedMapHREF());
 		}
 
 		$template->assign('PlotCourseLink',Globals::getPlotCourseHREF());

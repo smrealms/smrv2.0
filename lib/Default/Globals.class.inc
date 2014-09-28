@@ -415,7 +415,11 @@ class Globals {
 	public static function getLocalMapHREF() {
 		return self::$AVAILABLE_LINKS['LocalMap'] = SmrSession::getNewHREF(create_container('skeleton.php','map_local.php'));
 	}
-
+	
+	public static function getCombinedMapHREF() {
+		return self::$AVAILABLE_LINKS['CombinedMap'] = SmrSession::getNewHREF(create_container('skeleton.php','map_combined.php'));
+	}
+	
 	public static function getCurrentPlayersHREF() {
 		return self::$AVAILABLE_LINKS['CurrentPlayers'] = SmrSession::getNewHREF(create_container('skeleton.php','current_players.php'));
 	}

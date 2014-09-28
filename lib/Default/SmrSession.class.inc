@@ -47,6 +47,7 @@ class SmrSession {
 			'leave_newbie.php' => self::ALWAYS_AVAILABLE,
 			'logoff.php' => self::ALWAYS_AVAILABLE,
 			'map_local.php' => self::ALWAYS_AVAILABLE,
+			'map_combined.php' => self::ALWAYS_AVAILABLE,
 			'message_view.php' => self::ALWAYS_AVAILABLE,
 			'message_send.php' => self::ALWAYS_AVAILABLE,
 			'news_read_advanced.php' => self::ALWAYS_AVAILABLE,

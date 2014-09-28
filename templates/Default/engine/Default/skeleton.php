@@ -15,7 +15,7 @@
 				<td class="m0" colspan="2">
 					<div id="middle_panel"><?php
 						if(isset($PageTopic)) {
-							?><h1><?php echo $PageTopic; ?></h1><br /><?php
+							?><h1><?php echo $PageTopic; ?></h1><br><?php
 						}
 						if(isset($MenuItems)||isset($MenuBar)) { ?>
 							<div class="bar1">
@@ -27,7 +27,7 @@
 										echo $MenuBar;
 									} ?>
 								</div>
-							</div><br /><?php
+							</div><br><?php
 						}
 						else if(isset($SubMenuBar)) {
 							echo $SubMenuBar;

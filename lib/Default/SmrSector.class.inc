@@ -920,6 +920,10 @@ class SmrSector {
 	public function getLocalMapHREF() {
 		return Globals::getSectorMoveHREF($this->getSectorID(), 'map_local.php');
 	}
+	
+	public function getCombinedMapHREF() {
+		return Globals::getSectorMoveHREF($this->getSectorID(), 'map_combined.php');
+	}
 
 	public function getCurrentSectorHREF() {
 		return Globals::getCurrentSectorMoveHREF($this->getSectorID());

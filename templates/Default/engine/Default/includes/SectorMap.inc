@@ -3,6 +3,9 @@ $GalaxyMap = isset($GalaxyMap)&&$GalaxyMap;
 $UniGen = isset($UniGen) ? $UniGen : false;
 $MapPlayer = $UniGen ? null : $ThisPlayer;
 $MovementTypes = array('Up','Left','Right','Down');
+if (!isset($isCombinedSector)) {
+	$isCombinedSector = false;
+}
 ?>
 <table class="lmt centered <?php echo "galaxy".$MapSectors[0][0]->getGalaxyID(); ?>"><?php
 	foreach($MapSectors as &$MapSector) { ?>
@@ -115,6 +118,7 @@ $MovementTypes = array('Up','Left','Right','Down');
 								if($isVisited) {
 									if($Sector->hasWarp()) {
 										if($GalaxyMap){ ?><a href="<?php echo $Sector->getWarpSector()->getGalaxyMapHREF(); ?>"><?php }
+										else if($isCombinedSector){ ?><a href="<?php echo $Sector->getWarpSector()->getCombinedMapHREF(); ?>"><?php } 
 										else if($isCurrentSector){ ?><a href="<?php echo $Sector->getWarpSector()->getLocalMapHREF(); ?>"><?php } ?>
 											<div style="display:inline;" 
 												data-tip="Warp to #<?php echo $Sector->getWarp(); ?> (<?php echo $Sector->getWarpSector()->getGalaxyName(); ?>)">
@@ -174,6 +178,9 @@ $MovementTypes = array('Up','Left','Right','Down');
 						if($UniGen) {
 							$UniGen['sector_id'] = $Sector->getSectorID(); ?>
 							<a class="move_hack" href="<?php echo SmrSession::getNewHREF($UniGen); ?>"></a><?php
+						} 
+						else if($isCombinedSector) { ?>
+							<a class="move_hack" href="<?php echo $Sector->getCombinedMapHREF(); ?>"></a><?php
 						}
 						else if($GalaxyMap) { ?>
 							<a class="move_hack" href="<?php echo $Sector->getGalaxyMapHREF(); ?>"></a><?php
