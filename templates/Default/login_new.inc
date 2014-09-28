@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
     <title>SMR Login</title>
     <style type="text/css">
 		html {    
@@ -234,168 +234,7 @@
 			-webkit-border-radius:6px;
 		}
 	</style>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript">
-		jQuery(document).ready(function() {     
-		jQuery('#register_button').click(function() {
-			$('#popup').fadeIn('fast');
-			$('#window').fadeIn('fast');        
-			//Generates the captcha function    
-			var a = Math.ceil(Math.random() * 9)+ '';
-			var b = Math.ceil(Math.random() * 9)+ '';       
-			var c = Math.ceil(Math.random() * 9)+ '';  
-			var d = Math.ceil(Math.random() * 9)+ '';  
-			var e = Math.ceil(Math.random() * 9)+ '';  
-		  
-			var code = a + b + c + d + e;
-			document.getElementById("Numbers").value = code;
-			document.getElementById("myNumbers").innerHTML = code;        
-		});    
-		jQuery('#Close').click(function() {
-			$('#popup').fadeOut('fast');
-			$('#window').fadeOut('fast');
-		});    
-		jQuery('#register_button').click(function() {        
-			var n=document.forms["Rform"]["login"].value;
-			var p=document.forms["Rform"]["password"].value;
-			var e=document.forms["Rform"]["email"].value;        
-			var check=document.forms["Rform"]["myCheck"].value;
-			var atpos=e.indexOf("@");
-			var dotpos=e.lastIndexOf(".");        
-			if (n==null || n=="") {
-				$('#message').html('You forgot to type a <span style="color: Red;">User Name!</span> <br />' + 
-				'Please click the (Close X) on the upper right side and enter your User Name.');
-				$('#Captcha').fadeOut('fast');
-			} else if (p==null || p=="") {
-				$('#message').html('You forgot to type a <span style="color: Red;">Password!</span> <br />' + 
-				'Please click the (Close X) on the upper right side and enter your Password.'); 
-				$('#Captcha').fadeOut('fast');       
-			} else if (atpos<1 || dotpos<atpos+2 || dotpos+2>=e.length) {
-				$('#message').html('You forgot to type your <span style="color: Red;">email</span> or you typed it wrong! <br />' + 
-				'Please click the (Close X) on the upper right side and enter your email.');
-				$('#Captcha').fadeOut('fast');               
-			} else if (check=='unchecked' || check==null || check=="") {
-				$('#message').html('You forgot to check the <span style="color: Red;">User Agreement box!</span> <br />' + 
-				'Please click the (Close X) on the upper right side and check the User Agreement box!.');
-				$('#Captcha').fadeOut('fast');   
-			} else {
-				$('#message').html('');
-				$('#Captcha').fadeIn('fast');
-			}
-		});        
-		jQuery('#myImage').click(function() {        
-			if ($('#myImage').attr('src') == 'images/unchecked.png') {        
-				$('#myImage').attr('src','images/checked.png');
-				$('#myCheck').val('checked');
-			} else {            
-				$('#myImage').attr('src','images/unchecked.png');
-				$('#myCheck').val('unchecked');            
-			}        
-		});
-		jQuery('#testHuman').click(function() {
-			var num1 = document.getElementById('Numbers').value;
-			var num2 = document.getElementById('numberInput').value;
-			if(num1 == num2) {
-				document.forms["Rform"].submit();
-			} else {
-				$('#message').html('The numbers did not match! Please retype them and click submit again!'); 
-			}
-		});
-	//******************New On 3/17/14***********************************
-	var myTime;
-	var images = new Array();
-	jQuery('#snapClose').click(function() {
-			clearTimeout(myTime);
-			$('#popup').fadeOut('fast');
-			$('#snapShot').fadeOut('fast');
-		});
-
-	jQuery('#snapImage').click(function() {	
-		$('#popup').fadeIn('fast');
-		$('#snapShot').fadeIn('fast');
-		loadImages();	
-	});
-	function loadImages() {	 
-				function preload() {
-					for (i = 0; i < preload.arguments.length; i++) {
-						images[i] = new Image()
-						images[i].src = preload.arguments[i]
-					}
-				}
-				preload(
-					'images/race2.jpg',
-					'images/race3.jpg',
-					'images/race4.jpg',
-					'images/race5.jpg',
-					'images/race6.jpg',
-					'images/race7.jpg',
-					'images/race8.jpg',
-					'images/race9.jpg'
-				)
-				canvasApp();
-	}
-	function canvasApp() {
-		var theCanvas = document.getElementById('theCanvas');
-			if(!theCanvas || !theCanvas.getContext) return;
-			var ctx = theCanvas.getContext('2d'),
-				smrImage = new Image(),
-				num = 0,
-				alpha = 0,
-				fadeIn = true,
-				loadImage = true,
-				imageDelay = 0;        
-
-		function drawScreen() {
-			ctx.globalAlpha = 1.0;
-			ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-			ctx.fillRect(0,0,theCanvas.width,theCanvas.height);
-			ctx.clearRect(0,0,theCanvas.width,theCanvas.height);
-
-			if(fadeIn) {
-			  alpha += .03;
-			  if(alpha >= 1) {
-				alpha = 1;
-				imageDelay++;
-				if (imageDelay == 150) { 
-					fadeIn = false;
-					imageDelay = 0;
-				}
-			  }
-			} else {
-			  alpha -= .01;
-			  if (alpha < 0) {
-				alpha = 0;
-				fadeIn = true;
-				num++;
-				loadImage = true;
-			  }
-			}
-			if (num >= 8) num = 0;
-			if (loadImage) {
-				smrImage.src = images[num].src;
-				smrImage.onload = function() {
-					ctx.globalAlpha = alpha;
-					ctx.drawImage(smrImage,160,60);
-					loadImage = false;
-				}
-			} else {
-				ctx.globalAlpha = alpha;
-				ctx.drawImage(smrImage,160,60);
-			}            
-		}
-		function mySRC(num) {
-		  var myImagePath = 'images/race'+num+'.jpg';
-		  return myImagePath;
-		}
-		function fadeImage() {
-			drawScreen();
-			myTime = window.setTimeout(fadeImage,20);
-		  }
-		  fadeImage();
-	}
-	//********************End New****************************************	
-	});
-	</script>   
+	<script src="js/jquery.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="wapper">
@@ -448,27 +287,27 @@
             </div>        
         </div>
         <div class="right">
-            <form id="Rform" action="login_create_processing.php" method="post" 
-            style="margin-top:80px; margin-left:30px; margin-right:20px;">
+            <form id="Rform" action="login_create.php" method="post" 
+				style="margin-top:80px; margin-left:30px; margin-right:20px;">
                 <div style="margin-left:20px;">                        
                 <input type="text" class="rounded" size="30" maxlength="30" name="login" />
-                <br /><br /><br /><br />
+                <br><br><br><br>
                 <input type="password" class="rounded" size="30" maxlength="30" name="password" />
-                <br /><br /><br />
+                <br><br><br><br>
                 <input type="email" class="rounded" size="30" maxlength="30" name="email" />                
                 </div>
-                <br />
+                <br>
                 <div style="margin-top:10px; margin-left:-4px;">
                     <label class="myCheckbox">
-                    <input id="myCheck" type="hidden" name="myCheck" value="unchecked" />
+                    <input id="myCheck" type="hidden" name="agreement" value="unchecked" />
                     <span><img id="myImage" src="images/unchecked.png" /></span>
                     </label>
-                </div>
-                <br /><br /><br />
-              </form>  
-                <div style="text-align:right; margin-top:-4px; margin-right:20px;">
+				</div>
+				<br><br><br>
+			</form>  
+			<div style="text-align:right; margin-top:-4px; margin-right:20px;">
                 <input id="register_button" type="image" src="images/register_button.png" />
-                </div>            
+			</div>            
         </div>
         <div class="clear"></div>
         <div class="altlogin noWrap">
@@ -484,24 +323,38 @@
                     <div class="clear"></div>
                     <br />
                     <div id="content">
-                    <label id="message" for="message" style="font-size: 14px; color: White;"></label>
-                    <div id="Captcha" style="display: none;">
-                        <label for="code">Please type these numbers below >
-                        <span id="myNumbers" style="color:#F00; font-size:18px;"></span> 
-                        <input type="hidden" id="Numbers" /></label><br />
-                        <input type="text" name="numberInput" id="numberInput" size="30" />
-                        <br /><br />
-                        <input id="testHuman" type="button" value="Submit" />
-                    </div>                                
+						<label id="message" for="message" style="font-size: 14px; color: White;"></label>
+						<div id="Captcha" style="display: none;">
+							<label for="code">Please type these numbers below >
+							<span id="myNumbers" style="color:#F00; font-size:18px;"></span> 
+							<input type="hidden" id="Numbers" /></label><br />
+							<input type="text" name="numberInput" id="numberInput" size="30" />
+							<br /><br />
+							<input id="testHuman" type="button" value="Submit" />
+						</div>                                
                     </div>
                  </div>
              </div>          
         </div> 
-            <div id="footer">
-              <a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/Google_Chrome_icon.png" /></a>
-              <br />
-             This web page is best viewed with Google Chrome. Download it for free. 
-             </div>
-    </div>   
-</body>
+		<div id="footer">
+			<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/Google_Chrome_icon.png" /></a>
+			<br />
+			This web page is best viewed with Google Chrome. Download it for free. 
+		</div>
+    </div>
+	<script type="text/javascript">
+		$('#myImage').click(function() {        
+			if ($('#myImage').attr('src') == 'images/unchecked.png') {        
+				$('#myImage').attr('src','images/checked.png');
+				$('#myCheck').val('checked');
+			} else {            
+				$('#myImage').attr('src','images/unchecked.png');
+				$('#myCheck').val('unchecked');            
+			}        
+		});	
+		$('#register_button').click(function() {
+			$('#Rform').submit();
+		});
+	</script>  
+</body> 
 </html>

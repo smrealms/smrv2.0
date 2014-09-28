@@ -62,12 +62,12 @@ try {
 		exit;
 	}
 
-	/*$pass_verify = $_REQUEST['pass_verify'];
+	$pass_verify = $_REQUEST['pass_verify'];
 	if ($password != $pass_verify) {
 		$msg = 'The passwords you entered do not match.';
 		header('Location: '.URL.'/error.php?msg=' . rawurlencode(htmlspecialchars($msg, ENT_QUOTES)));
 		exit;
-	}*/
+	}
 
 	if(!$socialLogin || $_SESSION['socialLogin']->getEmail() == null) {
 		$email = trim($_REQUEST['email']);
@@ -83,12 +83,12 @@ try {
 			exit;
 		}
 
-		/*$email_verify = $_REQUEST['email_verify'];
+		$email_verify = $_REQUEST['email_verify'];
 		if ($email != $email_verify) {
 			$msg = 'The eMail addresses you entered do not match.';
 			header('Location: '.URL.'/error.php?msg=' . rawurlencode(htmlspecialchars($msg, ENT_QUOTES)));
 			exit;
-		}*/
+		}
 
 		// get user and host for the provided address
 		list($user, $host) = explode('@', $email);
@@ -107,18 +107,18 @@ try {
 
 	if(!$socialLogin) {
 		$first_name = $_REQUEST['first_name'];
-		/*if (empty($first_name)) {
+		if (empty($first_name)) {
 			$msg = 'First name is missing!';
 			header('Location: '.URL.'/error.php?msg=' . rawurlencode(htmlspecialchars($msg, ENT_QUOTES)));
 			exit;
-		}*/
+		}
 
 		$last_name = $_REQUEST['last_name'];
-		/*if (empty($last_name)) {
+		if (empty($last_name)) {
 			$msg = 'Last name is missing!';
 			header('Location: '.URL.'/error.php?msg=' . rawurlencode(htmlspecialchars($msg, ENT_QUOTES)));
 			exit;
-		}*/
+		}
 
 		$address = $_REQUEST['address'];
 		//if (empty($address)) {
