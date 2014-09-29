@@ -26,9 +26,14 @@ if (!isset($isCombinedSector)) {
 							if($isCurrentSector) {
 								echo 'url("images/currentsector.png"), '; 
 							}
-							echo 'url("'.$planet->getTypeImage().'"); background-size: 100% auto;'."' "; ?>
-							data-img="../<?php echo $planet->getTypeImage(); ?>" 
-										data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>"><?php
+							echo 'url("'.$planet->getImage().'");'; 
+							echo 'background-size: ';
+							if($isCurrentSector) {
+								echo '100% auto, ';
+							}
+							echo $planet->getSize().' auto; background-position: center center; background-repeat:no-repeat;'."' "; ?>
+							data-img="../<?php echo $planet->getImage(); ?>" 
+							data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>"><?php
 						} else {
 							echo '>';
 						}
