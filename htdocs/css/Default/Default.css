@@ -191,6 +191,7 @@ ul.boxy li {
 }
 .currentSeclm {
 	background: url('../../images/currentsector.png');
+	background-size: 100% 100%;
 	_background: none; /* Disable transparent image for IE6 as it can't handle it */
 	background-color: rgba(58,112,173,0.4);
 }
