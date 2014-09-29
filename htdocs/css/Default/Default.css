@@ -3,6 +3,7 @@ body {
 	background-image: url("../../images/backgrounds/bg1.png");
 	background-size: 100% auto;
 	color: #FFFFFF;
+	
 }
 h1, h2 {
 	color: #80C870;
@@ -98,6 +99,7 @@ table.nobord td {
 }
 table.m {
 	border-spacing: 3px;
+	height: 98%;
 }
 td.m0 {
 	border-radius: 5px;
