@@ -7,12 +7,12 @@
 	<body>
 		<table class="m" align="center">
 			<tr>
-				<td class="l0" rowspan="2">
+				<td class="l0">
 					<div class="l1">
 						<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
 					</div>
 				</td>
-				<td class="m0" colspan="2">
+				<td class="m0">
 					<div id="middle_panel"><?php
 						if(isset($PageTopic)) {
 							?><h1><?php echo $PageTopic; ?></h1><br><?php
@@ -39,17 +39,6 @@
 					<div id="right_panel">
 						<?php $this->includeTemplate('includes/RightPanel.inc'); ?>
 					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="footer_left">
-					<div style="width:294px;" class="center">Get <b><u>FREE TURNS</u></b> for voting if you see the star, next available <span id="v"><?php if($TimeToNextVote <= 0){ ?>now<?php }else{ ?>in <?php echo format_time($TimeToNextVote,true); } ?></span>.</div><?php
-						foreach($VoteSites as $VoteSite) {
-							echo $VoteSite;
-						} ?>
-				</td>
-				<td class="footer_right">
-					<?php $this->includeTemplate('includes/copyright.inc'); ?>
 				</td>
 			</tr>
 		</table>
