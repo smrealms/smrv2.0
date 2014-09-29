@@ -1,5 +1,7 @@
 body {
 	background: #0B2121;
+	background-image: url("../../images/backgrounds/bg1.png");
+	background-size: 100% auto;
 	color: #FFFFFF;
 }
 h1, h2 {
@@ -94,10 +96,16 @@ td.has_port {
 table.nobord td {
 	border: none;
 }
+table.m {
+	border-spacing: 3px;
+}
 td.m0 {
-	border: solid #0B8D35;
-	border-width: 1px 1px 0px 1px;
-	background-color: #06240E;
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+}
+td.l0, td.r0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
 }
 .attack_warning {
 	border: 1px solid #BB0;
@@ -176,7 +184,7 @@ ul.boxy li {
 
 /* LM */
 .connectSeclm {
-	background-color: #33784B;
+	background-color: rgba(58,112,173,0.4);
 }
 .connectSeclm:hover {
 	background-color: #14645F;
@@ -184,13 +192,14 @@ ul.boxy li {
 .currentSeclm {
 	background: url('../../images/currentsector.png');
 	_background: none; /* Disable transparent image for IE6 as it can't handle it */
-	background-color: #33784B;
+	background-color: rgba(58,112,173,0.4);
 }
+
 .currentSeclm:hover {
 	background-color:#337975;
 }
 .normalSeclm {
-	background-color: #0B4C1C;
+	background-color: rgba(40,78,119,0.4);
 }
 .normalSeclmu {
 	background-color: #000000;
@@ -225,7 +234,7 @@ div.secNavBox div div {
    color: #00FF00;
 }
 .visited, .currentSector {
-   color: #00AA00;
+   color: #4C93E0;
 }
 .unvisited {
    color: #FFFF00;

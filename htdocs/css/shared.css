@@ -307,7 +307,7 @@ a.buttonA  {
 /* LM */
 table.lmt {
 	border-collapse: separate;
-	border-spacing: 6px;
+	border-spacing: 3px;
 }
 table.lmt td {
 	padding: 0px;
@@ -413,6 +413,8 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 	height: 120px;
 	min-width: 120px;
 	min-height: 120px;
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
 }
 .lm_sector .move_hack {
 	background: none;
