@@ -21,8 +21,10 @@ $PHP_OUTPUT.= 'Planet Type: <select name="plan_type">';
 $PHP_OUTPUT.= '<option value="0">No Planet</option>';
 
 $selectedType = 0;
+$planet = null;
 if ($sector->hasPlanet()) {
 	$selectedType = $sector->getPlanet()->getTypeID();
+	$planet = $sector->getPlanet();
 }
 
 $db->query('SELECT * FROM planet_type');
@@ -33,7 +35,12 @@ while ($db->nextRecord()) {
 }
 //$PHP_OUTPUT.= '<option value="Uninhab"' . ($sector->hasPlanet() ? ' selected' : '') . '>Uninhabitable Planet</option>';
 //$PHP_OUTPUT.= '<option value="NPC"' . ($planet_type == 'NPC' ? ' selected' : '') . '>NPC Planet</option>';
-$PHP_OUTPUT.= '</select><br /><br />';
+$PHP_OUTPUT.= '</select>';
+if (!is_null($planet)) {
+	$PHP_OUTPUT.='<br>Planet Image: <input name="image" value="'.$planet->getImage().'"></input>';
+	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input>';
+}
+$PHP_OUTPUT.='<br><br>';
 
 $PHP_OUTPUT.= 'Port: <select name="port_level">';
 $PHP_OUTPUT.= '<option value="0">No Port</option>';
@@ -83,12 +90,12 @@ else {
 	$PHP_OUTPUT.= 0;
 	$warpGal = 'No Warp';
 }
-$PHP_OUTPUT.= '"><br />' . $warpGal . '</td></tr></table></td></tr></table>';
-$PHP_OUTPUT.= '<br /><br />';
+$PHP_OUTPUT.= '"><br>' . $warpGal . '</td></tr></table></td></tr></table>';
+$PHP_OUTPUT.= '<br><br>';
 
 $PHP_OUTPUT.= '<input type="submit" name="submit" value="Edit Sector"><br />';
 $container = $var;
 $container['body'] = '1.6/universe_create_sectors.php';
-$PHP_OUTPUT.= '<br /><a href="'.SmrSession::getNewHREF($container).'" class="submitStyle">Cancel</a>';
+$PHP_OUTPUT.= '<br><a href="'.SmrSession::getNewHREF($container).'" class="submitStyle">Cancel</a>';
 $PHP_OUTPUT.= '</form>';
 ?>

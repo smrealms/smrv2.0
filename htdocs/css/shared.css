@@ -322,7 +322,7 @@ div.lmLeft.con, div.lmRight.con {
 
 /* Walls */
 div.wall {
-	background: black;
+	background: #284E77;
 }
 /* Local map wall/connector containers */
 a.lmUp, a.lmLeft, a.lmRight, a.lmDown {
@@ -342,9 +342,11 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 }
 .lmUp {
 	top: 0px;
+	border-radius: 5px 5px 0 0;
 }
 .lmDown {
 	bottom: 0px;
+	border-radius: 0 0 5px 5px;
 }
 .lmRight, .lmLeft {
 	position: absolute;
@@ -354,9 +356,11 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 }
 .lmRight {
 	right: 0px;
+	border-radius: 0 5px 5px 0;
 }
 .lmLeft {
 	left: 0px;
+	border-radius: 5px 0 0 5px;
 }
 /*Local Plot/Warp Area*/
 .lm_sector div.lmp {
@@ -641,6 +645,11 @@ table#moveTable td {
 	height: 16px;
 	background-image: url("../images/news/breaking.png");
 	background-size: contain;
+}
+.boldblack {
+	font-weight: bold;
+	color: black !important;
+	background-color: #4C93E0;
 }
 /* tool tip */
 [data-tip] {

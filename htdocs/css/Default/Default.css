@@ -6,55 +6,55 @@ body {
 	
 }
 h1, h2 {
-	color: #80C870;
+	color: #4C93E0;
 }
 #InputFields, .InputFields {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:link {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:visited {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:hover {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:active {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 #InputFieldsText {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 a.scan_btn {
 	background: #060E88;
 	color: #BBBBBB;
-	border: 1px solid #8070C8;
+	border: 1px solid #4C93E0;
 }
 a.scan_btn:hover {
 	background: #060E88;
 	color: #FFFFFF;
 }
 th {
-	background-color: #0A4E1D;
-	color: #80C870;
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
 }
 td.footer_left {
 	border: solid #0B8D35;
@@ -67,11 +67,14 @@ td.footer_right {
 	background-color: #06240E;
 }
 table.standard {
-	border: 1px solid #0B8D35;
-	border-spacing: 0px;
+	border: 1px solid #4C93E0;
+	border-spacing: 2px;
+	border-radius: 5px;
 }
 table.standard td, table.standard th {
-	border: 1px solid #0B8D35;
+	border: 1px solid #4C93E0;
+	border-spacing: 2px;
+	border-radius: 5px;
 }
 .create td, th {
 	border: 0px solid #0b8d35;
@@ -115,21 +118,23 @@ td.l0, td.r0 {
 	color: #F00;
 }
 div.bar1 {
-	border: 1px solid #0B8D35;
+	border: 1px solid #4C93E0;
+	border-radius: 5px;
 }
-div.bar1 div {
-	background-color: #0B8D35;
+div.bar1{
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
 }
 table.bar1 td, table.bar1 th {
 	border: 1px solid #0B8D35;
 }
 tr.bar1 {
-	background-color: #0B8D35;
+	background-color: rgba(58,112,173,0.4);;
 }
 input {
-	background: #06240E;
-	color: #FFFFFF;
-	border: 1px solid #80C870;
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
+	border: 1px solid #4C93E0;
 }
 textarea {
 	background: #06240E;
@@ -137,7 +142,7 @@ textarea {
 	border: 1px solid #80C870;
 }
 a {
-	color: #FFFFFF;
+	color: #F0F0F0;
 }
 a:hover {
 	background: #0A4E1D;

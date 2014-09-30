@@ -97,7 +97,7 @@ if (!isset($isCombinedSector)) {
 													style="background-image: url('<?php echo $Good['ImageLink']; ?>');" 
 													/>
 												</div><?php
-											} ?><br />
+											} ?><br>
 										<div style="display:inline;" 
 											data-tip="<?php echo $Port->getRaceName(); ?> Port">
 										<img src="images/port/sell.png" width="5" height="16" alt="Sell (<?php echo $Port->getRaceName(); ?>)" 
@@ -179,7 +179,9 @@ if (!isset($isCombinedSector)) {
 								} ?>
 							</div><?php
 						} ?>
-						<div class="lmsector <?php echo "galaxy".$Sector->getGalaxyID(); if($isVisited){ ?> visited<?php }else{ ?> unvisited<?php } ?>"><?php echo $Sector->getSectorID(); ?></div><?php
+						<div class="lmsector <?php echo "galaxy".$Sector->getGalaxyID(); if($isVisited){ echo ' visited">'; }else{ echo ' unvisited">'; } 
+							if($Sector->hasPlanet()) { echo '<span class="boldblack">'; } echo $Sector->getSectorID(); if($Sector->hasPlanet()){ echo'</span>'; } ?>
+						</div><?php
 						if($UniGen) {
 							$UniGen['sector_id'] = $Sector->getSectorID(); ?>
 							<a class="move_hack" href="<?php echo SmrSession::getNewHREF($UniGen); ?>"></a><?php

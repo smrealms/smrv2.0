@@ -305,7 +305,13 @@ elseif ($submit == 'Edit Sector') {
 				$sector->getPlanet()->setTypeID($_POST['plan_type']);
 			}
 		}
+		//update planet image
+		if (isset($_POST['image'])) {
+			$sector->getPlanet()->setImage($_POST['image']);
+			$sector->getPlanet()->setSize($_POST['size']);
+		}
 	}
+	
 	
 //	elseif ($_POST['plan_type'] == 'NPC') {
 //		$GAL_PLANETS[$this_sec]['Inhabitable'] = 1;

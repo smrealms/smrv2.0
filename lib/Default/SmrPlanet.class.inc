@@ -824,6 +824,8 @@ class SmrPlanet {
 	
 	public function setImage($img) {
 		$this->image = $img;
+		$this->hasChanged = true;
+		$this->update();
 	}
 	
 	public function getImage() {
@@ -833,8 +835,11 @@ class SmrPlanet {
 	}
 	
 	public function setSize($size) {
-		if (preg_match('[0-9]+?%', $size))
+		if (preg_match('/^[0-9]+?%$/', $size)) {
 			$this->size = $size;
+			$this->hasChanged = true;
+			$this->update();
+		}
 	}
 	
 	public function getSize() {
@@ -844,6 +849,8 @@ class SmrPlanet {
 	}
 	public function setMoonImage($img) {
 		$this->image = $img;
+		$this->hasChanged = true;
+		$this->update();
 	}
 	
 	public function getMoonImage() {
@@ -853,7 +860,11 @@ class SmrPlanet {
 	}
 	
 	public function setMoonSize($size) {
-		$this->size = $moonSize;
+		if (preg_match('/^[0-9]+?%$/', $size)) {
+			$this->size = $moonSize;
+			$this->hasChanged = true;
+			$this->update();
+		}
 	}
 	public function getMoonSize() {
 		if (isset($this->moonSize))
@@ -867,11 +878,16 @@ class SmrPlanet {
 	}
 	public function setRingImage($img) {
 		$this->ringImage = $img;
+		$this->hasChanged = true;
+		$this->update();
 	}
 	
 	public function setRingSize($size) {
-		if (preg_match('[0-9]+?%', $size))
+		if (preg_match('/^[0-9]+?%$/', $size)) {
 			$this->ringSize = $size;
+			$this->hasChanged = true;
+			$this->update();
+		}
 	}
 	
 	public function getRingSize() {
@@ -947,7 +963,8 @@ class SmrPlanet {
 		}
 		$this->doDelayedUpdates();
 		if($this->hasChanged) {
-			$this->db->query('UPDATE planet SET owner_id = ' . $this->db->escapeNumber($this->ownerID) . ',
+		
+			$query = 'UPDATE planet SET owner_id = ' . $this->db->escapeNumber($this->ownerID) . ',
 									password = '.$this->db->escapeString($this->password) .',
 									planet_name = ' . $this->db->escapeString($this->planetName) . ',
 									shields = ' . $this->db->escapeNumber($this->shields) . ',
@@ -955,9 +972,16 @@ class SmrPlanet {
 									drones = ' . $this->db->escapeNumber($this->drones) . ',
 									credits = ' . $this->db->escapeNumber($this->credits) . ',
 									bonds = ' . $this->db->escapeNumber($this->bonds) . ',
-									maturity = ' . $this->db->escapeNumber($this->maturity) . '
-								WHERE game_id = ' . $this->db->escapeNumber($this->gameID) . '
-									AND sector_id = ' . $this->db->escapeNumber($this->sectorID));
+									maturity = ' . $this->db->escapeNumber($this->maturity) . ',
+									planet_image = ' . $this->db->escapeString($this->image) . ',
+									planet_size = ' . $this->db->escapeString($this->size);
+			if (!is_null($this->moonImage)) { $query.=', moon_image = '.$this->db->escapeString($this->moonImage); }
+			if (!is_null($this->moonSize)) { $query.=', moon_size = '.$this->db->escapeString($this->moonSize); }
+			if (!is_null($this->ringImage)) { $query.=', ring_image = '.$this->db->escapeString($this->ringImage); }
+			if (!is_null($this->ringSize)) { $query.=', ting_size = '.$this->db->escapeString($this->ringSize); }
+			
+			$query.=' WHERE game_id = ' . $this->db->escapeNumber($this->gameID) . ' AND sector_id = ' . $this->db->escapeNumber($this->sectorID);
+			$this->db->query($query);
 			$this->hasChanged = false;
 		}
 
