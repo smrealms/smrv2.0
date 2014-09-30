@@ -145,12 +145,12 @@ if(isset($GameID)) { ?>
 		
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="action" value="Update Colors" id="InputFields" /></td>
+			<td><input type="submit" name="action" value="Update Colours" id="InputFields" /></td>
 		</tr>
 		
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="action" value="Default Colors" id="InputFields" /></td>
+			<td><input type="submit" name="action" value="Default Colours" id="InputFields" /></td>
 		</tr>
 		
 		<tr>
