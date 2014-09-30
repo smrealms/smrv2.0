@@ -14,7 +14,7 @@ if($ThisSector->hasPlanet()) {
 						margins: 0; 
 						height: 120px; 
 						width: 120px; 
-						background-image: url('<?php echo $planet->getTypeImage(); ?>');
+						background-image: url('<?php echo $planet->getImage(); ?>');
 						background-size: <?php echo $planet->getSize(); ?> auto; 
 						background-position: center center; 
 						background-repeat:no-repeat;" 

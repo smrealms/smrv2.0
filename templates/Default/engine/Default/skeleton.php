@@ -5,11 +5,16 @@
 		$this->includeTemplate('includes/Head.inc'); ?>	
 	</head>
 	<body>
+		<div id="menu_container">
+			<div id="menu">
+					<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
+			</div>
+		</div>
 		<table class="m" align="center">
 			<tr>
 				<td class="l0">
 					<div class="l1">
-						<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
+						EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY EMPTY
 					</div>
 				</td>
 				<td class="m0">

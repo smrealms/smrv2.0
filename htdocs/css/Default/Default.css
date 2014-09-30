@@ -329,3 +329,23 @@ table.csForces th.header {
 .neutralBack:hover {
 	background-color: #FFD800;
 }
+div#menu_container {
+    padding: 5px
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+	display: block;
+	position: absolute;
+}
+div#menu {
+    display: block;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+    background-color: rgba(58,112,173,0.4);
+    border: 1px solid #4C93E0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+	z-index: 1;
+	position: relative;
+}
