@@ -11,12 +11,17 @@
 			</div>
 		</div>
 		<table class="m" align="center">
-			<tr>
-				<td class="l0">
-					<div class="l1">
-						EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY<BR>EMPTY EMPTY
+			<tr><?php
+				if ($TemplateBody == 'map_combined.php') { ?>
+				<td class="l0 left_side">
+					<div class=""><?php
+						$this->includeTemplate('includes/SectorPlanet.inc');
+						$this->includeTemplate('includes/SectorPort.inc');
+						$this->includeTemplate('includes/SectorLocations.inc');
+						$this->includeTemplate('includes/SectorPlayers.inc',array('PlayersContainer'=>&$ThisSector));
+						$this->includeTemplate('includes/SectorForces.inc'); ?>
 					</div>
-				</td>
+				</td><?php } ?>
 				<td class="m0">
 					<div id="middle_panel"><?php
 						if(isset($PageTopic)) {

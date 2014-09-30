@@ -350,3 +350,9 @@ table.csForces th.header {
 	position: absolute;
 	clear:both;
 }
+.left_side {
+	width: 380px;
+	padding: 5px;a
+	display: block;
+	overflow-x: hidden;
+}

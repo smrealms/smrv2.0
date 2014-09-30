@@ -44,9 +44,4 @@
 			echo $VarMessage; ?><br><?php
 		} ?>
 	</span>
-</div><br><?php
-$this->includeTemplate('includes/SectorPlanet.inc');
-$this->includeTemplate('includes/SectorPort.inc');
-$this->includeTemplate('includes/SectorLocations.inc');
-$this->includeTemplate('includes/SectorPlayers.inc',array('PlayersContainer'=>&$ThisSector));
-$this->includeTemplate('includes/SectorForces.inc'); ?>
+</div>

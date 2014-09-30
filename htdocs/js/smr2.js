@@ -1,3 +1,4 @@
+//this function works the left hand side menu in skeleton.php!
 $(document).ready(function() {
     $('#menu_container').hover(function() {
         $(this).stop().animate({            
