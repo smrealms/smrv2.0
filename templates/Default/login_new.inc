@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 
 <html lang="en">
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
     <title>SMR Login</title>
     <style type="text/css">
 		html {    
 			background: #000000 url(images/login_new/blueplanet1.jpg) no-repeat center center;
-			background-size: 100% auto;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;     
+			background-size: 100% auto;  
 		}
 		html, body {   
 			font-family: Arial, sans-serif;
@@ -24,22 +23,47 @@
 			margin: 0px;
 			padding: 0px;   
 		}
-		#wapper {
+		img {
+			margin: 0;
+			padding: 0;
+		}
+		#wrapper {
+			width: 1010px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#banner {
+			padding: 0;
+			margin: 0;
+			border: 2px solid #4C93E0;
+			border-radius: 5px;
+			text-align: right;
+			vertical-align: bottom;
+			line-height: 172px;
+			width: 100%
+			height: 172px;
+			background: #000000 url(images/login_new/head.jpg) no-repeat center center;
+			background-size: 100% auto; 
+			display: block;
+		}
+		#banner_text {
+			vertical-align: bottom;
+		}
+		#menu {
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+			padding-top: 7px;
+			border: 2px solid #4C93E0;
+			border-radius: 5px;
 			width: 100%;
-			height: 100%;
-			position: relative;     
+			height: 32px;
+			display: block;
+			background-color: rgba(58,112,173,0.4);
 		}
-		#header {
-			padding-top: 10px;
-			height: 20px;
-		}
-		#container {
-			max-width: 1010px;
-			min-width: 1002px;
-			height: 90%;
-			min-height: 800px;
-			padding-bottom: 60px;
-			margin: 0px auto 0px auto; 
+		#menu img {
+			margin-left: 5px;
+			margin-right: 5px;
 		}
 		#footer {
 			width: 100%;
@@ -49,313 +73,70 @@
 			font-size: 14px;
 			text-align: center;
 		}
-		.overlap1 {
-			position: absolute;
-			top: 185px;
-			margin-left: 10px;
-			margin-right: auto;    
-			z-index: 1;
-		}
-		.overlap2 {
-			position: absolute;
-			top: 208px;
-			margin-left: 45px;
-			margin-right: auto;    
-			z-index: 1;
-		}
-		.overlap3 {
-			position: absolute;
-			top: 216px;
-			margin-left: 50px;
-			margin-right: auto;    
-			z-index: 1;
-		}
-		.menu {
-			margin-right: 6px;
-		}
-		.top {
-			width: 1000px;
-			height: 180px;
-		}
-		div.left {
-			text-align: left;
-			background: url(images/login_new/loginpanel.png) no-repeat;
-			width: 280px;
-			height: 292px;
-			margin-top: 48px;
-			margin-left: 6px;
-			padding-left: 28px;
-			float: left;
-		}
-		input.rounded {
-			background : none;
-			border : none;
-			color: rgb(255, 255, 255);
-			-moz-border-radius: 8px;
-			-webkit-border-radius: 8px;
-			border-radius: 8px;	
-			font-size: 14px;
-			padding: 4px 7px;
-			outline: 0;
-			-webkit-appearance: none;
-		}
-		div.center {
-			text-align: center;
-			background: url(images/login_new/centerpanel.png) no-repeat;
-			width: 378px;
-			height: 292px;
-			margin-top: 48px;       
-			float: left;         
-		}
-		div.center_content {
-			width: 355px;
-			height: 265px;
-			padding: 10px;
-			overflow: auto;
-		}
-		div.right {
-			text-align: left;
-			background: url(images/login_new/registerpanel.png) no-repeat;
-			width: 309px;
-			height: 374px;
-			margin-top: 48px;
-			margin-left: 0px;   
-			float: left;    
-		}
-		.myCheckbox span {
-			width: 26px;
-			height: 28px;    
-		}
-		div.altlogin {
-			position: absolute;
-			top: 565px;
-			margin-left: 10px;    
-			background: url(images/login_new/alt_login.png) no-repeat;
-			width: 290px;
-			height: 80px;
-		}
-		img.google {
-			margin-top: 25px;
-			margin-left: -8px;
-		}
-		img.facebook {
-			margin-top: 25px;
-			margin-left: 13px;
-		}
-		img.twitter {
-			margin-top: 25px;
-			margin-left: 11px;
-		}
-		hr {    
-			width: 20%
-		}
-		.clear {
+		#content {
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+			width: 1001px;
 			clear: both;
 		}
-		.cursor {
-			cursor: pointer;
+		#left {
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+			border: 2px solid #4C93E0;
+			border-radius: 5px;
+			width: 300px;
+			background-color: rgba(58,112,173,0.4);
+			display: inline-block;
 		}
-		img {
-			border-style: none;
-		}
-		.noWrap {
-			white-space: nowrap;
-		}
-		a:link {
-			text-decoration: none;
-		}
-		a:active {
-			text-decoration: none;
-		}
-		a:visited { 
-			text-decoration: none;
-		}
-		a:hover { 
-			text-decoration: none;
-		}
-		/* ************ POP UP *********** */
-		#popup {
-			height: 100%;
-			width: 100%;
-			background: url(images/login_new/tranbg.png);
-			position: absolute;
-			top: 0px;
-			left: 0px;    
-			z-index: 3;
-		}
-		#window {
-			color: rgb(255, 255, 255);
-			width: 580px;
-			height: 300px;
-			margin: 0 auto;
-			padding: 5px 10px 5px 10px;
-			background: url(images/login_new/pop.png) no-repeat;    
-			position: absolute;
-			top: 200px;
-			left: 25%;
-			z-index: 4;
-		}
-		div#popUpL {
-			width: 50%;
-			text-align: left;
-			float: left;
-		}
-		div#popUpR {
-			width: 50%;
-			text-align: right;
-			float: left;
-		}
-		div#content {
-			width: 100%;
-		}
-		.cursor {
-			cursor: pointer;
-		}
-		/* ************ END ************** */
-		.big {
-			font-size: 1.25em;
-		}
-		.myCenter {
-			text-align: center;
-		}
-		/* *********** Scrollbar ******* */
-		::-webkit-scrollbar {  
-			width:8px;
-			height:8px;
-			-webkit-border-radius: 6px;
-		}
-		::-webkit-scrollbar-track,
-		::-webkit-scrollbar-track-piece {
-			background-color:transparent;
-		}
-		::-webkit-scrollbar-thumb {  
-			background-color: rgba(200,200,200,0.3);
-			width: 6px;
-			height: 6px;
-			-webkit-border-radius:6px;
+		#right {
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+			border: 2px solid #4C93E0;
+			border-radius: 5px;
+			width: 690px;
+			background-color: rgba(58,112,173,0.4);
+			display: inline-block;
+			float: right;
 		}
 	</style>
-	<script src="js/jquery.js" type="text/javascript"></script>
 </head>
 <body>
-    <div id="wapper">
-        <div id="header"></div>
-        <div id="container">
-        <span class="top"><img alt="" src="images/login_new/head.jpg" /></span>
-        <div class="overlap1"><img alt="" src="images/login_new/buckel.gif" /></div>
-        <div class="overlap2"><img alt="" src="images/login_new/menubar.png" /></div>
-        <div class="overlap3 noWrap">
-            <a href="http://wiki.smrealms.de/index.php" target="_blank"><img class="menu" alt="" src="images/login_new/wiki.gif" /></a>
-            <a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/login_new/forums.gif" /></a>
-            <a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/login_new/irc.gif" /></a>
-            <a href="" target="_blank"><img class="menu" alt="" src="images/login_new/contact.gif" /></a>
-			<img id="snapImage" type="image" class="menu cursor" alt="" src="images/login_new/shots.gif" />
-        </div>       
-        <div class="left">            
-            <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
-                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
-                <br /><br /><br /><br />
+
+<div id="wrapper">
+	<div id="banner">
+		<span id="banner_text">&nbsp</span>
+	</div>
+	<div id="menu">
+		<a href="http://wiki.smrealms.de/index.php" target="_blank"><img class="menu" alt="" src="images/login_new/wiki.gif" /></a>
+		<a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/login_new/forums.gif" /></a>
+		<a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/login_new/irc.gif" /></a>
+		<a href="" target="_blank"><img class="menu" alt="" src="images/login_new/contact.gif" /></a>
+		<img id="snapImage" type="image" class="menu cursor" alt="" src="images/login_new/shots.gif" />
+	</div>
+	
+	<div id="content">
+		<div id="left">
+			<form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
+				<input type="text" class="rounded" size="30" maxlength="30" name="login" />
                 <input type="password" class="rounded" size="30" maxlength="30" name="password" />
-                <br /><br />
                 <input id="login_submit" type="image" src="images/login_new/login_button.png" />
-                <br /><br />
                 <a href="reset_password.php"><img alt="Reset Password" src="images/login_new/reset_button.png" /></a>               
-            </form>           
-        </div>
-        <div id="center22" class="center">
-            <div class="center_content">
-                <span style="font-size:18px; font-weight:bold;">News</span>
-                <br /><br /><hr />                      
-                <span>3/12/2011</span>
-                <br />            
-                <span>There are now hotkeys for movement and scanning, as well as for 
-                    switch between Current Sector, Local Map and Plot Course. Default bindings can be 
-                    found under Preferences, where you can also able to customise them.
-                </span>                
-                <br /><br /><hr />            
-                <span>2/12/2011</span>
-                <br />
-                <span>There are now hotkeys for movement and scanning, as well as for 
-                    switch between Current Sector, Local Map and Plot Course. Default bindings can be 
-                    found under Preferences, where you can also able to customise them.            
-                </span>                
-                <br /><br /><hr />                           
-                <span>12/27/2012</span>
-                <br />
-                <span>This is Freon22 testing to see what will happen in this div when the text 
-                    over flows??????
-                </span>
-            </div>        
-        </div>
-        <div class="right">
-            <form id="Rform" action="login_create.php" method="post" 
-				style="margin-top:80px; margin-left:30px; margin-right:20px;">
-                <div style="margin-left:20px;">                        
-                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
-                <br><br><br><br>
-                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
-                <br><br><br><br>
-                <input type="email" class="rounded" size="30" maxlength="30" name="email" />                
-                </div>
-                <br>
-                <div style="margin-top:10px; margin-left:-4px;">
-                    <label class="myCheckbox">
-                    <input id="myCheck" type="hidden" name="agreement" value="unchecked" />
-                    <span><img id="myImage" src="images/login_new/unchecked.png" /></span>
-                    </label>
-				</div>
-				<br><br><br>
-			</form>  
-			<div style="text-align:right; margin-top:-4px; margin-right:20px;">
-                <input id="register_button" type="image" src="images/login_new/register_button.png" />
-			</div>            
-        </div>
-        <div class="clear"></div>
-        <div class="altlogin noWrap">
-            <a href=""><img class="google" alt="" src="images/login_new/google.png" /></a>
-            <a href=""><img class="facebook" alt="" src="images/login_new/facebook.png" /></a>
-            <a href=""><img class="twitter" alt="" src="images/login_new/twitter.png" /></a>  
-        </div>        
-        <div id="popup" style="display: none;"></div>
-             <div id="window" style="display: none;">
-                <div id="popup_content">
-                    <div id="popUpL"><h1>Form Validation</h1></div>
-                    <div id="popUpR"><span id="Close" class="cursor big">Close  X</span></div>
-                    <div class="clear"></div>
-                    <br />
-                    <div id="content">
-						<label id="message" for="message" style="font-size: 14px; color: White;"></label>
-						<div id="Captcha" style="display: none;">
-							<label for="code">Please type these numbers below >
-							<span id="myNumbers" style="color:#F00; font-size:18px;"></span> 
-							<input type="hidden" id="Numbers" /></label><br />
-							<input type="text" name="numberInput" id="numberInput" size="30" />
-							<br /><br />
-							<input id="testHuman" type="button" value="Submit" />
-						</div>                                
-                    </div>
-                 </div>
-             </div>          
-        </div> 
-		<div id="footer">
-			<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/login_new/Google_Chrome_icon.png" /></a>
-			<br />
-			This web page is best viewed with Google Chrome. Download it for free. 
+            </form>     
 		</div>
-    </div>
-	<script type="text/javascript">
-		$('#myImage').click(function() {        
-			if ($('#myImage').attr('src') == 'images/login_new/unchecked.png') {        
-				$('#myImage').attr('src','images/login_new/checked.png');
-				$('#myCheck').val('checked');
-			} else {            
-				$('#myImage').attr('src','images/login_new/unchecked.png');
-				$('#myCheck').val('unchecked');            
-			}        
-		});	
-		$('#register_button').click(function() {
-			$('#Rform').submit();
-		});
-	</script>  
-</body> 
+		
+		<div id="right">
+		
+		</div>
+	</div>
+
+</div>
+<div id="footer">
+	<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/login_new/Google_Chrome_icon.png" /></a>
+	<br>
+	This web page is best viewed with Google Chrome. Download it for free. 
+</div>
+</body>
 </html>

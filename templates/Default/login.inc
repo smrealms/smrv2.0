@@ -1,286 +1,358 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title><?php echo $Title; ?></title>
-		<style type="text/css">
-		body{
-			background:#082010;
+<head>
+	<meta charset="UTF-8">
+    <title>SMR Login</title>
+    <style type="text/css">
+		html {    
+			background: #000000 url(images/login_new/blueplanet1.jpg) no-repeat center center;
+			background-size: 100% auto;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;     
+		}
+		html, body {   
 			font-family: Arial, sans-serif;
-			font-variant:normal;
-			margin:0px;
-			padding:0px;
-			margin-top:10px;
-			color:#ffffff;
+			font-size: 12px;
+			color: rgb(255, 255, 255);
+			text-align: center;
+			width:  100%;
+			height: 100%;
+			min-height: 860px;
+			margin: 0px;
+			padding: 0px;   
 		}
-		a.nobord {
-			text-decoration:none;
+		#wapper {
+			width: 100%;
+			height: 100%;
+			position: relative;     
 		}
-		img {
-			border: 0px none;
-			padding: 0px;
+		#header {
+			padding-top: 10px;
+			height: 20px;
 		}
-		.InputFields {
-			background : #06240E;
-			color : #FFFFFF;
-			border : 1px solid #80C870;
-			font-family: Arial;
+		#container {
+			max-width: 1010px;
+			min-width: 1002px;
+			height: 90%;
+			min-height: 800px;
+			padding-bottom: 60px;
+			margin: 0px auto 0px auto; 
 		}
-		table.standard {
-			border:1px solid #0b8d35;
-		}
-		.standard td,th{
-			border:1px solid #0b8d35;
-		}
-		input.inputbox {
-			width:123px;
-			height:20px;
-		}
-		a {
-			color:#ffffff;
-			text-decoration:none;
-			padding:0px;
-			margin:0px;
-		}
-
-		a:hover {
-			background:#0A4E1D;
-		}
-
-		a.header {
-			color:#80C870;
-		}
-
-		.yellow {
-			color:#ffff00;
-		}
-		.red {
-			color:#ff0000;
-		}
-		span.small {
-			font-size:75%;
-		}
-		.bold {
-			font-weight:bold;
-		}
-		.dgreen {
-			color: #008000;
-		}
-		.center {
+		#footer {
+			width: 100%;
+			position: absolute;
+			bottom: 0px;
+			height: 60px;
+			font-size: 14px;
 			text-align: center;
 		}
-		table.center {
-			margin:auto;
+		.overlap1 {
+			position: absolute;
+			top: 185px;
+			margin-left: 10px;
+			margin-right: auto;    
+			z-index: 1;
 		}
-		.collapsed, table.collapsed, table.collapsed tr, table.collapsed th, table.collapsed td {
-			border: 0px;
-			border-spacing: 0px;
-			border-collapse: collapse;
-			padding: 0px;
-			margin: 0px;
-			font-size: 0px;
+		.overlap2 {
+			position: absolute;
+			top: 208px;
+			margin-left: 45px;
+			margin-right: auto;    
+			z-index: 1;
 		}
-		input.uncollapse {
-			font-size: 15px;
+		.overlap3 {
+			position: absolute;
+			top: 216px;
+			margin-left: 50px;
+			margin-right: auto;    
+			z-index: 1;
 		}
-		table.nobord {
-			border: 0px;
+		.menu {
+			margin-right: 6px;
 		}
-		/* New alignment colors */
-		.holy {
-			color: cornflowerblue;
+		.top {
+			width: 1000px;
+			height: 180px;
 		}
-		.good {
-			color: cyan;
+		div.left {
+			text-align: left;
+			background: url(images/login_new/loginpanel.png) no-repeat;
+			width: 280px;
+			height: 292px;
+			margin-top: 48px;
+			margin-left: 6px;
+			padding-left: 28px;
+			float: left;
 		}
-		.slightgood {
-			color: darkcyan;
+		input.rounded {
+			background : none;
+			border : none;
+			color: rgb(255, 255, 255);
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			border-radius: 8px;	
+			font-size: 14px;
+			padding: 4px 7px;
+			outline: 0;
+			-webkit-appearance: none;
 		}
-		.even {
-			color: yellow;
+		div.center {
+			text-align: center;
+			background: url(images/login_new/centerpanel.png) no-repeat;
+			width: 378px;
+			height: 292px;
+			margin-top: 48px;       
+			float: left;         
 		}
-		.slightbad {
-			color: darkorange;
+		div.center_content {
+			width: 355px;
+			height: 265px;
+			padding: 10px;
+			overflow: auto;
 		}
-		.bad {
-			color: firebrick;
+		div.right {
+			text-align: left;
+			background: url(images/login_new/registerpanel.png) no-repeat;
+			width: 309px;
+			height: 374px;
+			margin-top: 48px;
+			margin-left: 0px;   
+			float: left;    
 		}
-		.evil {
-			color: darkred;
+		.myCheckbox span {
+			width: 26px;
+			height: 28px;    
 		}
-		</style>
-		<!--[if IE]>
-		<style>
-		input.inputbox {
-			width:121px;
-			height:18px;
+		div.altlogin {
+			position: absolute;
+			top: 565px;
+			margin-left: 10px;    
+			background: url(images/login_new/alt_login.png) no-repeat;
+			width: 290px;
+			height: 80px;
 		}
-		</style>
-		<![endif]-->
-	</head>
-
-	<body>
-		<div class="center">
-			<p class="collapsed">
-				<img src="images/login/smr_banner_16.png" width="769" height="132" alt=""><br />
-				<img src="images/login/bottom_left.gif" width="7" height="11" alt=""><a href="<?php echo URL ?>"><img src="images/login/home.png" width="55" height="11" alt="Home"></a><img src="images/login/site_map.png" width="87" height="11" alt="Site Map"><img src="images/login/contact.png" width="80" height="11" alt="Contact"><img src="images/login/bottom_right.png" width="540" height="11" alt=""><br />
-				<a href="http://video.smrealms.de/" target="vid"><img src="images/login/video.png" width="166" height="29" alt="Video Tutorials"></a><a href="http://wiki.smrealms.de" target="ml"><img src="images/login/sml.png" width="166" height="29" alt="Merchant Library"></a><a href="http://wiki.smrealms.de" target="manu"><img src="images/login/manual2.png" width="129" height="29" alt="Wiki"></a><a href="http://smrcnn.smrealms.de" target="board"><img src="images/login/webboard2.png" width="128" height="29" alt="Web Board"></a><a href="http://www.smrealms.de/awstats/awstats.pl?config=www.smrealms.de" target="stat"><img src="images/login/stats2.png" width="180" height="29" alt="Site Statistics"></a><br />
-			</p>
-			<?php
-			/*
-			if(!$isFirefox) { ?>
-				<br />
-				<a class="button" href="http://www.spreadfirefox.com/node&amp;id=216853&amp;t=210">
-				<img alt="Get Firefox!" title="Get Firefox!" src="images/firefox.png"></a><br />
-				SMR is primarly coded and tested with Firefox.<br />Firefox is recommended for the best gameplay.
-				<a href="http://www.spreadfirefox.com/node&amp;id=216853&amp;t=215">Download Firefox</a> now, it's free.
-				<br /><?php
-			}
-
-			/*if($isAprilFools) { ?>
-				<a href="http://www.smrealms.de/merge.php"><span class="red bold">Important Announcement</span></a> : SMR and TDZK are set to merge.
-				Please <a href="http://www.smrealms.de/merge.php">click here</a> for more details.<?php
-			} */
-
-			if(isset($Message)) { ?>
-				<h4 style="margin-bottom: 0px;"><?php echo $Message ?></h4><?php
-			} ?>
-
-			<table class="center nobord" style="width:770px; border-spacing:20px; padding:10px">
-				<tr>
-					<td style="width:300px">
-						<form action="login_processing.php" method="post">
-							<table class="collapsed">
-								<tr>
-									<td colspan="3">
-										<img src="images/login/login_top.png" width="258" height="43" alt="">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="images/login/loginPw.png" width="104" height="48" alt="Login/Password" />
-									</td>
-									<td>
-										<input id="login_username" class="InputFields inputbox uncollapse" type="text" name="login"><br />
-										<input id="login_password" class="InputFields inputbox uncollapse" type="password" name="password">
-									</td>
-									<td>
-										<img src="images/login/loginPwRight.png" width="29" height="48"  alt="">
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<img src="images/login/loginPwMid.png" width="258" height="15"  alt="">
-									</td>
-								</tr>
-							</table>
-							<table class="collapsed">
-								<tr>
-									<td>
-										<img src="images/login/regLeft.png" width="30" height="11"  alt=""><a href="<?php echo $Links['Register'] ?>"><img src="images/login/register.png" width="83" height="11" alt="Register"></a><a href="resend_password.php"><img src="images/login/pw_reset.png" width="127" height="11"  alt="Reset Password"></a><img src="images/login/regRight.png" width="18" height="11" alt="">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="images/login/loginMid.png" width="258" height="24" alt="">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="images/login/enter_left.png" width="79" height="27" alt=""><input id="login_submit" type="image" src="images/login/enter.png" width="110" height="27" alt="Enter"><img src="images/login/enter_right.png" width="69" height="27" alt="">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="images/login/enter_bottom.png" width="258" height="8" alt="">
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-					<td class="center" style="padding: 3px; width: 200px;">
-						<span style="font-size: 14px;">Or login with:</span>
-						<span style="font-size: 3px;"><br /><br />
-							<?php require_once(LIB.'Login/SocialLogin.class.inc'); ?>
-							<a style="display: inline;margin:10px;" href="<?php echo str_replace('&', '&amp;', SocialLogin::getFacebookLoginUrl()); ?>">
-								<img alt="Facebook Login" src="images/login/facebook.png" width="65" height="22">
-							</a><br /><br />
-							<a style="display: inline;margin:10px;" href="<?php echo str_replace('&', '&amp;', SocialLogin::getOpenIdLoginUrl('Google')); ?>">
-								<img alt="Google Login" src="images/login/google.png" width="32" height="32">
-							</a>
-							<?php /*
-							<a style="display: inline;margin:10px;" href="<?php echo str_replace('&', '&amp;', SocialLogin::getTwitterLoginUrl()); ?>">
-								<img alt="Twiiter Login" src="images/login/twitter.png">
-							</a>
-							*/
-							?>
-						</span>
-					</td>
-					<td style="width:470px"><?php
-						if(isset($LoginNews)) { ?>
-							<table class="standard">
-							<tr><th>Date</th><th>News</th></tr><?php
-							foreach($LoginNews as $News) { ?>
-								<tr>
-									<td>
-										<span class="small"><?php
-											if($News['Recent']){ ?> * <?php }
-											echo $News['Time'] ?>
-										</span>
-									</td>
-									<td>
-										<span class="small"><?php echo bbifyMessage($News['Message']);
-											if($News['AdminName']) { ?>
-												<br /><br />- <?php echo $News['AdminName'];
-											} ?>
-										</span>
-									</td>
-								</tr><?php
-							} ?>
-							</table><?php
-						} ?>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="center" colspan="3">
-						Players Online Now: <?php echo $ActiveSessions; ?><br /><br /><?php
-						if(isset($GameNews)) { ?>
-							Recent News<br />
-							<table class="standard" style="width:100%"><tr><th class="center">Time</th><th class="center">News</th></tr><?php
-								foreach($GameNews as $News) { ?>
-									<tr>
-										<td><?php
-											echo $News['Date']; ?><br /><?php
-											echo $News['Time']; ?>
-										</td>
-										<td><?php echo $News['Message']; ?></td>
-									</tr><?php
-								} ?>
-							</table><?php
-						} ?>
-					</td>
-				</tr>
-			</table>
-
-			<br /><?php
-
-			if(isset($Story)) { ?>
-				<table class="center nobord" style="width:640px;">
-					<tr>
-						<td><?php
-							foreach($Story as $StoryPart) { ?>
-								<p style="text-align:justify">
-									<span class="small" style="font-family: Verdana, Arial, Helvetica; color: #FFFFFF"><?php
-											echo $StoryPart; ?>
-									</span>
-								</p><?php
-							} ?>
-						</td>
-					</tr>
-				</table><?php
-			} ?>
-			<br /><br />
-			<span class="small"><a href="imprint.html">[Imprint]</a></span>
+		img.google {
+			margin-top: 25px;
+			margin-left: -8px;
+		}
+		img.facebook {
+			margin-top: 25px;
+			margin-left: 13px;
+		}
+		img.twitter {
+			margin-top: 25px;
+			margin-left: 11px;
+		}
+		hr {    
+			width: 20%
+		}
+		.clear {
+			clear: both;
+		}
+		.cursor {
+			cursor: pointer;
+		}
+		img {
+			border-style: none;
+		}
+		.noWrap {
+			white-space: nowrap;
+		}
+		a:link {
+			text-decoration: none;
+		}
+		a:active {
+			text-decoration: none;
+		}
+		a:visited { 
+			text-decoration: none;
+		}
+		a:hover { 
+			text-decoration: none;
+		}
+		/* ************ POP UP *********** */
+		#popup {
+			height: 100%;
+			width: 100%;
+			background: url(images/login_new/tranbg.png);
+			position: absolute;
+			top: 0px;
+			left: 0px;    
+			z-index: 3;
+		}
+		#window {
+			color: rgb(255, 255, 255);
+			width: 580px;
+			height: 300px;
+			margin: 0 auto;
+			padding: 5px 10px 5px 10px;
+			background: url(images/login_new/pop.png) no-repeat;    
+			position: absolute;
+			top: 200px;
+			left: 25%;
+			z-index: 4;
+		}
+		div#popUpL {
+			width: 50%;
+			text-align: left;
+			float: left;
+		}
+		div#popUpR {
+			width: 50%;
+			text-align: right;
+			float: left;
+		}
+		div#content {
+			width: 100%;
+		}
+		.cursor {
+			cursor: pointer;
+		}
+		/* ************ END ************** */
+		.big {
+			font-size: 1.25em;
+		}
+		.myCenter {
+			text-align: center;
+		}
+		/* *********** Scrollbar ******* */
+		::-webkit-scrollbar {  
+			width:8px;
+			height:8px;
+			-webkit-border-radius: 6px;
+		}
+		::-webkit-scrollbar-track,
+		::-webkit-scrollbar-track-piece {
+			background-color:transparent;
+		}
+		::-webkit-scrollbar-thumb {  
+			background-color: rgba(200,200,200,0.3);
+			width: 6px;
+			height: 6px;
+			-webkit-border-radius:6px;
+		}
+	</style>
+	<script src="js/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="wapper">
+        <div id="header"></div>
+        <div id="container">
+        <span class="top"><img alt="" src="images/login_new/head.jpg" /></span>
+        <div class="overlap1"><img alt="" src="images/login_new/buckel.gif" /></div>
+        <div class="overlap2"><img alt="" src="images/login_new/menubar.png" /></div>
+        <div class="overlap3 noWrap">
+            <a href="http://wiki.smrealms.de/index.php" target="_blank"><img class="menu" alt="" src="images/login_new/wiki.gif" /></a>
+            <a href="http://smrcnn.smrealms.de/" target="_blank"><img class="menu" alt="" src="images/login_new/forums.gif" /></a>
+            <a href="http://client01.chat.mibbit.com/?server=irc.coldfront.net&channel=%23smr" target="_blank"><img class="menu" alt="" src="images/login_new/irc.gif" /></a>
+            <a href="" target="_blank"><img class="menu" alt="" src="images/login_new/contact.gif" /></a>
+			<img id="snapImage" type="image" class="menu cursor" alt="" src="images/login_new/shots.gif" />
+        </div>       
+        <div class="left">            
+            <form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
+                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
+                <br /><br /><br /><br />
+                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
+                <br /><br />
+                <input id="login_submit" type="image" src="images/login_new/login_button.png" />
+                <br /><br />
+                <a href="reset_password.php"><img alt="Reset Password" src="images/login_new/reset_button.png" /></a>               
+            </form>           
+        </div>
+        <div id="center22" class="center">
+            <div class="center_content">
+                <span style="font-size:18px; font-weight:bold;">News</span>
+                <br /><br /><hr />                      
+                <span>3/12/2011</span>
+                <br />            
+                <span>There are now hotkeys for movement and scanning, as well as for 
+                    switch between Current Sector, Local Map and Plot Course. Default bindings can be 
+                    found under Preferences, where you can also able to customise them.
+                </span>                
+                <br /><br /><hr />            
+                <span>2/12/2011</span>
+                <br />
+                <span>There are now hotkeys for movement and scanning, as well as for 
+                    switch between Current Sector, Local Map and Plot Course. Default bindings can be 
+                    found under Preferences, where you can also able to customise them.            
+                </span>                
+                <br /><br /><hr />                           
+                <span>12/27/2012</span>
+                <br />
+                <span>This is Freon22 testing to see what will happen in this div when the text 
+                    over flows??????
+                </span>
+            </div>        
+        </div>
+        <div class="right">
+            <form id="Rform" action="login_create.php" method="post" 
+				style="margin-top:80px; margin-left:30px; margin-right:20px;">
+                <div style="margin-left:20px;">                        
+                <input type="text" class="rounded" size="30" maxlength="30" name="login" />
+                <br><br><br><br>
+                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
+                <br><br><br><br>
+                <input type="email" class="rounded" size="30" maxlength="30" name="email" />                
+                </div>
+                <br>
+                <div style="margin-top:10px; margin-left:-4px;">
+                    <label class="myCheckbox">
+                    <input id="myCheck" type="hidden" name="agreement" value="unchecked" />
+                    <span><img id="myImage" src="images/login_new/unchecked.png" /></span>
+                    </label>
+				</div>
+				<br><br><br>
+			</form>  
+			<div style="text-align:right; margin-top:-4px; margin-right:20px;">
+                <input id="register_button" type="image" src="images/login_new/register_button.png" />
+			</div>            
+        </div>
+        <div class="clear"></div>
+        <div class="altlogin noWrap">
+            <a href=""><img class="google" alt="" src="images/login_new/google.png" /></a>
+            <a href=""><img class="facebook" alt="" src="images/login_new/facebook.png" /></a>
+            <a href=""><img class="twitter" alt="" src="images/login_new/twitter.png" /></a>  
+        </div>        
+        <div id="popup" style="display: none;"></div>
+             <div id="window" style="display: none;">
+                <div id="popup_content">
+                    <div id="popUpL"><h1>Form Validation</h1></div>
+                    <div id="popUpR"><span id="Close" class="cursor big">Close  X</span></div>
+                    <div class="clear"></div>
+                    <br />
+                    <div id="content">
+						<label id="message" for="message" style="font-size: 14px; color: White;"></label>
+						<div id="Captcha" style="display: none;">
+							<label for="code">Please type these numbers below >
+							<span id="myNumbers" style="color:#F00; font-size:18px;"></span> 
+							<input type="hidden" id="Numbers" /></label><br />
+							<input type="text" name="numberInput" id="numberInput" size="30" />
+							<br /><br />
+							<input id="testHuman" type="button" value="Submit" />
+						</div>                                
+                    </div>
+                 </div>
+             </div>          
+        </div> 
+		<div id="footer">
+			<a href="https://www.google.com/intl/en/chrome/browser/"><img alt="" src="images/login_new/Google_Chrome_icon.png" /></a>
+			<br />
+			This web page is best viewed with Google Chrome. Download it for free. 
 		</div>
-	</body>
+    </div>
+	<script type="text/javascript">
+		$('#myImage').click(function() {        
+			if ($('#myImage').attr('src') == 'images/login_new/unchecked.png') {        
+				$('#myImage').attr('src','images/login_new/checked.png');
+				$('#myCheck').val('checked');
+			} else {            
+				$('#myImage').attr('src','images/login_new/unchecked.png');
+				$('#myCheck').val('unchecked');            
+			}        
+		});	
+		$('#register_button').click(function() {
+			$('#Rform').submit();
+		});
+	</script>  
+</body> 
 </html>
