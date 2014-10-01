@@ -6,7 +6,8 @@
     <title>SMR Login</title>
     <style type="text/css">
 		html {    
-			background: #000000 url(images/login_new/rockbackground.jpg) no-repeat center center;
+			background: #000000 url(images/login_new/blueplanet1.jpg) no-repeat center center;
+			background-size: 100% auto;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
