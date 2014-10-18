@@ -8,7 +8,7 @@ if(!empty($js)) {
 }
 foreach($this->jsAlerts as $string) {
 	?>alert(<?php echo json_encode($string); ?>);<?php
-}
+} 
 if($AJAX_ENABLE_REFRESH) {
 	$AvailableLinks = Globals::getAvailableLinks();
 	?><script type="text/javascript">$(function(){
@@ -20,4 +20,18 @@ if($AJAX_ENABLE_REFRESH) {
 			}
 		} ?>
 	})</script><?php
+}
+
+if($ThisSector->hasPlanet()) {
+	$planet =& $ThisSector->getPlanet(); 
+	$image = $planet->getImage();
+	?><!-- JavaScript to modify the background of body with the planet image; jQuery dependent -->
+	<script type="text/javascript">
+		$("body").css({
+			'background-image' : 'url("<?php echo $image; ?>")',
+			'background-size' : '150% auto',
+			'background-position' : 'center -20%',
+			'background-repeat' : 'no-repeat'
+			});
+	</script><?php
 } ?>
