@@ -157,15 +157,15 @@ hr {
 	height: 2px;
 }
 a.buttonA  {
-	border-color: #A3CCA3 #2A6E2A #2A6E2A #A3CCA3;
-	background-color: #0B8D35;
+	border-color: #4C93E0;
+	background-color: rgba(58,112,173,0.4);
 }
 a.buttonA:hover {
-	background-color: #0B8D35;
+	background-color: #4C93E0;
 }
 a.buttonA:active {
-	background-color: #0B8D35;
-	border-color: #2A6E2A #A3CCA3 #A3CCA3 #2A6E2A;
+	background-color: #4C93E0;
+	border-color: #FFFFFF;
 }
 
 a.enemyExamine {
@@ -220,10 +220,10 @@ div.wep_drop1 .wep1 {
 
 /* Current Sector Navigation Box Colours */
 div.secNavBox div div {
-	border: 2px solid #0B8D35;
+	border: 2px solid #4C93E0;
 }
 .move_hover a:hover {
-	background: #005000; /* hover green bg */
+	background: rgba(58,112,173,0.4); /* hover green bg */
 }
 .scan_hover {
 	background-color: #060E88;

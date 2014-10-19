@@ -298,7 +298,8 @@ a.buttonA  {
 	text-decoration: none;
 	height: 1.0em;
 	display: inline;
-	border: 2px solid;
+	border: 1px solid;
+	border-radius: 5px;
 	color: #FFFFFF;
 	white-space: nowrap;
 }
@@ -313,11 +314,17 @@ table.lmt td {
 	padding: 0px;
 }
 /* Connecting icons */
-div.lmUp.con, div.lmDown.con {
-	background: url('../images/link_hor.png') no-repeat center;
+div.lmUp.con {
+	background: url('../images/link_up.png') no-repeat center;
+} 
+div.lmDown.con {
+	background: url('../images/link_down.png') no-repeat center;
 }
-div.lmLeft.con, div.lmRight.con {
-	background: url('../images/link_ver.png') no-repeat center;
+div.lmLeft.con {
+	background: url('../images/link_left.png') no-repeat center;
+} 
+div.lmRight.con {
+	background: url('../images/link_right.png') no-repeat center;
 }
 
 /* Walls */
