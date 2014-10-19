@@ -44,12 +44,13 @@
 						}
 						$this->includeTemplate($TemplateBody); ?>
 					</div>
-				</td>
+				</td><?php
+				if (isset($GameID)) { ?>
 				<td class="r0">
 					<div id="right_panel">
 						<?php $this->includeTemplate('includes/RightPanel.inc'); ?>
 					</div>
-				</td>
+				</td><?php } ?>
 			</tr>
 		</table>
 		<?php $this->includeTemplate('includes/EndingJavascript.inc'); ?>
