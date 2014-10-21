@@ -17,7 +17,7 @@ $PHP_OUTPUT.= '<tr><td width="5%" class="center"><input type="checkbox" name="le
 if ($sector->hasLinkLeft()) $PHP_OUTPUT.= ' checked';
 $PHP_OUTPUT.= '></td><td width="90%" class="center">';
 $PHP_OUTPUT.= 'Sector: ' . $sector->getSectorID() . '<br /><br />';
-$PHP_OUTPUT.= 'Planet Type: <select name="plan_type">';
+$PHP_OUTPUT.= 'Planet Type: <select name="plan_type" onChange = "planetSelect(this)" >';
 $PHP_OUTPUT.= '<option value="0">No Planet</option>';
 
 $selectedType = 0;
@@ -36,9 +36,27 @@ while ($db->nextRecord()) {
 //$PHP_OUTPUT.= '<option value="Uninhab"' . ($sector->hasPlanet() ? ' selected' : '') . '>Uninhabitable Planet</option>';
 //$PHP_OUTPUT.= '<option value="NPC"' . ($planet_type == 'NPC' ? ' selected' : '') . '>NPC Planet</option>';
 $PHP_OUTPUT.= '</select>';
+//loading all pictures from the images folder
+$planet_pics;
+$dir = WWW."images/planets/";
+if (is_dir($dir)) {
+    if ($dh = opendir($dir)) {
+        while (($file = readdir($dh)) !== false) {
+           $planet_pics[] = $file;
+        }
+        closedir($dh);
+    }
+}
+
 if (!is_null($planet)) {
+	$PHP_OUTPUT.='<div id="planetEdit" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input name="image" value="'.$planet->getImage().'"></input>';
-	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input>';
+	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input> </div>';
+	foreach($planet_pics as $pic){
+		
+		$PHP_OUTPUT.= '<div class="thumbnail" style="background-image:url(\'images/planets/'.$pic.'\')" > </div>';
+	}
+	$PHP_OUTPUT.='</div>';
 }
 $PHP_OUTPUT.='<br><br>';
 

@@ -36,3 +36,10 @@ if($AJAX_ENABLE_REFRESH) {
 		} ?>
 	})</script><?php
 } ?>
+
+<script>
+	function planetSelect(obj){
+		console.log(obj);
+		
+	}
+</script>
