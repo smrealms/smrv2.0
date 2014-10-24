@@ -20,23 +20,33 @@ if (!isset($isCombinedSector)) {
 						if($isCurrentSector){ echo ' currentSeclm"'; } 
 						else if($isLinkedSector){ echo ' connectSeclm"'; } 
 						else if($isVisited){ echo ' normalSeclm"'; }else{ echo 'normalSeclmu'; } 
+						
+						$url = ''; $size = ''; $position = ''; $tail = '';
+						
+						if($isCurrentSector) {
+							$url .= 'url("images/currentsector.png"),'; 
+							$size .= '100% auto,';
+							$position .= 'center center,';
+						}
 						if ($Sector->hasPlanet()) { 
 							$planet = $Sector->getPlanet();
-							echo " style='background-image: ";
-							if($isCurrentSector) {
-								echo 'url("images/currentsector.png"), '; 
-							}
-							echo 'url("'.$planet->getImage().'");'; 
-							echo 'background-size: ';
-							if($isCurrentSector) {
-								echo '100% auto, ';
-							}
-							echo $planet->getSize().' auto; background-position: center center; background-repeat:no-repeat;'."' "; ?>
-							data-img="../<?php echo $planet->getImage(); ?>" 
-							data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>"><?php
-						} else {
-							echo '>';
+							$url .= 'url("'.$planet->getImage().'"),'; 
+							$size .= $planet->getSize().' auto,';
+							$position .= 'center center,';
+							$tail = 'data-img="../'.$planet->getImage().'" data-tip="'.$planet->getTypeName().': '.$planet->getName().'"';
+						} 
+						if($Sector->hasFeature()) {
+							$url .= 'url("'.$Sector->getFeatureImage().'"),';
+							$size .= $Sector->getFeatureSize().',';
+							$position .= $Sector->getFeatureLocation().',';
+						} 
+						if ($url !='') {
+							echo " style='background-image: ".rtrim($url, ",").";";
+							echo " background-size: ".rtrim($size, ",").";";
+							echo " background-position: ".rtrim($position, ",").";";
+							echo " background-repeat: no-repeat;' ";
 						}
+						echo $tail.'>';
 						if($isVisited) {
 							if(isset($ToggleLink)) {
 								$ToggleLink['sector_id'] = $Sector->getSectorID();
