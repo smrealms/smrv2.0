@@ -10,18 +10,25 @@ foreach($this->jsAlerts as $string) {
 	?>alert(<?php echo json_encode($string); ?>);<?php
 } 
 if (isset($ThisSector)) {
-	if($ThisSector->hasPlanet()) {
-		$planet =& $ThisSector->getPlanet(); 
-		$image = $planet->getImage();
-		?><!-- JavaScript to modify the background of body with the planet image; jQuery dependent -->
-		<script type="text/javascript">
-			$("body").css({
-				'background-image' : 'url("<?php echo $image; ?>")',
-				'background-size' : '150% auto',
-				'background-position' : 'center -20%',
-				'background-repeat' : 'no-repeat'
-				});
-		</script><?php
+	$url = ''; $size = ''; $position = '';
+	if ($ThisSector->hasPlanet()) { 
+		$planet = $ThisSector->getPlanet();
+		$url .= 'url("'.$planet->getImage().'"),'; 
+		$size .= '150% auto,';
+		$position .= 'center -20%,';
+	} 
+	if($ThisSector->hasFeature()) {
+		$url .= 'url("'.$ThisSector->getFeatureImage().'"),';
+		$size .= $ThisSector->getFeatureSize().',';
+		$position .= $ThisSector->getFeatureLocation().',';
+	} 
+	if ($url != '') {
+		echo '<script type="text/javascript">$("body").css({';
+		echo " 'background-image' : '".rtrim($url, ",")."',";
+		echo " 'background-size' : '".rtrim($size, ",")."',";
+		echo " 'background-position' : '".rtrim($position, ",")."',";
+		echo " 'background-repeat' : 'no-repeat'";
+		echo "})</script>";
 	}
 }
 if($AJAX_ENABLE_REFRESH) {
