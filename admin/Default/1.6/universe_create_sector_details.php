@@ -38,25 +38,26 @@ while ($db->nextRecord()) {
 $PHP_OUTPUT.= '</select>';
 //loading all pictures from the images folder
 $planet_pics;
-$dir = WWW."images/planets/";
+$dir = WWW."images/planets";
 if (is_dir($dir)) {
-    if ($dh = opendir($dir)) {
-        while (($file = readdir($dh)) !== false) {
-           $planet_pics[] = $file;
-        }
-        closedir($dh);
-    }
+	$planet_pics = scandir($dir);
+	foreach ($planet_pics as $key => $value){
+		if(!is_file($dir.'/'.$value)){
+			unset($planet_pics[$key]);
+		}
+	}
 }
 
 if (!is_null($planet)) {
 	$PHP_OUTPUT.='<div id="planetEdit" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input name="image" value="'.$planet->getImage().'"></input>';
 	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input> </div>';
+	$PHP_OUTPUT.='<div id="planet_selector">';
 	foreach($planet_pics as $pic){
 		
-		$PHP_OUTPUT.= '<div class="thumbnail" style="background-image:url(\'images/planets/'.$pic.'\')" > </div>';
+		$PHP_OUTPUT.= '<div class="thumbnail" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" > </div>';
 	}
-	$PHP_OUTPUT.='</div>';
+	$PHP_OUTPUT.='</div> </div>';
 }
 $PHP_OUTPUT.='<br><br>';
 
