@@ -357,9 +357,24 @@ table.csForces th.header {
 	overflow-x: hidden;
 }
 .thumbnail{
-	height: 50px;
-	width: 50px;
+    margin: 5px;
+	height: 45px;
+	width: 45px;
 	display:inline-block;
 	background-repeat:no-repeat; 
 	background-size:contain;
 }
+
+.thumbnail:hover{
+	margin:0px;
+	padding:5px;
+}
+
+#planet_selector {
+	height:200px;
+	width:200px;
+	overflow:auto;
+	position:center;
+}
+
+
