@@ -26,6 +26,9 @@ def main():
 	else:
 		if path != '' and not os.path.exists(path):
 			exit("Directory:" + path + " could not be found")
+		if not path.endswith('/'):
+			global path
+			path = path +  "/"
 		list = [ f for f in os.listdir(path) if os.path.isfile(path + f) and regex.match(f)]
 		for f in list:
 			createThumb(f, path)
@@ -38,7 +41,7 @@ def createThumb(name, dir = ''):
 		exit("Unable to load file " + dir + name)
 	print("Generating thumbnail " + name + "...")
 	im.thumbnail(SIZE)	
-	print(name + "created")
+	print(name + " created")
 	if not os.path.exists(p):
 		os.mkdir(p)
 	im.save(p + name)
