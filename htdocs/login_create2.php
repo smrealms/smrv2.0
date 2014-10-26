@@ -1,17 +1,14 @@
 
-
-<body>
-
 <table cellspacing='0' cellpadding='0' border='0' width='500' height='100%'>
 <tr>
 	<td></td>
-	<td colspan='3' height='1' bgcolor='#0B8D35'></td>
+	<td colspan='3' height='1' bgcolor='#0F1541'></td>
 	<td></td>
 </tr>
 <tr>
 	<td width='1'>&nbsp;</td>
-	<td width='1' bgcolor='#0B8D35'></td>
-	<td align='left' valign='top' width='400' bgcolor='#06240E'>
+	<td width='1' bgcolor='#0F1541'></td>
+	<td align='left' valign='top' width='400' bgcolor='#475486'>
 		<table width='100%' height='100%' border='0' cellspacing='3' cellpadding='3'>
 		<tr>
 			<td valign='top'>
@@ -109,7 +106,7 @@
 					</tr>
 					<tr style="display:none">
 						<td width='27%'>ICQ:</td>
-						<td width='73%'><input type='text' name='icq' size='20' maxlength='15' id='InputFields'></td>
+						<td width='73%'><input type='text' name='icq' size='20' maxlength='15' id='InputFields' /></td>
 					</tr>
 					<tr>
 						<td colspan='2'>&nbsp;</td>
@@ -136,14 +133,12 @@
 		</tr>
 		</table>
 	</td>
-	<td width='1' bgcolor='#0B8D35'></td>
+	<td width='1' bgcolor='#0F1541'></td>
 	<td width='1'>&nbsp;</td>
 </tr>
 <tr>
 	<td></td>
-	<td colspan='3' height='1' bgcolor='#0b8d35'></td>
+	<td colspan='3' height='1' bgcolor='#0F1541'></td>
 	<td></td>
 </tr>
 </table>
-
-</body>
