@@ -45,8 +45,24 @@ if($AJAX_ENABLE_REFRESH) {
 } ?>
 
 <script>
-	function planetSelect(obj){
-		console.log(obj);
+
+	$("#planet_selector").on("click",".selectable", function(event){
 		
+		/*console.log($(event.delegateTarget).find(".selectable"));*/
+		$(event.delegateTarget).find(".selectable").each(function(){
+			me = $(this);
+			if (me.hasClass("selected")){
+				me.removeClass("selected");
+			}
+			
+		});
+		
+		/*$(event.target).addClass("selected");*/
+	
+	});
+	function planetSelect(obj){
+		console.log(obj);		
 	}
+	
+	
 </script>
