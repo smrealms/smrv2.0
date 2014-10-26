@@ -27,5 +27,5 @@ if(count($gameNews)>0)
 
 include_once('story.php');
 
-$template->display('login_new.inc');
+$template->display('login_new.php');
 ?>
