@@ -29,14 +29,14 @@ function toggleVisibility(a){
 	<input type="button" onclick="toggleVisibility('login');" value="Login" style="width:150px; height:50px; background-color:#475486;" /><br>
 </div>
 
-<div id="create_login" style="width:500px; display:none;">
-	<?php include(getcwd() . "\login_create2.php"); ?>
+<div id="create_login" style="width:100%; display:none;">
+	<?php include(getcwd() . "/login_create2.php"); ?>
 </div>
 
-<div id="reset_password" style="width:500px; display:none;">
+<div id="reset_password" style="width:100%; display:none;">
 	<?php include(getcwd() . "/reset_password2.php"); ?>
 </div>
 
-<div id="login" style="width:500px; display:none;">
-	<?php include(getcwd() . "\login2.php"); ?>
+<div id="login" style="width:100%; display:none;">
+	<?php include(getcwd() . "/login2.php"); ?>
 </div>

@@ -119,16 +119,37 @@
 	
 	<div id="content">
 		<div id="left">
-			<form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
+			<!--<form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
 				<input type="text" class="rounded" size="30" maxlength="30" name="login" />
                 <input type="password" class="rounded" size="30" maxlength="30" name="password" />
                 <input id="login_submit" type="image" src="images/login_new/login_button.png" />
                 <a href="reset_password.php"><img alt="Reset Password" src="images/login_new/reset_button.png" /></a>               
-            </form>     
+            </form>     -->
+			<?php include(getcwd() . "\account_management.php");  ?>
 		</div>
 		
 		<div id="right">
-		
+			<span style="font-size:18px; font-weight:bold;">News</span>
+			<br /><br /><hr />                      
+			<span>3/12/2011</span>
+			<br />            
+			<span>There are now hotkeys for movement and scanning, as well as for 
+				switch between Current Sector, Local Map and Plot Course. Default bindings can be 
+				found under Preferences, where you can also able to customise them.
+			</span>                
+			<br /><br /><hr />            
+			<span>2/12/2011</span>
+			<br />
+			<span>There are now hotkeys for movement and scanning, as well as for 
+				switch between Current Sector, Local Map and Plot Course. Default bindings can be 
+				found under Preferences, where you can also able to customise them.            
+			</span>                
+			<br /><br /><hr />                           
+			<span>12/27/2012</span>
+			<br />
+			<span>This is Freon22 testing to see what will happen in this div when the text 
+				over flows??????
+			</span>
 		</div>
 	</div>
 
