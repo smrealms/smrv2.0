@@ -23,34 +23,20 @@ function toggleVisibility(a){
 }
 </script>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="<?php echo DEFAULT_CSS; ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo DEFAULT_CSS_COLOUR; ?>">
-	<style>.recaptchatable #recaptcha_response_field {background:white; color: black;}</style>
-	<title>Space Merchant Realms</title>
-</head>
-
-
 <div id="buttons" align="center">
-	<input type="button" onclick="return toggleVisibility('create_login')" value="Registration" style="width:150px; height:50px;"><br> 
-	<input type="button" onclick="return toggleVisibility('reset_password')" value="Reset Password" style="width:150px; height:50px;"><br>
-	<input type="button" onclick="return toggleVisibility('login')" value="Login" style="width:150px; height:50px;"><br>
+	<input type="button" onclick="toggleVisibility('create_login');" value="Registration" style="width:150px; height:50px; background-color:#475486;" /><br> 
+	<input type="button" onclick="toggleVisibility('reset_password');" value="Reset Password" style="width:150px; height:50px; background-color:#475486;" /><br>
+	<input type="button" onclick="toggleVisibility('login');" value="Login" style="width:150px; height:50px; background-color:#475486;" /><br>
 </div>
 
-
 <div id="create_login" style="width:500px; display:none;">
-	<?php require("/login_create2.php"); ?>
+	<?php include(getcwd() . "\login_create2.php"); ?>
 </div>
 
 <div id="reset_password" style="width:500px; display:none;">
-	<?php require("/reset_password2.php"); ?>
+	<?php include(getcwd() . "/reset_password2.php"); ?>
 </div>
 
 <div id="login" style="width:500px; display:none;">
-	<?php require("/login2.php"); ?>
+	<?php include(getcwd() . "\login2.php"); ?>
 </div>
-
-</html>
