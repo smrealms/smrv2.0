@@ -52,10 +52,10 @@ if (!is_null($planet)) {
 	$PHP_OUTPUT.='<div id="planetEdit" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input name="image" value="'.$planet->getImage().'"></input>';
 	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input> </div>';
-	$PHP_OUTPUT.='<div id="planet_selector">';
+	$PHP_OUTPUT.='<div id="planet_selector" class="noselect" >';
 	foreach($planet_pics as $pic){
 		
-		$PHP_OUTPUT.= '<div class="thumbnail" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" > </div>';
+		$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" > </div>';
 	}
 	$PHP_OUTPUT.='</div> </div>';
 }
