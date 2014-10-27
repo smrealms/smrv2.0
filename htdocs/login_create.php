@@ -58,11 +58,11 @@ require_once(LIB.'External/recaptcha/recaptchalib.php');
 					?>
 					<tr>
 						<td width='27%'>User name:</td>
-						<td width='73%'><input type='text' name='login' size='20' maxlength='32' id='InputFields'></td>
+						<td width='73%'><input type='text' name='login' size='20' maxlength='32' id='InputFields' value='<?php if (isset($_REQUEST['login'])) echo $_REQUEST['login']; ?>'></td>
 					</tr>
 					<tr>
 						<td width='27%'>Password:</td>
-						<td width='73%'><input type='password' name='password' size='20' maxlength='32' id='InputFields'></td>
+						<td width='73%'><input type='password' name='password' size='20' maxlength='32' id='InputFields' value='<?php if (isset($_REQUEST['password'])) echo $_REQUEST['password']; ?>'></td>
 					</tr>
 					<tr>
 						<td width='27%'>Verify:</td>
@@ -70,7 +70,7 @@ require_once(LIB.'External/recaptcha/recaptchalib.php');
 					</tr>
 					<tr>
 						<td width='27%'>E-Mail Address:</td>
-						<td width='73%'><input type='email' name='email' size='50' maxlength='128' id='InputFields'></td>
+						<td width='73%'><input type='email' name='email' size='50' maxlength='128' id='InputFields' value='<?php if (isset($_REQUEST['email'])) echo $_REQUEST['email']; ?>'></td>
 					</tr>
 					<tr>
 						<td width='27%'>Verify E-Mail Address:</td>
@@ -80,7 +80,7 @@ require_once(LIB.'External/recaptcha/recaptchalib.php');
 						<td width='27%'>Local Time:</td>
 						<td width='73%'>
 							<select name="timez" id="InputFields"><?php
-								$time = TIME;
+								$time = 0;
 								for ($i = -12; $i<= 11; $i++) {
 									?><option value="<?php echo $i; ?>"><?php echo date(DEFAULT_DATE_TIME_SHORT, $time + $i * 3600); ?></option><?php
 								} ?>

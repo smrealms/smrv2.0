@@ -93,7 +93,7 @@ while ($db->nextRecord()) {
 	$PHP_OUTPUT.=('<option value="'.$race_id.'"'.$selected.'>'.$race_name.'</option>');
 
 }
-$PHP_OUTPUT.=('</select><br /><br /><br />');
+$PHP_OUTPUT.=('</select><br><br><br>');
 
 $PHP_OUTPUT.=('</p>');
 

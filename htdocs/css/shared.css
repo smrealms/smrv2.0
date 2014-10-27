@@ -298,7 +298,8 @@ a.buttonA  {
 	text-decoration: none;
 	height: 1.0em;
 	display: inline;
-	border: 2px solid;
+	border: 1px solid;
+	border-radius: 5px;
 	color: #FFFFFF;
 	white-space: nowrap;
 }
@@ -307,22 +308,28 @@ a.buttonA  {
 /* LM */
 table.lmt {
 	border-collapse: separate;
-	border-spacing: 6px;
+	border-spacing: 3px;
 }
 table.lmt td {
 	padding: 0px;
 }
 /* Connecting icons */
-div.lmUp.con, div.lmDown.con {
-	background: url('../images/link_hor.png') no-repeat center;
+div.lmUp.con {
+	background: url('../images/link_down.png') no-repeat center;
+} 
+div.lmDown.con {
+	background: url('../images/link_up.png') no-repeat center;
 }
-div.lmLeft.con, div.lmRight.con {
-	background: url('../images/link_ver.png') no-repeat center;
+div.lmLeft.con {
+	background: url('../images/link_right.png') no-repeat center;
+} 
+div.lmRight.con {
+	background: url('../images/link_left.png') no-repeat center;
 }
 
 /* Walls */
 div.wall {
-	background: black;
+	background: #284E77;
 }
 /* Local map wall/connector containers */
 a.lmUp, a.lmLeft, a.lmRight, a.lmDown {
@@ -342,9 +349,11 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 }
 .lmUp {
 	top: 0px;
+	border-radius: 5px 5px 0 0;
 }
 .lmDown {
 	bottom: 0px;
+	border-radius: 0 0 5px 5px;
 }
 .lmRight, .lmLeft {
 	position: absolute;
@@ -354,9 +363,11 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 }
 .lmRight {
 	right: 0px;
+	border-radius: 0 5px 5px 0;
 }
 .lmLeft {
 	left: 0px;
+	border-radius: 5px 0 0 5px;
 }
 /*Local Plot/Warp Area*/
 .lm_sector div.lmp {
@@ -393,6 +404,7 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 	width: 100px;
 	height: 20px;
 	text-align: center;
+	
 }
 /*Local port section*/
 .lm_sector div.lmport {
@@ -413,6 +425,8 @@ a.lmUp:hover div, a.lmLeft:hover div, a.lmRight:hover div, a.lmDown:hover div {
 	height: 120px;
 	min-width: 120px;
 	min-height: 120px;
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
 }
 .lm_sector .move_hack {
 	background: none;
@@ -638,6 +652,11 @@ table#moveTable td {
 	height: 16px;
 	background-image: url("../images/news/breaking.png");
 	background-size: contain;
+}
+.boldblack {
+	font-weight: bold;
+	color: black !important;
+	background-color: #4C93E0;
 }
 /* tool tip */
 [data-tip] {

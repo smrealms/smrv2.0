@@ -1,57 +1,60 @@
-body {
+html {
 	background: #0B2121;
+	background-image: url("../../images/backgrounds/bg1.png");
+	background-size: 100% auto;
 	color: #FFFFFF;
+	
 }
 h1, h2 {
-	color: #80C870;
+	color: #4C93E0;
 }
 #InputFields, .InputFields {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:link {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:visited {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:hover {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle:active {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 .submitStyle {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 #InputFieldsText {
 	background: #06240E;
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 a.scan_btn {
 	background: #060E88;
 	color: #BBBBBB;
-	border: 1px solid #8070C8;
+	border: 1px solid #4C93E0;
 }
 a.scan_btn:hover {
 	background: #060E88;
 	color: #FFFFFF;
 }
 th {
-	background-color: #0A4E1D;
-	color: #80C870;
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
 }
 td.footer_left {
 	border: solid #0B8D35;
@@ -64,17 +67,20 @@ td.footer_right {
 	background-color: #06240E;
 }
 table.standard {
-	border: 1px solid #0B8D35;
-	border-spacing: 0px;
+	border: 1px solid #4C93E0;
+	border-spacing: 2px;
+	border-radius: 5px;
 }
 table.standard td, table.standard th {
-	border: 1px solid #0B8D35;
+	border: 1px solid #4C93E0;
+	border-spacing: 2px;
+	border-radius: 5px;
 }
 .create td, th {
-	border: 0px solid #0b8d35;
+	border: 0px solid #4C93E0;
 }
 table.create {
-	border: 0px solid #0B8D35;
+	border: 0px solid #4C93E0;
 }
 td.border_left {
 	border-left-width: 3px;
@@ -94,10 +100,17 @@ td.has_port {
 table.nobord td {
 	border: none;
 }
+table.m {
+	border-spacing: 3px;
+	height: 98%;
+}
 td.m0 {
-	border: solid #0B8D35;
-	border-width: 1px 1px 0px 1px;
-	background-color: #06240E;
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+}
+td.l0, td.r0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
 }
 .attack_warning {
 	border: 1px solid #BB0;
@@ -105,21 +118,23 @@ td.m0 {
 	color: #F00;
 }
 div.bar1 {
-	border: 1px solid #0B8D35;
+	border: 1px solid #4C93E0;
+	border-radius: 5px;
 }
-div.bar1 div {
-	background-color: #0B8D35;
+div.bar1{
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
 }
 table.bar1 td, table.bar1 th {
 	border: 1px solid #0B8D35;
 }
 tr.bar1 {
-	background-color: #0B8D35;
+	background-color: rgba(58,112,173,0.4);;
 }
 input {
-	background: #06240E;
-	color: #FFFFFF;
-	border: 1px solid #80C870;
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
+	border: 1px solid #4C93E0;
 }
 textarea {
 	background: #06240E;
@@ -127,7 +142,7 @@ textarea {
 	border: 1px solid #80C870;
 }
 a {
-	color: #FFFFFF;
+	color: #F0F0F0;
 }
 a:hover {
 	background: #0A4E1D;
@@ -142,15 +157,15 @@ hr {
 	height: 2px;
 }
 a.buttonA  {
-	border-color: #A3CCA3 #2A6E2A #2A6E2A #A3CCA3;
-	background-color: #0B8D35;
+	border-color: #4C93E0;
+	background-color: rgba(58,112,173,0.4);
 }
 a.buttonA:hover {
-	background-color: #0B8D35;
+	background-color: #4C93E0;
 }
 a.buttonA:active {
-	background-color: #0B8D35;
-	border-color: #2A6E2A #A3CCA3 #A3CCA3 #2A6E2A;
+	background-color: #4C93E0;
+	border-color: #FFFFFF;
 }
 
 a.enemyExamine {
@@ -176,21 +191,23 @@ ul.boxy li {
 
 /* LM */
 .connectSeclm {
-	background-color: #33784B;
+	background-color: rgba(58,112,173,0.4);
 }
 .connectSeclm:hover {
 	background-color: #14645F;
 }
 .currentSeclm {
 	background: url('../../images/currentsector.png');
+	background-size: 100% 100%;
 	_background: none; /* Disable transparent image for IE6 as it can't handle it */
-	background-color: #33784B;
+	background-color: rgba(58,112,173,0.4);
 }
+
 .currentSeclm:hover {
 	background-color:#337975;
 }
 .normalSeclm {
-	background-color: #0B4C1C;
+	background-color: rgba(40,78,119,0.4);
 }
 .normalSeclmu {
 	background-color: #000000;
@@ -203,10 +220,10 @@ div.wep_drop1 .wep1 {
 
 /* Current Sector Navigation Box Colours */
 div.secNavBox div div {
-	border: 2px solid #0B8D35;
+	border: 2px solid #4C93E0;
 }
 .move_hover a:hover {
-	background: #005000; /* hover green bg */
+	background: rgba(58,112,173,0.4); /* hover green bg */
 }
 .scan_hover {
 	background-color: #060E88;
@@ -225,7 +242,7 @@ div.secNavBox div div {
    color: #00FF00;
 }
 .visited, .currentSector {
-   color: #00AA00;
+   color: #4C93E0;
 }
 .unvisited {
    color: #FFFF00;
@@ -312,3 +329,90 @@ table.csForces th.header {
 .neutralBack:hover {
 	background-color: #FFD800;
 }
+#menu{
+    padding: 5px;
+	padding-left: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+	visibility: hidden;
+}
+#menu_container{
+	width: 25px;
+    display: block;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+    background-color: rgba(58,112,173,0.4);
+    border: 1px solid #4C93E0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+	z-index: 9999;
+	position: fixed;
+	clear:both;
+}
+.left_side {
+	width: 380px;
+	padding: 5px;
+	display: block;
+	overflow-x: hidden;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.thumbnail{
+    height: 50px;
+	width: 50px;
+	display:inline-block;
+	background-repeat:no-repeat; 
+	background-size:contain;
+	vertical-align: top;
+	text-align:center;
+	
+	
+}
+
+.thumbnail:hover{
+	border: 1px solid #4C93E0;
+	height: 48px;
+	width: 48px;
+}
+
+.thumbnail.selected {
+    background-color: rgba(58,112,273,0.6);
+}
+
+.selectable {
+	cursor:pointer;
+}
+
+#planet_selector {
+	height:150px;
+	width:170px;
+    overflow: auto;
+	background-color: rgba(58,112,173,0.4);
+	border: 1px solid #4C93E0;
+	display:inline-block;
+	float:left;
+	margin-right:15px;
+}
+
+#planet_preview {
+	height:150px;
+	width:170px;
+	display: inline-block; 
+	float: left;
+}
+
+#planet_preview #preview {
+	height:137px;
+	width:170px;
+	background-repeat:no-repeat; 
+	background-size:contain;
+}
+

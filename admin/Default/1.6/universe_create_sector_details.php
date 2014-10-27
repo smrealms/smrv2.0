@@ -17,12 +17,14 @@ $PHP_OUTPUT.= '<tr><td width="5%" class="center"><input type="checkbox" name="le
 if ($sector->hasLinkLeft()) $PHP_OUTPUT.= ' checked';
 $PHP_OUTPUT.= '></td><td width="90%" class="center">';
 $PHP_OUTPUT.= 'Sector: ' . $sector->getSectorID() . '<br /><br />';
-$PHP_OUTPUT.= 'Planet Type: <select name="plan_type">';
+$PHP_OUTPUT.= 'Planet Type: <select name="plan_type" onChange = "planetSelect(this)" >';
 $PHP_OUTPUT.= '<option value="0">No Planet</option>';
 
 $selectedType = 0;
+$planet = null;
 if ($sector->hasPlanet()) {
 	$selectedType = $sector->getPlanet()->getTypeID();
+	$planet = $sector->getPlanet();
 }
 
 $db->query('SELECT * FROM planet_type');
@@ -33,7 +35,36 @@ while ($db->nextRecord()) {
 }
 //$PHP_OUTPUT.= '<option value="Uninhab"' . ($sector->hasPlanet() ? ' selected' : '') . '>Uninhabitable Planet</option>';
 //$PHP_OUTPUT.= '<option value="NPC"' . ($planet_type == 'NPC' ? ' selected' : '') . '>NPC Planet</option>';
-$PHP_OUTPUT.= '</select><br /><br />';
+$PHP_OUTPUT.= '</select>';
+//loading all pictures from the images folder
+$planet_pics;
+$dir = WWW."images/planets";
+if (is_dir($dir)) {
+	$planet_pics = scandir($dir);
+	foreach ($planet_pics as $key => $value){
+		if(!is_file($dir.'/'.$value)){
+			unset($planet_pics[$key]);
+		}
+	}
+}
+
+if (!is_null($planet)) {
+	$PHP_OUTPUT.='<div id="planetEdit" >';
+	$PHP_OUTPUT.='<br>Planet Image: <input type="hidden" name="image" value="'.$planet->getImage().'"></input>';
+	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input> </div>';
+	$PHP_OUTPUT.='<div id="planet_selector" class="noselect" >';
+	foreach($planet_pics as $index => $pic){
+				
+		$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" data-name="'.$pic.'" > </div>';
+	}
+	$PHP_OUTPUT.='</div> ';
+	$PHP_OUTPUT.='<div id="planet_preview"> ';
+	$PHP_OUTPUT.='<div id="preview" style="background-image:url(\''.$planet->getImage().'\')"> </div>';
+	$PHP_OUTPUT.='<div id="slider"> </div>';
+	$PHP_OUTPUT.='</div> ';
+	$PHP_OUTPUT.='</div> ';
+}
+$PHP_OUTPUT.='<br><br>';
 
 $PHP_OUTPUT.= 'Port: <select name="port_level">';
 $PHP_OUTPUT.= '<option value="0">No Port</option>';
@@ -83,12 +114,12 @@ else {
 	$PHP_OUTPUT.= 0;
 	$warpGal = 'No Warp';
 }
-$PHP_OUTPUT.= '"><br />' . $warpGal . '</td></tr></table></td></tr></table>';
-$PHP_OUTPUT.= '<br /><br />';
+$PHP_OUTPUT.= '"><br>' . $warpGal . '</td></tr></table></td></tr></table>';
+$PHP_OUTPUT.= '<br><br>';
 
 $PHP_OUTPUT.= '<input type="submit" name="submit" value="Edit Sector"><br />';
 $container = $var;
 $container['body'] = '1.6/universe_create_sectors.php';
-$PHP_OUTPUT.= '<br /><a href="'.SmrSession::getNewHREF($container).'" class="submitStyle">Cancel</a>';
+$PHP_OUTPUT.= '<br><a href="'.SmrSession::getNewHREF($container).'" class="submitStyle">Cancel</a>';
 $PHP_OUTPUT.= '</form>';
 ?>

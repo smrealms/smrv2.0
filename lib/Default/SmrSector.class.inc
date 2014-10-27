@@ -20,6 +20,9 @@ class SmrSector {
 	protected $visited = array();
 	protected $links;
 	protected $warp;
+	protected $feature_image;
+	protected $feature_location;
+	protected $feature_size;
 
 	protected $hasChanged = false;
 	protected $isNew = false;
@@ -87,10 +90,13 @@ class SmrSector {
 							WHERE game_id = ' . $this->db->escapeNumber($gameID) . '
 							AND sector_id = ' . $this->db->escapeNumber($sectorID) . ' LIMIT 1');
 		if($this->db->nextRecord()) {
-			$this->sectorID		= $this->db->getInt('sector_id');
-			$this->gameID		= $this->db->getInt('game_id');
-			$this->galaxyID		= $this->db->getInt('galaxy_id');
-			$this->battles		= $this->db->getInt('battles');
+			$this->sectorID			= $this->db->getInt('sector_id');
+			$this->gameID			= $this->db->getInt('game_id');
+			$this->galaxyID			= $this->db->getInt('galaxy_id');
+			$this->battles			= $this->db->getInt('battles');
+			$this->feature_image 	= $this->db->getField('feature_image');
+			$this->feature_location = $this->db->getField('feature_location');
+			$this->feature_size 	= $this->db->getField('feature_size');
 
 			$this->links = array();
 			if($this->db->getField('link_up'))
@@ -138,6 +144,9 @@ class SmrSector {
 									', link_right=' . $this->db->escapeNumber($this->getLinkRight()) .
 									', link_down=' . $this->db->escapeNumber($this->getLinkDown()) .
 									', link_left=' . $this->db->escapeNumber($this->getLinkLeft()) .
+									', feature_image=' . $this->db->escapeString($this->getFeatureImage()) .
+									', feature_location=' . $this->db->escapeString($this->getFeatureLocation()) .
+									', feature_size=' . $this->db->escapeString($this->getFeatureSize()) .
 								' WHERE game_id = ' . $this->db->escapeNumber($this->getGameID()) . '
 									AND sector_id = ' . $this->db->escapeNumber($this->getSectorID()) . ' LIMIT 1');
 			}
@@ -579,6 +588,43 @@ class SmrSector {
 		$this->warp = 0;
 	}
 
+	public function getFeatureImage() {
+		return $this->feature_image;
+	}
+	public function setFeatureImage($image) {
+		$this->feature_image = $image;
+		$this->hasChanged = true;
+	}
+	public function getFeatureLocation() {
+		return $this->feature_location;
+	}
+	public function setFeatureLocation($location) {
+		$this->feature_location = $location;
+		$this->hasChanged = true;
+	}
+	public function getFeatureSize() {
+		return $this->feature_size;
+	}
+	public function setFeatureSize($size) {
+		$this->feature_size = $size;
+		$this->hasChanged = true;
+	}
+	public function setFeature($image, $location='center center', $size='100% auto') {
+		setFeatureImage($image);
+		setFeatureLocation($location);
+		setFeatureSize($size);
+		$this->update();
+	}
+	
+	public function removeFeature() {
+		setFeatureImage(NULL);
+		setFeatureLocation(NULL);
+		setFeatureSize(NULL);
+		$this->update();
+	}
+	public function hasFeature() {
+		return ($this->feature_image != NULL || $this->feature_image != 'NULL');
+	}
 	public function hasMine() {
 		//TODO
 		return false;
@@ -919,6 +965,10 @@ class SmrSector {
 
 	public function getLocalMapHREF() {
 		return Globals::getSectorMoveHREF($this->getSectorID(), 'map_local.php');
+	}
+	
+	public function getCombinedMapHREF() {
+		return Globals::getSectorMoveHREF($this->getSectorID(), 'map_combined.php');
 	}
 
 	public function getCurrentSectorHREF() {

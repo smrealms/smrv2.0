@@ -3,6 +3,9 @@ $GalaxyMap = isset($GalaxyMap)&&$GalaxyMap;
 $UniGen = isset($UniGen) ? $UniGen : false;
 $MapPlayer = $UniGen ? null : $ThisPlayer;
 $MovementTypes = array('Up','Left','Right','Down');
+if (!isset($isCombinedSector)) {
+	$isCombinedSector = false;
+}
 ?>
 <table class="lmt centered <?php echo "galaxy".$MapSectors[0][0]->getGalaxyID(); ?>"><?php
 	foreach($MapSectors as &$MapSector) { ?>
@@ -10,10 +13,40 @@ $MovementTypes = array('Up','Left','Right','Down');
 			foreach($MapSector as &$Sector) {
 				$isCurrentSector = !$UniGen && $ThisSector->equals($Sector);
 				$isLinkedSector = !$UniGen && $ThisSector->isLinkedSector($Sector);
-				$isVisited = $Sector->isVisited($MapPlayer); ?>
+				$isVisited = $Sector->isVisited($MapPlayer); 
+				if ($Sector->hasPlanet()) { $planet = $Sector->getPlanet(); }?>
 				<td id="sector<?php echo $Sector->getSectorID(); ?>" class="ajax">
 					<div class="lm_sector galaxy<?php echo $Sector->getGalaxyID();
-						if($isCurrentSector){ ?> currentSeclm<?php }else if($isLinkedSector){ ?> connectSeclm<?php }else if($isVisited){ ?> normalSeclm<?php }else{ ?> normalSeclmu<?php } ?>"><?php
+						if($isCurrentSector){ echo ' currentSeclm"'; } 
+						else if($isLinkedSector){ echo ' connectSeclm"'; } 
+						else if($isVisited){ echo ' normalSeclm"'; }else{ echo 'normalSeclmu'; } 
+						
+						$url = ''; $size = ''; $position = ''; $tail = '';
+						
+						if($isCurrentSector) {
+							$url .= 'url("images/currentsector.png"),'; 
+							$size .= '100% auto,';
+							$position .= 'center center,';
+						}
+						if ($Sector->hasPlanet()) { 
+							$planet = $Sector->getPlanet();
+							$url .= 'url("'.$planet->getImage().'"),'; 
+							$size .= $planet->getSize().' auto,';
+							$position .= 'center center,';
+							$tail = 'data-img="../'.$planet->getImage().'" data-tip="'.$planet->getTypeName().': '.$planet->getName().'"';
+						} 
+						if($Sector->hasFeature()) {
+							$url .= 'url("'.$Sector->getFeatureImage().'"),';
+							$size .= $Sector->getFeatureSize().',';
+							$position .= $Sector->getFeatureLocation().',';
+						} 
+						if ($url !='') {
+							echo " style='background-image: ".rtrim($url, ",").";";
+							echo " background-size: ".rtrim($size, ",").";";
+							echo " background-position: ".rtrim($position, ",").";";
+							echo " background-repeat: no-repeat;' ";
+						}
+						echo $tail.'>';
 						if($isVisited) {
 							if(isset($ToggleLink)) {
 								$ToggleLink['sector_id'] = $Sector->getSectorID();
@@ -47,21 +80,6 @@ $MovementTypes = array('Up','Left','Right','Down');
 										<?php
 										if($isCurrentSector && $Location->hasAction() && !$GalaxyMap){ ?></a><?php }
 									}
-								}
-								if($Sector->hasPlanet()) {
-									$planet = $Sector->getPlanet();
-									if($isCurrentSector && !$GalaxyMap) {
-										?><a href="<?php echo $planet->getExamineHREF(); ?>"><?php
-									} ?>
-									<div style="display:inline;" 
-										data-img="../<?php echo $planet->getTypeImage(); ?>" 
-										data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>">
-										<img alt="Planet" src="images/blank_16.png" 
-										style="background-image: url('<?php echo $planet->getTypeImage(); ?>');"  
-										class="planets planett<?php echo $planet->getTypeID(); ?>"/>
-									</div>
-								<?php
-									if($isCurrentSector && !$GalaxyMap){ ?></a><?php }
 								} ?>
 								</div><?php
 							}
@@ -89,7 +107,7 @@ $MovementTypes = array('Up','Left','Right','Down');
 													style="background-image: url('<?php echo $Good['ImageLink']; ?>');" 
 													/>
 												</div><?php
-											} ?><br />
+											} ?><br>
 										<div style="display:inline;" 
 											data-tip="<?php echo $Port->getRaceName(); ?> Port">
 										<img src="images/port/sell.png" width="5" height="16" alt="Sell (<?php echo $Port->getRaceName(); ?>)" 
@@ -115,6 +133,7 @@ $MovementTypes = array('Up','Left','Right','Down');
 								if($isVisited) {
 									if($Sector->hasWarp()) {
 										if($GalaxyMap){ ?><a href="<?php echo $Sector->getWarpSector()->getGalaxyMapHREF(); ?>"><?php }
+										else if($isCombinedSector && $isCurrentSector){ ?><a href="<?php echo $Sector->getWarpSector()->getCombinedMapHREF(); ?>"><?php } 
 										else if($isCurrentSector){ ?><a href="<?php echo $Sector->getWarpSector()->getLocalMapHREF(); ?>"><?php } ?>
 											<div style="display:inline;" 
 												data-tip="Warp to #<?php echo $Sector->getWarp(); ?> (<?php echo $Sector->getWarpSector()->getGalaxyName(); ?>)">
@@ -170,10 +189,18 @@ $MovementTypes = array('Up','Left','Right','Down');
 								} ?>
 							</div><?php
 						} ?>
-						<div class="lmsector <?php echo "galaxy".$Sector->getGalaxyID(); if($isVisited){ ?> visited<?php }else{ ?> unvisited<?php } ?>"><?php echo $Sector->getSectorID(); ?></div><?php
+						<div class="lmsector <?php echo "galaxy".$Sector->getGalaxyID(); if($isVisited){ echo ' visited">'; }else{ echo ' unvisited">'; } 
+							if($Sector->hasPlanet()) { echo '<span class="boldblack">'; } echo $Sector->getSectorID(); if($Sector->hasPlanet()){ echo'</span>'; } ?>
+						</div><?php
 						if($UniGen) {
 							$UniGen['sector_id'] = $Sector->getSectorID(); ?>
 							<a class="move_hack" href="<?php echo SmrSession::getNewHREF($UniGen); ?>"></a><?php
+						} 
+						else if($isCombinedSector && $isLinkedSector) { ?>
+							<a class="move_hack" href="<?php echo $Sector->getCombinedMapHREF(); ?>"></a><?php
+						}
+						else if ($isCurrentSector && !$GalaxyMap && $Sector->hasPlanet()) { ?>
+							<a class="move_hack" href="<?php echo $planet->getExamineHREF(); ?>"></a><?php
 						}
 						else if($GalaxyMap) { ?>
 							<a class="move_hack" href="<?php echo $Sector->getGalaxyMapHREF(); ?>"></a><?php
@@ -181,7 +208,7 @@ $MovementTypes = array('Up','Left','Right','Down');
 						else if($isLinkedSector) { ?>
 							<a class="move_hack" href="<?php echo $Sector->getLocalMapHREF(); ?>"></a><?php
 						}
-						else if($isCurrentSector) { ?>
+						else if($isCurrentSector && !$isCombinedSector) { ?>
 							<a class="move_hack" href="<?php echo Globals::getCurrentSectorHREF(); ?>"></a><?php
 						} ?>
 					</div>

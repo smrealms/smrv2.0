@@ -31,7 +31,6 @@ class SmrPlanet {
 	protected $typeName;
 	protected $typeImage;
 	protected $typeDescription;
-	
 	protected $canOptions;
 	protected $hasChanged = false;
 	protected $hasChangedStockpile = false;
@@ -40,6 +39,12 @@ class SmrPlanet {
 	protected $isNew = false;
 	protected $maxAttackers;
 	protected $maxLanded;
+	protected $image;
+	protected $size;
+	protected $moonImage;
+	protected $moonSize;
+	protected $ringImage;
+	protected $ringSize;
 
 	protected $delayedShieldsDelta = 0;
 	protected $delayedCDsDelta = 0;
@@ -76,11 +81,16 @@ class SmrPlanet {
 		if(!self::getPlanet($gameID,$sectorID)->exists()) {
 			require_once(get_file_loc('SmrGame.class.inc'));
 			$inhabitableTime = SmrGame::getGame($gameID)->getStartDate() + pow(mt_rand(45, 85), 3);
-
-			// insert planet into db
 			$db = new SmrMySqlDatabase();
-			$db->query('INSERT INTO planet (game_id, sector_id, inhabitable_time, planet_type_id)
-				VALUES (' . $db->escapeNumber($gameID) . ', ' . $db->escapeNumber($sectorID) . ', ' . $db->escapeNumber($inhabitableTime) . ', ' . $db->escapeNumber($type) . ')');
+			$image = null;
+			//get default image;
+			$db->query('SELECT * FROM planet_type WHERE planet_type_id='.$db->escape($type));
+			if ($db->nextRecord()) {
+				$image = $db->getField('planet_image_link');
+			}
+			// insert planet into db
+			$db->query('INSERT INTO planet (game_id, sector_id, inhabitable_time, planet_type_id, planet_image)
+				VALUES (' . $db->escapeNumber($gameID) . ', ' . $db->escapeNumber($sectorID) . ', ' . $db->escapeNumber($inhabitableTime) . ', ' . $db->escapeNumber($type) . ', ' . $db->escape($image).')');
 		}
 		return self::getPlanet($gameID,$sectorID,true);
 		//		if(!isset(self::$CACHE_PLANETS[$gameID][$sectorID])) {
@@ -181,7 +191,12 @@ class SmrPlanet {
 			$this->maturity			= $this->db->getInt('maturity');
 			$this->inhabitableTime	= $this->db->getInt('inhabitable_time');
 			$this->typeID 			= $this->db->getInt('planet_type_id');
-			
+			$this->image 			= $this->db->getField('planet_image');
+			$this->size 			= $this->db->getField('planet_size');
+			$this->moonImage 		= $this->db->getField('moon_image');
+			$this->moonSize 		= $this->db->getField('moon_size');
+			$this->ringImage 		= $this->db->getField('ring_image');
+			$this->ringSize 		= $this->db->getField('ring_size');
 			$this->updateTypeInfo();
 			$this->getOptions();
 			$this->getStockpile();
@@ -807,6 +822,79 @@ class SmrPlanet {
 		return "Error";
 	}
 	
+	public function setImage($img) {
+		$this->image = $img;
+		$this->hasChanged = true;
+		$this->update();
+	}
+	
+	public function getImage() {
+		if (isset($this->image))
+			return $this->image;
+		return null;
+	}
+	
+	public function setSize($size) {
+		if (preg_match('/^[0-9]+?%$/', $size)) {
+			$this->size = $size;
+			$this->hasChanged = true;
+			$this->update();
+		}
+	}
+	
+	public function getSize() {
+		if (isset($this->size))
+			return $this->size;
+		return null;
+	}
+	public function setMoonImage($img) {
+		$this->image = $img;
+		$this->hasChanged = true;
+		$this->update();
+	}
+	
+	public function getMoonImage() {
+		if (isset($this->moonImageimage))
+			return $this->moonImage;
+		return null;
+	}
+	
+	public function setMoonSize($size) {
+		if (preg_match('/^[0-9]+?%$/', $size)) {
+			$this->size = $moonSize;
+			$this->hasChanged = true;
+			$this->update();
+		}
+	}
+	public function getMoonSize() {
+		if (isset($this->moonSize))
+			return $this->moonSize;
+		return null;
+	}
+	public function getRingImage() {
+		if (isset($this->ringImage))
+			return $this->ringImage;
+		return null;
+	}
+	public function setRingImage($img) {
+		$this->ringImage = $img;
+		$this->hasChanged = true;
+		$this->update();
+	}
+	
+	public function setRingSize($size) {
+		if (preg_match('/^[0-9]+?%$/', $size)) {
+			$this->ringSize = $size;
+			$this->hasChanged = true;
+			$this->update();
+		}
+	}
+	
+	public function getRingSize() {
+		if (isset($this->ringSize))
+			return $this->ringSize;
+		return null;
+	}	
 	public function getTypeName() {
 		if (isset($this->typeName))
 			return $this->typeName;
@@ -875,7 +963,8 @@ class SmrPlanet {
 		}
 		$this->doDelayedUpdates();
 		if($this->hasChanged) {
-			$this->db->query('UPDATE planet SET owner_id = ' . $this->db->escapeNumber($this->ownerID) . ',
+		
+			$query = 'UPDATE planet SET owner_id = ' . $this->db->escapeNumber($this->ownerID) . ',
 									password = '.$this->db->escapeString($this->password) .',
 									planet_name = ' . $this->db->escapeString($this->planetName) . ',
 									shields = ' . $this->db->escapeNumber($this->shields) . ',
@@ -883,9 +972,16 @@ class SmrPlanet {
 									drones = ' . $this->db->escapeNumber($this->drones) . ',
 									credits = ' . $this->db->escapeNumber($this->credits) . ',
 									bonds = ' . $this->db->escapeNumber($this->bonds) . ',
-									maturity = ' . $this->db->escapeNumber($this->maturity) . '
-								WHERE game_id = ' . $this->db->escapeNumber($this->gameID) . '
-									AND sector_id = ' . $this->db->escapeNumber($this->sectorID));
+									maturity = ' . $this->db->escapeNumber($this->maturity) . ',
+									planet_image = ' . $this->db->escapeString($this->image) . ',
+									planet_size = ' . $this->db->escapeString($this->size);
+			if (!is_null($this->moonImage)) { $query.=', moon_image = '.$this->db->escapeString($this->moonImage); }
+			if (!is_null($this->moonSize)) { $query.=', moon_size = '.$this->db->escapeString($this->moonSize); }
+			if (!is_null($this->ringImage)) { $query.=', ring_image = '.$this->db->escapeString($this->ringImage); }
+			if (!is_null($this->ringSize)) { $query.=', ting_size = '.$this->db->escapeString($this->ringSize); }
+			
+			$query.=' WHERE game_id = ' . $this->db->escapeNumber($this->gameID) . ' AND sector_id = ' . $this->db->escapeNumber($this->sectorID);
+			$this->db->query($query);
 			$this->hasChanged = false;
 		}
 

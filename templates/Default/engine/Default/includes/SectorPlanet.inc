@@ -3,33 +3,33 @@ if($ThisSector->hasPlanet()) {
 	$planet =& $ThisSector->getPlanet(); ?>
 	<table class="standard csl">
 		<tr>
-			<th>Planet</th>
-			<th>Option</th>
+			<th>Planet: <?php echo $planet->getName() ?></th>
 		</tr>
 		<tr>
 			<td>
-				<div style="display: inline; padding: 0; margins: 0;"
-					data-img="../<?php echo $planet->getTypeImage(); ?>" 
-					data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>">
-					<img alt="Planet" src="images/blank_16.png" 
-					style="background-image: url('<?php echo $planet->getTypeImage(); ?>');"  
-					class="planets planett<?php echo $planet->getTypeID(); ?>"/>
-				</div>&nbsp;<?php echo $planet->getName() ?>&nbsp;
-				<?php echo $planet->getTypeName() ?>&nbsp;
-				<?php if($planet->isInhabitable()) { ?>
-					<span class="inhab">Inhabitable</span>
-				<?php 
-				}
-				else { ?>
-					<span class="uninhab">Uninhabitable</span>
-				<?php
-				} ?>
-			</td>
-			<td class="center noWrap shrink">
-				<div class="buttonA">
-					<a class="buttonA" href="<?php echo $planet->getExamineHREF() ?>">&nbsp;Examine&nbsp;</a>
-				</div>
+				<a href="<?php echo $planet->getExamineHREF() ?>">
+					<div style="
+						display: inline-box; 
+						padding: 0; 
+						margins: 0; 
+						height: 120px; 
+						width: 120px; 
+						background-image: url('<?php echo $planet->getImage(); ?>');
+						background-size: <?php echo $planet->getSize(); ?> auto; 
+						background-position: center center; 
+						background-repeat:no-repeat;" 
+						data-tip="<?php echo $planet->getTypeName().': '.$planet->getName(); ?>">
+					</div>&nbsp;<?php echo $planet->getName() ?>&nbsp;
+					<?php if($planet->isInhabitable()) { ?>
+						<span class="inhab">Inhabitable</span>
+					<?php 
+					}
+					else { ?>
+						<span class="uninhab">Uninhabitable</span>
+					<?php
+					} ?>
+				</a>
 			</td>
 		</tr>
-	</table><br />
+	</table><br>
 <?php } ?>

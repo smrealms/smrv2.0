@@ -5,17 +5,27 @@
 		$this->includeTemplate('includes/Head.inc'); ?>	
 	</head>
 	<body>
+		<div id="menu_container">
+			<div id="menu">
+					<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
+			</div>
+		</div>
 		<table class="m" align="center">
-			<tr>
-				<td class="l0" rowspan="2">
-					<div class="l1">
-						<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
+			<tr><?php
+				if ($TemplateBody == 'map_combined.php') { ?>
+				<td class="l0 left_side">
+					<div class=""><?php
+						$this->includeTemplate('includes/SectorPlanet.inc');
+						$this->includeTemplate('includes/SectorPort.inc');
+						$this->includeTemplate('includes/SectorLocations.inc');
+						$this->includeTemplate('includes/SectorPlayers.inc',array('PlayersContainer'=>&$ThisSector));
+						$this->includeTemplate('includes/SectorForces.inc'); ?>
 					</div>
-				</td>
-				<td class="m0" colspan="2">
+				</td><?php } ?>
+				<td class="m0">
 					<div id="middle_panel"><?php
 						if(isset($PageTopic)) {
-							?><h1><?php echo $PageTopic; ?></h1><br /><?php
+							?><h1><?php echo $PageTopic; ?></h1><br><?php
 						}
 						if(isset($MenuItems)||isset($MenuBar)) { ?>
 							<div class="bar1">
@@ -27,30 +37,20 @@
 										echo $MenuBar;
 									} ?>
 								</div>
-							</div><br /><?php
+							</div><br><?php
 						}
 						else if(isset($SubMenuBar)) {
 							echo $SubMenuBar;
 						}
 						$this->includeTemplate($TemplateBody); ?>
 					</div>
-				</td>
+				</td><?php
+				if (isset($GameID)) { ?>
 				<td class="r0">
 					<div id="right_panel">
 						<?php $this->includeTemplate('includes/RightPanel.inc'); ?>
 					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="footer_left">
-					<div style="width:294px;" class="center">Get <b><u>FREE TURNS</u></b> for voting if you see the star, next available <span id="v"><?php if($TimeToNextVote <= 0){ ?>now<?php }else{ ?>in <?php echo format_time($TimeToNextVote,true); } ?></span>.</div><?php
-						foreach($VoteSites as $VoteSite) {
-							echo $VoteSite;
-						} ?>
-				</td>
-				<td class="footer_right">
-					<?php $this->includeTemplate('includes/copyright.inc'); ?>
-				</td>
+				</td><?php } ?>
 			</tr>
 		</table>
 		<?php $this->includeTemplate('includes/EndingJavascript.inc'); ?>
