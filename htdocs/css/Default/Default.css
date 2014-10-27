@@ -366,18 +366,25 @@ table.csForces th.header {
     user-select: none;
 }
 .thumbnail{
-    margin: 5px;
-	height: 45px;
-	width: 45px;
+    height: 50px;
+	width: 50px;
 	display:inline-block;
 	background-repeat:no-repeat; 
 	background-size:contain;
+	vertical-align: top;
+	text-align:center;
+	
 	
 }
 
 .thumbnail:hover{
-	margin:0px;
-	padding:5px;
+	border: 1px solid #4C93E0;
+	height: 48px;
+	width: 48px;
+}
+
+.thumbnail.selected {
+    background-color: rgba(58,112,273,0.6);
 }
 
 .selectable {
@@ -385,9 +392,12 @@ table.csForces th.header {
 }
 
 #planet_selector {
-	height:200px;
-	width:200px;
-	overflow:auto;
+	height:150px;
+	width:170px;
+    overflow: auto;
+	background-color: rgba(58,112,173,0.4);
+	border: 1px solid #4C93E0;
+	display:block;
 }
 
 

@@ -46,18 +46,20 @@ if($AJAX_ENABLE_REFRESH) {
 
 <script>
 
-	$("#planet_selector").on("click",".selectable", function(event){
+	$("#planet_selector").on("click",".selectable", function(event, path){
 		
 		/*console.log($(event.delegateTarget).find(".selectable"));*/
 		$(event.delegateTarget).find(".selectable").each(function(){
-			me = $(this);
+			var me = $(this);
 			if (me.hasClass("selected")){
 				me.removeClass("selected");
 			}
 			
 		});
 		
-		/*$(event.target).addClass("selected");*/
+		$(event.target).addClass("selected");
+		
+		$("#planetEdit > input[name=image]").attr("value", "images/planets/" + $(event.target).attr("data-name"));
 	
 	});
 	function planetSelect(obj){
