@@ -397,7 +397,22 @@ table.csForces th.header {
     overflow: auto;
 	background-color: rgba(58,112,173,0.4);
 	border: 1px solid #4C93E0;
-	display:block;
+	display:inline-block;
+	float:left;
+	margin-right:15px;
 }
 
+#planet_preview {
+	height:150px;
+	width:170px;
+	display: inline-block; 
+	float: left;
+}
+
+#planet_preview #preview {
+	height:137px;
+	width:170px;
+	background-repeat:no-repeat; 
+	background-size:contain;
+}
 

@@ -46,9 +46,12 @@ if($AJAX_ENABLE_REFRESH) {
 
 <script>
 
-	$("#planet_selector").on("click",".selectable", function(event, path){
+	$("#planet_preview > #slider").slider();
+
+	$("#planet_selector").on("click",".selectable", function(event){
 		
-		/*console.log($(event.delegateTarget).find(".selectable"));*/
+		$("#preview").css("background-image", "url(\'images/planets/" + $(event.target).attr("data-name") + "\')");
+		
 		$(event.delegateTarget).find(".selectable").each(function(){
 			var me = $(this);
 			if (me.hasClass("selected")){
