@@ -390,6 +390,11 @@ table.csForces th.header {
 .selectable {
 	cursor:pointer;
 }
+#planet_picker {
+	height:152px;
+	width:357px;
+	margin:10px;
+}
 
 #planet_selector {
 	height:150px;
@@ -398,15 +403,16 @@ table.csForces th.header {
 	background-color: rgba(58,112,173,0.4);
 	border: 1px solid #4C93E0;
 	display:inline-block;
-	float:left;
+	//float:left;
 	margin-right:15px;
 }
+
 
 #planet_preview {
 	height:150px;
 	width:170px;
 	display: inline-block; 
-	float: left;
+	
 }
 
 #planet_preview #preview {
@@ -414,5 +420,6 @@ table.csForces th.header {
 	width:170px;
 	background-repeat:no-repeat; 
 	background-size:contain;
+	
 }
 
