@@ -49,9 +49,9 @@ if (is_dir($dir)) {
 }
 
 if (!is_null($planet)) {
-	$PHP_OUTPUT.='<div id="planetEdit" >';
+	$PHP_OUTPUT.='<div id="planetEdit" style="display:none" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input type="hidden" name="image" value="'.$planet->getImage().'"></input>';
-	$PHP_OUTPUT.='<br>Planet Size: <input name="size" value="'.$planet->getSize().'"></input> </div>';
+	$PHP_OUTPUT.='<br>Planet Size: <input type="hidden" name="size" value="'.$planet->getSize().'"></input> </div>';
 	$PHP_OUTPUT.='<div id="planet_picker">';
 	$PHP_OUTPUT.='<div id="planet_selector" class="noselect" >';
 	foreach($planet_pics as $index => $pic){

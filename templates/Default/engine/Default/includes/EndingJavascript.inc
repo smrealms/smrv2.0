@@ -46,7 +46,22 @@ if($AJAX_ENABLE_REFRESH) {
 
 <script>
 
-	$("#planet_preview > #slider").slider();
+    var slider = $("#planet_preview > #slider");
+
+	slider.slider({
+		min: 50,
+		create: function(event, ui){
+			var val = parseInt($("#planetEdit > input[name=size]").attr("value"));
+			$(this).slider("value", val);
+		},
+		change: function(event, ui){
+			$("#preview").css("background-size",  "auto " + ui.value + "%");	
+		},
+		stop: function(event, ui){
+			$("#planetEdit > input[name=size]").attr("value", ui.value + "%");
+		}
+	});
+	
 
 	$("#planet_selector").on("click",".selectable", function(event){
 		
@@ -65,6 +80,9 @@ if($AJAX_ENABLE_REFRESH) {
 		$("#planetEdit > input[name=image]").attr("value", "images/planets/" + $(event.target).attr("data-name"));
 	
 	});
+	
+	
+	
 	function planetSelect(obj){
 		console.log(obj);		
 	}
