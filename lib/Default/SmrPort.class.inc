@@ -477,6 +477,16 @@ class SmrPort {
 		$this->db->query('DELETE FROM route_cache WHERE game_id='.$this->db->escapeNumber($this->getGameID()));
 	}
 	
+	public function addPortGood2($gid, $secid, $goodID, $type) {
+		$newGood = Globals::getGood($goodID);
+		$newGood['Amount'] = $newGood['Max'];
+		$newGood['TransactionType'] = $type;
+		$this->goods['All Goods'][$goodID] =& $newGood;
+		$this->goods[$type][$goodID] =& $newGood;
+		$this->db->query('INSERT INTO port_has_goods (game_id, sector_id, good_id, transaction_type, amount) VALUES (' . $this->db->escapeNumber($gid)  . ',' . $this->db->escapeNumber($secid) . ',' . $this->db->escapeNumber($goodID) . ',' . $this->db->escapeString($type) . ',' . $this->db->escapeNumber($newGood['Amount']) . ')');
+		$this->db->query('DELETE FROM route_cache WHERE game_id='.$this->db->escapeNumber($this->getGameID()));
+	}
+	
 	protected function removePortGood($goodID) {
 		if($this->isCachedVersion())
 			throw new Exception('Cannot update a cached port!');
@@ -485,6 +495,11 @@ class SmrPort {
 		elseif(isset($this->goods['Buy'][$goodID])) unset($this->goods['Buy'][$goodID]);
 		
 		$this->db->query('DELETE FROM port_has_goods WHERE '.$this->SQL.' AND good_id=' . $this->db->escapeNumber($goodID) . ';');
+		$this->db->query('DELETE FROM route_cache WHERE game_id='.$this->db->escapeNumber($this->getGameID()));
+	}
+	
+	public function &removePortGood2($gid, $secid, $goodID) {
+		$this->db->query('DELETE FROM port_has_goods WHERE game_id = ' . $gid . ' AND sector_id = ' . $secid . ' AND good_id=' . $this->db->escapeNumber($goodID) . ';');
 		$this->db->query('DELETE FROM route_cache WHERE game_id='.$this->db->escapeNumber($this->getGameID()));
 	}
 	
