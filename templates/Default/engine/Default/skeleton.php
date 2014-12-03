@@ -57,11 +57,11 @@
 	</body>
 	<img src="spinner.gif" id="spinner" style="width:30px; height:30px;position: absolute;top: 50%;left: 50%;"/>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
  	window.onload=hideSpinner;
  
   	function hideSpinner() {
 		document.getElementById('spinner').style.display = "none";
   	}
-	</script>
+	</script> -->
 </html>

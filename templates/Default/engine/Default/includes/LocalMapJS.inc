@@ -15,16 +15,18 @@ function toggleM() {
 	 }
  }
 function handle(delta) {
-	if (delta < 0)
+	
+	if (delta < 0) {
 		window.location = '<?php echo $ZoomDownLink ?>';
-	else
+	} else {
 		window.location = '<?php echo $ZoomUpLink ?>';
-
+	}
  }
 
 /** Event handler for mouse wheel event.
  */
 function wheel(event) {
+
 	if (toggle) {
 		var delta = 0;
 		if (!event) /* For IE. */

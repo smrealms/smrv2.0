@@ -352,6 +352,7 @@ table.csForces th.header {
 }
 .left_side {
 	width: 380px;
+	height: 100%;
 	padding: 5px;
 	display: block;
 	overflow-x: hidden;
