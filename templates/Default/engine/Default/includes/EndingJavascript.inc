@@ -55,7 +55,7 @@ if($AJAX_ENABLE_REFRESH) {
 			$(this).slider("value", val);
 		},
 		change: function(event, ui){
-			$("#preview").css("background-size",  "auto " + ui.value + "%");	
+			$("#preview").css("background-size",  ui.value + "% auto");	
 		},
 		stop: function(event, ui){
 			$("#planetEdit > input[name=size]").attr("value", ui.value + "%");
