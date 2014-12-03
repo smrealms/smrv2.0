@@ -14,7 +14,7 @@
 			<tr><?php
 				if ($TemplateBody == 'map_combined.php') { ?>
 				<td class="l0 left_side">
-					<div class=""><?php
+					<div class="left_side_item_wrapper"><?php
 						$this->includeTemplate('includes/SectorPlanet.inc');
 						$this->includeTemplate('includes/SectorPort.inc');
 						$this->includeTemplate('includes/SectorLocations.inc');
