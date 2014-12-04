@@ -92,12 +92,20 @@ if ($sector->hasFeature()) {
 $PHP_OUTPUT.= '</br> </br> Features: ';
 
 $PHP_OUTPUT.='<div id="featEdit" >';
+$PHP_OUTPUT.='<button type="button" id="feat_toggle" class="button" >';
+if($feat['image'] == "none"){
+	$PHP_OUTPUT.=' Add Feature ';
+}
+else{
+	$PHP_OUTPUT.=' Remove Feature ';
+}
+$PHP_OUTPUT.=' </button>';
 $PHP_OUTPUT.='<br><input type="hidden" name="feat_img" value="'.$feat['image'].'"></input>';
 $PHP_OUTPUT.='<br><input type="hidden" name="feat_size" value="'.$feat['size'].'"></input> </div>';
 
 $PHP_OUTPUT.='<div id="feat_picker" ';
 if($feat['image'] == "none"){
-	//$PHP_OUTPUT.='style="display:none" ';
+	$PHP_OUTPUT.='style="display:none" ';
 }
 $PHP_OUTPUT.=' >';
 
@@ -181,6 +189,7 @@ $PHP_OUTPUT.='<script>
 
     var slider = $("#planet_preview > #slider");
 	var f_slider = $("#feat_preview > #f_slider");
+	var defaultFeature = "sun.png";
 
 	slider.slider({
 		min: 50,
@@ -245,6 +254,28 @@ $PHP_OUTPUT.='<script>
 		
 		$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + $(event.target).attr("data-name"));
 	
+	});
+	
+	$("#feat_toggle").on("click" , function(event){
+		
+		var img = $("#featEdit > input[name=feat_img]").attr("value");
+
+		if(img == "none"){
+			
+			
+				
+			$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + defaultFeature);
+			$(this).html("Remove Feature");
+			$("#feat_picker").show();
+			$("#feat_selector > div[data-name=defaultFeature]").addClass("selected");
+		}
+		else
+		{
+			$("#feat_picker").hide();
+			$("#featEdit > input[name=feat_img]").attr("value", "none");
+			$(this).html("Add Feature");
+		}
+					
 	});
 	
 	function planetSelect(obj){
