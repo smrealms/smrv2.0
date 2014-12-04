@@ -310,9 +310,10 @@ elseif ($submit == 'Edit Sector') {
 			$sector->getPlanet()->setImage($_POST['image']);
 			$sector->getPlanet()->setSize($_POST['size']);
 		}
+		
+		
 	}
-	
-	
+		
 //	elseif ($_POST['plan_type'] == 'NPC') {
 //		$GAL_PLANETS[$this_sec]['Inhabitable'] = 1;
 //		$GAL_PLANETS[$this_sec]['Owner'] = 0;
@@ -321,6 +322,31 @@ elseif ($submit == 'Edit Sector') {
 	else {
 		$sector->removePlanet();
 	}
+	
+	
+	//update feature
+	if($_POST['feat_img'] != "none" ){
+		//set feature
+		if($sector->hasFeature()){
+			if($_POST['feat_img'] != $sector->getFeatureImage()){
+				$sector->setFeatureImage($_POST['feat_img']);
+			}
+			if($_POST['feat_size'] != $sector->getFeatureSize()){
+				$sector->setFeatureSize($_POST['feat_size']);
+			}
+			
+		}
+		else
+		{
+			$sector->setFeature($_POST['feat_img']);
+			$sector->setFeatureSize($_POST['feat_size']);
+		}
+		
+	}
+	else{
+		$sector->removeFeature();
+	}
+	
 	//update port
 	if ($_POST['port_level'] > 0) {
 		if(!$sector->hasPort()) {

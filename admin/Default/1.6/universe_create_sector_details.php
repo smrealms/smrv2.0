@@ -66,6 +66,59 @@ if (!is_null($planet)) {
 	$PHP_OUTPUT.='</div> ';
 	$PHP_OUTPUT.='</div> ';
 }
+
+//features edit
+
+//loading all pictures from the images folder
+$feat_pics;
+$dir = WWW."images/features";
+if (is_dir($dir)) {
+	$feat_pics = scandir($dir);
+	foreach ($feat_pics as $key => $value){
+		if(!is_file($dir.'/'.$value)){
+			unset($feat_pics[$key]);
+		}
+	}
+}
+
+$feat['image'] = "none";
+$feat['size'] = 100;
+if ($sector->hasFeature()) {
+	$feat['image'] = $sector->getFeatureImage();
+	$feat['size'] = $sector->getFeatureSize();
+	$feat['loc'] = $sector->getFeatureLocation();
+}
+
+$PHP_OUTPUT.= '</br> </br> Features: ';
+
+$PHP_OUTPUT.='<div id="featEdit" >';
+$PHP_OUTPUT.='<br><input type="hidden" name="feat_img" value="'.$feat['image'].'"></input>';
+$PHP_OUTPUT.='<br><input type="hidden" name="feat_size" value="'.$feat['size'].'"></input> </div>';
+
+$PHP_OUTPUT.='<div id="feat_picker" ';
+if($feat['image'] == "none"){
+	//$PHP_OUTPUT.='style="display:none" ';
+}
+$PHP_OUTPUT.=' >';
+
+$PHP_OUTPUT.='<div id="feat_selector" class="noselect" >';
+foreach($feat_pics as $index => $pic){
+			
+	$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/features/thumb/'.$pic.'\')" data-name="'.$pic.'" > </div>';
+}
+$PHP_OUTPUT.='</div> ';
+$PHP_OUTPUT.='<div id="feat_preview"> ';
+$PHP_OUTPUT.='<div id="f_preview" style="background-image:url(\''.$feat['image'].'\')"> </div>';
+$PHP_OUTPUT.='<div id="f_slider"> </div>';
+$PHP_OUTPUT.='</div>';
+$PHP_OUTPUT.='</div> ';
+$PHP_OUTPUT.='</div> ';
+
+
+
+
+//$PHP_OUTPUT.= '<input type="hidden" name="feat_loc" value='.$feat['loc'].' > </input>';
+
 $PHP_OUTPUT.='<br><br>';
 
 $PHP_OUTPUT.= 'Port: <select name="port_level">';
@@ -124,4 +177,80 @@ $container = $var;
 $container['body'] = '1.6/universe_create_sectors.php';
 $PHP_OUTPUT.= '<br><a href="'.SmrSession::getNewHREF($container).'" class="submitStyle">Cancel</a>';
 $PHP_OUTPUT.= '</form>';
+$PHP_OUTPUT.='<script>
+
+    var slider = $("#planet_preview > #slider");
+	var f_slider = $("#feat_preview > #f_slider");
+
+	slider.slider({
+		min: 50,
+		create: function(event, ui){
+			var val = parseInt($("#planetEdit > input[name=size]").attr("value"));
+			$(this).slider("value", val);
+		},
+		change: function(event, ui){
+			$("#preview").css("background-size",  ui.value + "% auto");	
+		},
+		stop: function(event, ui){
+			$("#planetEdit > input[name=size]").attr("value", ui.value + "%");
+		}
+	});
+	
+	f_slider.slider({
+		min: 50,
+		create: function(event, ui){
+			var val = parseInt($("#featEdit > input[name=feat_size]").attr("value"));
+			$(this).slider("value", val);
+		},
+		change: function(event, ui){
+			$("#f_preview").css("background-size",  ui.value + "% auto");	
+		},
+		stop: function(event, ui){
+			$("#featEdit > input[name=feat_size]").attr("value", ui.value + "%");
+		}
+	});
+	
+
+	$("#planet_selector").on("click",".selectable", function(event){
+		
+		$("#preview").css("background-image", "url(\'images/planets/" + $(event.target).attr("data-name") + "\')");
+		
+		$(event.delegateTarget).find(".selectable").each(function(){
+			var me = $(this);
+			if (me.hasClass("selected")){
+				me.removeClass("selected");
+			}
+			
+		});
+		
+		$(event.target).addClass("selected");
+		
+		$("#planetEdit > input[name=image]").attr("value", "images/planets/" + $(event.target).attr("data-name"));
+	
+	});
+	
+	$("#feat_selector").on("click",".selectable", function(event){
+		
+		$("#f_preview").css("background-image", "url(\'images/features/" + $(event.target).attr("data-name") + "\')");
+		
+		$(event.delegateTarget).find(".selectable").each(function(){
+			var me = $(this);
+			if (me.hasClass("selected")){
+				me.removeClass("selected");
+			}
+			
+		});
+		
+		$(event.target).addClass("selected");
+		
+		$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + $(event.target).attr("data-name"));
+	
+	});
+	
+	function planetSelect(obj){
+		console.log(obj);		
+	}
+	
+	
+</script>'
 ?>
