@@ -194,7 +194,7 @@ $PHP_OUTPUT.='<script>
 	slider.slider({
 		min: 50,
 		create: function(event, ui){
-			var val = parseInt($("#planetEdit > input[name=size]").attr("value"));
+			var val = parseInt($("#planetEdit > input[name=size]").attr("value"), 10);
 			$(this).slider("value", val);
 		},
 		change: function(event, ui){
@@ -208,7 +208,7 @@ $PHP_OUTPUT.='<script>
 	f_slider.slider({
 		min: 50,
 		create: function(event, ui){
-			var val = parseInt($("#featEdit > input[name=feat_size]").attr("value"));
+			var val = parseInt($("#featEdit > input[name=feat_size]").attr("value"), 10);
 			$(this).slider("value", val);
 		},
 		change: function(event, ui){
@@ -261,13 +261,11 @@ $PHP_OUTPUT.='<script>
 		var img = $("#featEdit > input[name=feat_img]").attr("value");
 
 		if(img == "none"){
-			
-			
-				
+							
 			$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + defaultFeature);
 			$(this).html("Remove Feature");
 			$("#feat_picker").show();
-			$("#feat_selector > div[data-name=defaultFeature]").addClass("selected");
+			/*$("#feat_selector > .selectable[data-name=" + defaultFeature + "]").addClass("selected");*/
 		}
 		else
 		{
