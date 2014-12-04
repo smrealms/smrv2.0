@@ -119,12 +119,6 @@
 	
 	<div id="content">
 		<div id="left">
-			<!--<form action="login_processing.php" method="post" style="margin-top:80px; margin-left:0px;">                
-				<input type="text" class="rounded" size="30" maxlength="30" name="login" />
-                <input type="password" class="rounded" size="30" maxlength="30" name="password" />
-                <input id="login_submit" type="image" src="images/login_new/login_button.png" />
-                <a href="reset_password.php"><img alt="Reset Password" src="images/login_new/reset_button.png" /></a>               
-            </form>     -->
 			<?php include(getcwd() . "\account_management.php");  ?>
 		</div>
 		
