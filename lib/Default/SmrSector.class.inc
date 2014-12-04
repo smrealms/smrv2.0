@@ -610,9 +610,9 @@ class SmrSector {
 		$this->hasChanged = true;
 	}
 	public function setFeature($image, $location='center center', $size='100% auto') {
-		setFeatureImage($image);
-		setFeatureLocation($location);
-		setFeatureSize($size);
+		$this->setFeatureImage($image);
+		$this->setFeatureLocation($location);
+		$this->setFeatureSize($size);
 		$this->update();
 	}
 	
@@ -623,7 +623,7 @@ class SmrSector {
 		$this->update();
 	}
 	public function hasFeature() {
-		return ($this->feature_image != NULL || $this->feature_image != 'NULL');
+		return ($this->feature_image != NULL && $this->feature_image != 'NULL');
 	}
 	public function hasMine() {
 		//TODO
