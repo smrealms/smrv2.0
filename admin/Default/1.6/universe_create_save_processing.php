@@ -344,7 +344,9 @@ elseif ($submit == 'Edit Sector') {
 		
 	}
 	else{
-		$sector->removeFeature();
+		if($sector->hasFeature()){
+			$sector->removeFeature();
+		}
 	}
 	
 	//update port
