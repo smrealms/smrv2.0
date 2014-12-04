@@ -617,9 +617,9 @@ class SmrSector {
 	}
 	
 	public function removeFeature() {
-		setFeatureImage(NULL);
-		setFeatureLocation(NULL);
-		setFeatureSize(NULL);
+		$this->setFeatureImage(NULL);
+		$this->setFeatureLocation(NULL);
+		$this->setFeatureSize(NULL);
 		$this->update();
 	}
 	public function hasFeature() {
