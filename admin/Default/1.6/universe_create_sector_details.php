@@ -265,7 +265,7 @@ $PHP_OUTPUT.='<script>
 			$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + defaultFeature);
 			$(this).html("Remove Feature");
 			$("#feat_picker").show();
-			/*$("#feat_selector > .selectable[data-name=" + defaultFeature + "]").addClass("selected");*/
+			$("#feat_selector > div").first().trigger("click");
 		}
 		else
 		{
