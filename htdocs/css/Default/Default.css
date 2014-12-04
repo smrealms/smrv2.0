@@ -440,7 +440,7 @@ table.csForces th.header {
 
 #planet_preview #preview {
 	height:137px;
-	width:170px;
+	width:137px;
 	background-repeat:no-repeat; 
 	background-size:contain;
 	background-position:center center;
@@ -448,7 +448,7 @@ table.csForces th.header {
 }
 #feat_preview #f_preview {
 	height:137px;
-	width:170px;
+	width:137px;
 	background-repeat:no-repeat; 
 	background-size:contain;
 	background-position:center center;

@@ -82,7 +82,7 @@ if (is_dir($dir)) {
 }
 
 $feat['image'] = "none";
-$feat['size'] = 100;
+$feat['size'] = "100%";
 if ($sector->hasFeature()) {
 	$feat['image'] = $sector->getFeatureImage();
 	$feat['size'] = $sector->getFeatureSize();
