@@ -119,7 +119,7 @@
 	
 	<div id="content">
 		<div id="left">
-			<?php include(getcwd() . "\account_management.php");  ?>
+			<?php include('account_management.php');  ?>
 		</div>
 		
 		<div id="right">

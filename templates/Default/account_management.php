@@ -18,15 +18,15 @@ function toggleVisibility(a){
 <div id="buttons" align="center">
 	<button id="login_button" onclick="toggleVisibility('login');" style="width:100%; height:50px;color:white;background: 0;border: 0;cursor:pointer;"><h2>Login</h2></button><br>
 	<div class="hider" id="login" style="width:100%;">
-	<?php include(getcwd() . "/login_side.php"); ?>
+	<?php include('login_side.php'); ?>
 	</div>
 	<button id="create_login_button" onclick="toggleVisibility('create_login');" style="width:100%; height:50px;color:white;background: 0;border: 0;cursor:pointer;"><h2>Registration</h2></button><br> 
 	<div class="hider" id="create_login" style="width:100%;">
-		<?php include(getcwd() . "/login_create.php"); ?>
+		<?php include('login_create.php'); ?>
 	</div>
 	<button id="reset_password_button" onclick="toggleVisibility('reset_password');" style="width:100%; height:50px;color:white;background: 0;border: 0;cursor:pointer;"><h2>Reset Password</h2></button><br>
 	<div class="hider" id="reset_password" style="width:100%;">
-		<?php include(getcwd() . "/reset_password.php"); ?>
+		<?php include('reset_password.php'); ?>
 	</div>
 
 </div>
