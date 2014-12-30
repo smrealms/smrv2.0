@@ -101,6 +101,26 @@
 			display: inline-block;
 			float: right;
 		}
+		//legacy CSS for news
+		a.header {
+			color:#80C870;
+		}
+
+		.yellow {
+			color:#ffff00;
+		}
+		.red {
+			color:#ff0000;
+		}
+		span.small {
+			font-size:75%;
+		}
+		.bold {
+			font-weight:bold;
+		}
+		.dgreen {
+			color: #008000;
+		}
 	</style>
 </head>
 <body>
@@ -123,6 +143,8 @@
 		</div>
 		
 		<div id="right">
+			Players Online Now: <?php echo $ActiveSessions; ?><br /><br /><?php 
+			if(isset($GameNews)) { ?>
 			<table class="standard" style="width:100%"><tr><th class="center">Time</th><th class="center">News</th></tr><?php
 				foreach($GameNews as $News) { ?>
 					<tr>
@@ -133,7 +155,7 @@
 						<td><?php echo $News['Message']; ?></td>
 					</tr><?php
 				} ?>
-				</table>
+			</table><?php } ?>
 		</div>
 	</div>
 

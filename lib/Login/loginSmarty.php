@@ -16,7 +16,7 @@ $db->nextRecord();
 $template->assign('ActiveSessions',$db->getField('active_sessions'));
 
 $gameNews = array();
-$db->query('SELECT * FROM news ORDER BY time DESC LIMIT 4');
+$db->query('SELECT * FROM news ORDER BY time DESC LIMIT 8');
 while ($db->nextRecord()) {
 	$overrideGameID = $db->getInt('game_id');
 	$gameNews[] = array('Date' => date(DEFAULT_DATE_DATE_SHORT,$db->getField('time')), 'Time' => date(DEFAULT_DATE_TIME_SHORT,$db->getField('time')), 'Message' => bbifyMessage($db->getField('news_message')));
