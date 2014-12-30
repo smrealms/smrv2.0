@@ -123,27 +123,17 @@
 		</div>
 		
 		<div id="right">
-			<span style="font-size:18px; font-weight:bold;">News</span>
-			<br /><br /><hr />                      
-			<span>3/12/2011</span>
-			<br />            
-			<span>There are now hotkeys for movement and scanning, as well as for 
-				switch between Current Sector, Local Map and Plot Course. Default bindings can be 
-				found under Preferences, where you can also able to customise them.
-			</span>                
-			<br /><br /><hr />            
-			<span>2/12/2011</span>
-			<br />
-			<span>There are now hotkeys for movement and scanning, as well as for 
-				switch between Current Sector, Local Map and Plot Course. Default bindings can be 
-				found under Preferences, where you can also able to customise them.            
-			</span>                
-			<br /><br /><hr />                           
-			<span>12/27/2012</span>
-			<br />
-			<span>This is Freon22 testing to see what will happen in this div when the text 
-				over flows??????
-			</span>
+			<table class="standard" style="width:100%"><tr><th class="center">Time</th><th class="center">News</th></tr><?php
+				foreach($GameNews as $News) { ?>
+					<tr>
+						<td><?php
+							echo $News['Date']; ?><br /><?php
+							echo $News['Time']; ?>
+						</td>
+						<td><?php echo $News['Message']; ?></td>
+					</tr><?php
+				} ?>
+				</table>
 		</div>
 	</div>
 
