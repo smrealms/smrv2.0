@@ -137,9 +137,9 @@ input {
 	border: 1px solid #4C93E0;
 }
 textarea {
-	background: #06240E;
+	background: rgba(58,112,173,0.4);
 	color: #FFFFFF;
-	border: 1px solid #80C870;
+	border: 1px solid #4C93E0;
 }
 a {
 	color: #F0F0F0;
