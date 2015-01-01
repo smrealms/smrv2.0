@@ -229,8 +229,9 @@ if (!isset($_GET['edit'])) {
 		$PHP_OUTPUT.= "<td> $armor </td>";
 		
 		$PHP_OUTPUT.= "<td>";
-		foreach ($galSector->getPort()->getGoods()['All Goods'] as $goods) {
-			 $PHP_OUTPUT.= $goods['Name'] . " <-> Transaction Type: " . $goods['TransactionType'] . " <->  Amount: " . $goods['Amount'] . " <br />";
+		$goods = $galSector->getPort()->getGoods()['All Goods']
+		foreach ($goods as $good) {
+			 $PHP_OUTPUT.= $good['Name'] . " <-> Transaction Type: " . $good['TransactionType'] . " <->  Amount: " . $good['Amount'] . " <br />";
 		}
 		$PHP_OUTPUT.= "</td>";
 		
