@@ -230,7 +230,8 @@ if (!isset($_GET['edit'])) {
 		
 		$PHP_OUTPUT.= "<td>";
 		$goods = $galSector->getPort()->getGoods();
-		foreach ($goods['All Goods'] as $good) {
+		$goods = $goods['All Goods']
+		foreach ($goods as $good) {
 			 $PHP_OUTPUT.= $good['Name'] . " <-> Transaction Type: " . $good['TransactionType'] . " <->  Amount: " . $good['Amount'] . " <br />";
 		}
 		$PHP_OUTPUT.= "</td>";
