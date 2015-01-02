@@ -19,7 +19,7 @@ if (!isset($isCombinedSector)) {
 					<div class="lm_sector galaxy<?php echo $Sector->getGalaxyID();
 						if($isCurrentSector){ echo ' currentSeclm"'; } 
 						else if($isLinkedSector){ echo ' connectSeclm"'; } 
-						else if($isVisited){ echo ' normalSeclm"'; }else{ echo 'normalSeclmu'; } 
+						else if($isVisited){ echo ' normalSeclm"'; }else{ echo ' normalSeclmu"'; } 
 						
 						$url = ''; $size = ''; $position = ''; $tail = '';
 						
