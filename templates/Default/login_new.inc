@@ -40,7 +40,7 @@
 			text-align: right;
 			vertical-align: bottom;
 			line-height: 172px;
-			width: 100%
+			width: 100%;
 			height: 172px;
 			background: #000000 url(images/login_new/head.jpg) no-repeat center center;
 			background-size: 100% auto; 
@@ -77,7 +77,7 @@
 			padding: 0;
 			margin: 0;
 			margin-top: 10px;
-			width: 1001px;
+			width: 100%;
 			clear: both;
 		}
 		#left {
