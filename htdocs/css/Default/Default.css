@@ -210,7 +210,7 @@ ul.boxy li {
 	background-color: rgba(40,78,119,0.4);
 }
 .normalSeclmu {
-	background-color: #000000;
+	background-color: rgba(40,78,119,0.2);
 }
 
 /* wep drop down */
@@ -245,7 +245,7 @@ div.secNavBox div div {
    color: #4C93E0;
 }
 .unvisited {
-   color: #FFFF00;
+   color: #FFFFFF;
 }
 
 /*Local map sectors by galaxy id*/
