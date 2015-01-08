@@ -591,6 +591,12 @@ class SmrSector {
 	public function getFeatureImage() {
 		return $this->feature_image;
 	}
+	public function getFeatureImageLink() {
+		return "images/features/thumb/".$this->feature_image;
+	}
+	public function getFeatureImageThumbLink() {
+		return "images/features/thumb/".$this->feature_image;
+	}
 	public function setFeatureImage($image) {
 		$this->feature_image = $image;
 		$this->hasChanged = true;

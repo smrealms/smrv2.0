@@ -252,7 +252,7 @@ $PHP_OUTPUT.='<script>
 		
 		$(event.target).addClass("selected");
 		
-		$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + $(event.target).attr("data-name"));
+		$("#featEdit > input[name=feat_img]").attr("value", $(event.target).attr("data-name"));
 	
 	});
 	
