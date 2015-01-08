@@ -234,7 +234,7 @@ $PHP_OUTPUT.='<script>
 		
 		$(event.target).addClass("selected");
 		
-		$("#planetEdit > input[name=image]").attr("value", "images/planets/" + $(event.target).attr("data-name"));
+		$("#planetEdit > input[name=image]").attr("value", $(event.target).attr("data-name"));
 	
 	});
 	

@@ -30,10 +30,10 @@ if (!isset($isCombinedSector)) {
 						}
 						if ($Sector->hasPlanet()) { 
 							$planet = $Sector->getPlanet();
-							$url .= 'url("'.$planet->getImage().'"),'; 
+							$url .= 'url("'.$planet->getImageLink().'"),'; 
 							$size .= $planet->getSize().' auto,';
 							$position .= 'center center,';
-							$tail = 'data-img="../'.$planet->getImage().'" data-tip="'.$planet->getTypeName().': '.$planet->getName().'"';
+							$tail = 'data-img="../'.$planet->getImageLink().'" data-tip="'.$planet->getTypeName().': '.$planet->getName().'"';
 						} 
 						if($Sector->hasFeature()) {
 							$url .= 'url("'.$Sector->getFeatureImage().'"),';

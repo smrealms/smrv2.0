@@ -7,10 +7,10 @@
 		<td class="bold">Planet Type:</td>
 		<td>
 		<div style="display: inline; padding: 0; margins: 0;"
-			data-img="../<?php echo $ThisPlanet->getTypeImage(); ?>" 
+			data-img="../<?php echo $ThisPlanet->getImageThumbLink(); ?>" 
 			data-tip="<?php echo $ThisPlanet->getTypeName().': '.$ThisPlanet->getName(); ?>">
 			<img alt="Planet" src="images/blank_16.png" 
-			style="background-image: url('<?php echo $ThisPlanet->getTypeImage(); ?>');"  
+			style="background-image: url('<?php echo $ThisPlanet->getImageThumbLink(); ?>');"  
 			class="planets planett<?php echo $ThisPlanet->getTypeID(); ?>"/>
 		</div>
 		<?php echo $ThisPlanet->getTypeName() ?>:

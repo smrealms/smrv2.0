@@ -13,7 +13,7 @@ if (isset($ThisSector)) {
 	$url = ''; $size = ''; $position = '';
 	if ($ThisSector->hasPlanet()) { 
 		$planet = $ThisSector->getPlanet();
-		$url .= 'url("'.$planet->getImage().'"),'; 
+		$url .= 'url("'.$planet->getImageLink().'"),'; 
 		$size .= '150% auto,';
 		$position .= 'center -20%,';
 	} 
