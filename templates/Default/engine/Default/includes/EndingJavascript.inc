@@ -18,7 +18,7 @@ if (isset($ThisSector)) {
 		$position .= 'center -20%,';
 	} 
 	if($ThisSector->hasFeature()) {
-		$url .= 'url("'.$ThisSector->getFeatureImage().'"),';
+		$url .= 'url("'.$ThisSector->getFeatureImageLink().'"),';
 		$size .= $ThisSector->getFeatureSize().',';
 		$position .= $ThisSector->getFeatureLocation().',';
 	} 

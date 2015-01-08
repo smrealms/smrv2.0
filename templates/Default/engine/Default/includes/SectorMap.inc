@@ -36,7 +36,7 @@ if (!isset($isCombinedSector)) {
 							$tail = 'data-img="../'.$planet->getImageLink().'" data-tip="'.$planet->getTypeName().': '.$planet->getName().'"';
 						} 
 						if($Sector->hasFeature()) {
-							$url .= 'url("'.$Sector->getFeatureImage().'"),';
+							$url .= 'url("'.$Sector->getFeatureImageThumbLink().'"),';
 							$size .= $Sector->getFeatureSize().',';
 							$position .= $Sector->getFeatureLocation().',';
 						} 
