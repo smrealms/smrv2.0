@@ -52,14 +52,14 @@ if (!is_null($planet)) {
 	$PHP_OUTPUT.='<div id="planetEdit" style="display:none" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input type="hidden" name="image" value="'.$planet->getImage().'"></input>';
 	$PHP_OUTPUT.='<br>Planet Size: <input type="hidden" name="size" value="'.$planet->getSize().'"></input> </div>';
-	$PHP_OUTPUT.='<div id="planet_picker">';
-	$PHP_OUTPUT.='<div id="planet_selector" class="noselect" >';
+	$PHP_OUTPUT.='<div id="planet_picker" class="picker">';
+	$PHP_OUTPUT.='<div id="planet_selector" class="noselect selector" >';
 	foreach($planet_pics as $index => $pic){
 				
 		$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" data-name="'.$pic.'" > </div>';
 	}
 	$PHP_OUTPUT.='</div> ';
-	$PHP_OUTPUT.='<div id="planet_preview"> ';
+	$PHP_OUTPUT.='<div id="planet_preview" class="preview"> ';
 	$PHP_OUTPUT.='<div id="preview" style="background-image:url(\''.$planet->getImage().'\')"> </div>';
 	$PHP_OUTPUT.='<div id="slider"> </div>';
 	$PHP_OUTPUT.='</div>';
@@ -103,19 +103,19 @@ $PHP_OUTPUT.=' </button>';
 $PHP_OUTPUT.='<br><input type="hidden" name="feat_img" value="'.$feat['image'].'"></input>';
 $PHP_OUTPUT.='<br><input type="hidden" name="feat_size" value="'.$feat['size'].'"></input> </div>';
 
-$PHP_OUTPUT.='<div id="feat_picker" ';
+$PHP_OUTPUT.='<div id="feat_picker" class="picker"';
 if($feat['image'] == "none"){
 	$PHP_OUTPUT.='style="display:none" ';
 }
 $PHP_OUTPUT.=' >';
 
-$PHP_OUTPUT.='<div id="feat_selector" class="noselect" >';
+$PHP_OUTPUT.='<div id="feat_selector" class="noselect selector" >';
 foreach($feat_pics as $index => $pic){
 			
 	$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/features/thumb/'.$pic.'\')" data-name="'.$pic.'" > </div>';
 }
 $PHP_OUTPUT.='</div> ';
-$PHP_OUTPUT.='<div id="feat_preview"> ';
+$PHP_OUTPUT.='<div id="feat_preview" class="preview"> ';
 $PHP_OUTPUT.='<div id="f_preview" style="background-image:url(\''.$feat['image'].'\')"> </div>';
 $PHP_OUTPUT.='<div id="f_slider"> </div>';
 $PHP_OUTPUT.='</div>';

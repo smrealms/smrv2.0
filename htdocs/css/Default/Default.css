@@ -391,28 +391,16 @@ table.csForces th.header {
 .selectable {
 	cursor:pointer;
 }
-#planet_picker {
+
+
+.picker {
 	height:152px;
-	width:357px;
-	margin:10px;
-}
-#feat_picker {
-	height:152px;
-	width:357px;
+	//width:357px;
 	margin:10px;
 }
 
-#planet_selector {
-	height:150px;
-	width:170px;
-    overflow: auto;
-	background-color: rgba(58,112,173,0.4);
-	border: 1px solid #4C93E0;
-	display:inline-block;
-	//float:left;
-	margin-right:15px;
-}
-#feat_selector {
+
+.selector  {
 	height:150px;
 	width:170px;
     overflow: auto;
@@ -423,22 +411,13 @@ table.csForces th.header {
 	margin-right:15px;
 }
 
-
-#planet_preview {
+.preview {
 	height:150px;
 	width:170px;
 	display: inline-block; 
 	
 }
-
-#feat_preview {
-	height:150px;
-	width:170px;
-	display: inline-block; 
-	
-}
-
-#planet_preview #preview {
+.preview #preview {
 	height:137px;
 	width:137px;
 	background-repeat:no-repeat; 
@@ -446,7 +425,7 @@ table.csForces th.header {
 	background-position:center center;
 	
 }
-#feat_preview #f_preview {
+.preview #f_preview {
 	height:137px;
 	width:137px;
 	background-repeat:no-repeat; 
