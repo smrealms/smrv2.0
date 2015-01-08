@@ -262,7 +262,7 @@ $PHP_OUTPUT.='<script>
 
 		if(img == "none"){
 							
-			$("#featEdit > input[name=feat_img]").attr("value", "images/features/" + defaultFeature);
+			$("#featEdit > input[name=feat_img]").attr("value", defaultFeature);
 			$(this).html("Remove Feature");
 			$("#feat_picker").show();
 			$("#feat_selector > div").first().trigger("click");
