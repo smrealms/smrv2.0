@@ -60,7 +60,7 @@ if (!is_null($planet)) {
 	}
 	$PHP_OUTPUT.='</div> ';
 	$PHP_OUTPUT.='<div id="planet_preview" class="preview"> ';
-	$PHP_OUTPUT.='<div id="preview" style="background-image:url(\''.$planet->getImage().'\')"> </div>';
+	$PHP_OUTPUT.='<div id="preview" style="background-image:url(\''.$planet->getImageThumbLink().'\')"> </div>';
 	$PHP_OUTPUT.='<div id="slider"> </div>';
 	$PHP_OUTPUT.='</div>';
 	$PHP_OUTPUT.='</div> ';
