@@ -104,13 +104,33 @@ table.m {
 	border-spacing: 3px;
 	height: 98%;
 }
+div.m {
+	border-spacing: 3px;
+	height: 98%;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+}
 td.m0 {
 	border-radius: 5px;
 	border: 1px solid #4C93E0;
 }
-td.l0, td.r0 {
+td.l0, td.r0, td.t0 {
 	border-radius: 5px;
 	border: 1px solid #4C93E0;
+}
+div.t0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+	display: block;
+	width: 100%;
+}
+div.l0, div.r0, div.m0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+	display: inline-block;
+	float: left;
+	height: 98%;
 }
 .attack_warning {
 	border: 1px solid #BB0;
@@ -357,7 +377,11 @@ table.csForces th.header {
 	display: block;
 	overflow-x: hidden;
 }
-
+.top_combined {
+	padding: 5px;
+	display: block;
+	overflow-x: hidden;	
+}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
