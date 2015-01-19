@@ -421,6 +421,7 @@ table.csForces th.header {
 	height:152px;
 	//width:357px;
 	margin:10px;
+	display:inline-block;
 }
 
 
