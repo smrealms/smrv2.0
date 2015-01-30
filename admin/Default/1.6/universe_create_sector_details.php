@@ -51,7 +51,8 @@ if (is_dir($dir)) {
 if (!is_null($planet)) {
 	$PHP_OUTPUT.='<div id="planetEdit" style="display:none" >';
 	$PHP_OUTPUT.='<br>Planet Image: <input type="hidden" name="image" value="'.$planet->getImage().'"></input>';
-	$PHP_OUTPUT.='<br>Planet Size: <input type="hidden" name="size" value="'.$planet->getSize().'"></input> </div>';
+	$PHP_OUTPUT.='<br>Planet Size: <input type="hidden" name="size" value="'.$planet->getSize().'"></input> ';
+	$PHP_OUTPUT.='<br>Moon Image: <input type="hidden" name="moon_image" value="'.$planet->getMoonImage().'"></input> </div>';
 	$PHP_OUTPUT.='<div id="planet_picker" class="picker">';
 	$PHP_OUTPUT.='<div id="planet_selector" class="noselect selector" >';
 	foreach($planet_pics as $index => $pic){
@@ -63,6 +64,13 @@ if (!is_null($planet)) {
 	$PHP_OUTPUT.='<div id="preview" style="background-image:url(\''.$planet->getImageThumbLink().'\')"> </div>';
 	$PHP_OUTPUT.='<div id="slider"> </div>';
 	$PHP_OUTPUT.='</div>';
+	$PHP_OUTPUT.='<div id="moon_selector" class="noselect selector" >';	
+	foreach($planet_pics as $index => $pic){
+				
+		$PHP_OUTPUT.= '<div class="thumbnail selectable" style="background-image:url(\'images/planets/thumb/'.$pic.'\')" data-name="'.$pic.'" > </div>';
+	}
+	$PHP_OUTPUT.='</div>';
+	
 	$PHP_OUTPUT.='</div> ';
 	$PHP_OUTPUT.='</div> ';
 }
@@ -224,13 +232,7 @@ $PHP_OUTPUT.='<script>
 		
 		$("#preview").css("background-image", "url(\'images/planets/" + $(event.target).attr("data-name") + "\')");
 		
-		$(event.delegateTarget).find(".selectable").each(function(){
-			var me = $(this);
-			if (me.hasClass("selected")){
-				me.removeClass("selected");
-			}
-			
-		});
+		$(event.delegateTarget).find(".selected").removeClass("selected");
 		
 		$(event.target).addClass("selected");
 		
@@ -238,23 +240,32 @@ $PHP_OUTPUT.='<script>
 	
 	});
 	
+	$("#moon_selector").on("click",".selectable", function(event){
+		var curr_uri = $("#planetEdit > input[name=image]").attr("value");
+		
+		$("#preview").css("background-image", " url(\'images/planets/" + $(event.target).attr("data-name") + "\'), url(\'images/planets/" + curr_uri + "\') ");
+		
+		$(event.delegateTarget).find(".selected").removeClass("selected");
+		
+		$(event.target).addClass("selected");
+		
+		$("#planetEdit > input[name=moon_image]").attr("value", $(event.target).attr("data-name"));
+	
+	});
+	
 	$("#feat_selector").on("click",".selectable", function(event){
 		
 		$("#f_preview").css("background-image", "url(\'images/features/" + $(event.target).attr("data-name") + "\')");
 		
-		$(event.delegateTarget).find(".selectable").each(function(){
-			var me = $(this);
-			if (me.hasClass("selected")){
-				me.removeClass("selected");
-			}
-			
-		});
+		$(event.delegateTarget).find(".selected").removeClass("selected");
 		
 		$(event.target).addClass("selected");
 		
 		$("#featEdit > input[name=feat_img]").attr("value", $(event.target).attr("data-name"));
 	
 	});
+	
+
 	
 	$("#feat_toggle").on("click" , function(event){
 		

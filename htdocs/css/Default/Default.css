@@ -432,19 +432,18 @@ table.csForces th.header {
 	background-color: rgba(58,112,173,0.4);
 	border: 1px solid #4C93E0;
 	display:inline-block;
-	//float:left;
-	margin-right:15px;
+	
 }
 
 .preview {
 	height:150px;
 	width:170px;
 	display: inline-block; 
-	
+	margin:0 15px;
 }
 .preview #preview {
 	height:137px;
-	width:137px;
+	margin:0 15px;
 	background-repeat:no-repeat; 
 	background-size:contain;
 	background-position:center center;
