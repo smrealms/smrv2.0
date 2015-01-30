@@ -206,9 +206,11 @@ $PHP_OUTPUT.='<script>
 			$(this).slider("value", val);
 		},
 		change: function(event, ui){
-			$("#preview").css("background-size",  ui.value + "% auto");	
+			updatePlanetPreview("",ui.value);
+			/*$("#preview").css("background-size", ui.value + "%, 25%");	*/
 		},
 		stop: function(event, ui){
+			
 			$("#planetEdit > input[name=size]").attr("value", ui.value + "%");
 		}
 	});
@@ -229,8 +231,9 @@ $PHP_OUTPUT.='<script>
 	
 
 	$("#planet_selector").on("click",".selectable", function(event){
+		updatePlanetPreview ($(event.target).attr("data-name"));
 		
-		$("#preview").css("background-image", "url(\'images/planets/" + $(event.target).attr("data-name") + "\')");
+		/*$("#preview").css("background-image", "url(\'images/planets/" + $(event.target).attr("data-name") + "\')");*/
 		
 		$(event.delegateTarget).find(".selected").removeClass("selected");
 		
@@ -241,9 +244,7 @@ $PHP_OUTPUT.='<script>
 	});
 	
 	$("#moon_selector").on("click",".selectable", function(event){
-		var curr_uri = $("#planetEdit > input[name=image]").attr("value");
-		
-		$("#preview").css("background-image", " url(\'images/planets/" + $(event.target).attr("data-name") + "\'), url(\'images/planets/" + curr_uri + "\') ");
+		updatePlanetPreview("", "", $(event.target).attr("data-name"));
 		
 		$(event.delegateTarget).find(".selected").removeClass("selected");
 		
@@ -286,6 +287,25 @@ $PHP_OUTPUT.='<script>
 		}
 					
 	});
+	
+	function updatePlanetPreview (p_img, p_size, m_img, m_size){
+	
+		if(p_img === undefined || p_img == ""){
+			p_img = $("#planetEdit > input[name=image]").attr("value");
+		}
+		if (p_size === undefined || p_size == ""){
+			p_size = $("#planetEdit > input[name=size]").attr("value");
+		}
+		if (m_img === undefined | m_img == ""){
+			m_img = $("#planetEdit > input[name=moon_image]").attr("value");
+		}
+		if (m_size === undefined || m_size == ""){
+			m_size = 25;
+		}	
+		
+		$("#preview").css("background-image", " url(\'images/planets/" + m_img + "\'), url(\'images/planets/" + p_img + "\') ");
+		$("#preview").css("background-size", m_size + "% ," + p_size + "%");
+	}
 	
 	function planetSelect(obj){
 		console.log(obj);		
