@@ -1365,7 +1365,7 @@ class SmrPlanet {
 
 	public function &getWeapons() {
 		$weapons = array();
-		for($i=0;$i<$this->getBuilding(PLANET_TURRET);++$i) {
+		for($i=0;$i<$this->getBuilding(PLANET_TURRET)['amount'];++$i) {
 			$weapons[$i] =& SmrWeapon::getWeapon(Globals::getGameType($this->getGameID()),WEAPON_PLANET_TURRET);
 		}
 		return $weapons;

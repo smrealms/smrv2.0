@@ -26,7 +26,7 @@
 			<tr>
 				<td><img class="tooltip" id="<?php echo $PlanetBuilding['Name']; ?>_tip" src="<?php echo $PlanetBuilding['Image']; ?>" width="16" height="16" alt="" title="<?php echo $PlanetBuilding['Name']; ?>"/></td>
 				<td><?php echo $PlanetBuilding['Name'];?>: <?php echo $PlanetBuilding['Description']; ?></td>
-				<td class="center"><?php echo $ThisPlanet->getBuilding($PlanetBuilding['ConstructionID']); ?>/<?php echo $ThisPlanet->getMaxBuildings($PlanetBuilding['ConstructionID']); ?></td>
+				<td class="center"><?php echo $ThisPlanet->getBuilding($PlanetBuilding['ConstructionID'])['amount']; ?>/<?php echo $ThisPlanet->getMaxBuildings($PlanetBuilding['ConstructionID']); ?></td>
 				<td><?php
 					foreach($PlanetBuilding['Goods'] as $GoodID => $Amount) {
 						if ($ThisPlanet->getStockpile($GoodID) < $Amount) { ?>
