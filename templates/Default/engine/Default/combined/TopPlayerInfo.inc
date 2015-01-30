@@ -1,3 +1,6 @@
+<table>
+<tr>
+<td>
 <?php
 if(isset($GameID)) { ?>
 	<span id="attack_area"><?php if($UnderAttack) { ?><p class="attack_warning">You Are Under Attack!</p><script type="text/javascript">triggerAttackBlink('3B1111');</script><?php } ?></span><?php
@@ -32,7 +35,9 @@ if(isset($GameID)) { ?>
 			if ($ThisPlayer->getNewbieTurns() > NEWBIE_TURNS_WARNING_LIMIT) { ?>green<?php } else { ?>red<?php } ?>"><?php echo $ThisPlayer->getNewbieTurns(); ?></span><br /><?php
 		} ?>
 	</span>
-	Credits : <span id="creds"><?php echo number_format($ThisPlayer->getCredits()); ?></span><br />
+	Credits : <span id="creds"><?php echo number_format($ThisPlayer->getCredits()); ?></span>
+	</td>
+	<td>
 	Experience : <span id="exp"><?php echo number_format($ThisPlayer->getExperience()); ?></span><br />
 	<a href="<?php echo URL; ?>/level_requirements.php" target="levelRequirements">Level : <span id="lvl"><?php echo $ThisPlayer->getLevelID(); ?></span></a><br />
 	<a href="<?php echo URL; ?>/level_requirements.php" target="levelRequirements">Next Level: </a><a href="http://wiki.smrealms.de/index.php?title=Game_Guide:_Experience_Levels" target="_blank"><img src="images/silk/help.png" width="16" height="16" alt="Wiki Link" title="Goto SMR Wiki: Experience Levels"/></a><br /><?php
@@ -52,9 +57,9 @@ if(isset($GameID)) { ?>
 		if($ThisPlayer->hasAlliance()) {
 			echo '('.number_format($ThisPlayer->getAllianceID()).')';
 		} ?></a></span><br />
-	<br>
-	
-	<div>
+	</td>
+	<td>
+	<td>
 		<a href="<?php echo URL; ?>/ship_list.php" target="shipList"><span id="ship_name"><?php /*<a href="<?php echo $ThisShip->getUpgradeShipHREF(); ?>">*/ ?><span class="yellow bold"><?php echo $ThisShip->getName(); ?></span><?php /*</a>*/ ?></span></a><br />
 	<?php
 	if($ThisPlayer->hasCustomShipName()) {
@@ -92,7 +97,8 @@ if(isset($GameID)) { ?>
 		</a><br />
 		<br /><?php
 	} ?>
-	</div>
+	</td>
+	<td>
 	<a href="<?php echo $ForceDropLink; ?>"><span class="bold">Forces</span></a><br /><?php
 	if(isset($DropMineLink)) { ?>
 		<a href="<?php echo $DropMineLink; ?>">
@@ -124,7 +130,9 @@ if(isset($GameID)) { ?>
 			<img src="<?php echo $Good['ImageLink']; ?>" width="13" height="16" alt="<?php echo $Good['Name']; ?>"> : <?php echo $GoodAmount; ?><br /><?php
 		}
 	} ?>
-	Empty : <?php echo $ThisShip->getEmptyHolds(); ?><br /><br />
+	Empty : <?php echo $ThisShip->getEmptyHolds(); ?>
+	</td>
+	<td>
 	<a href="<?php echo $WeaponReorderLink; ?>"><span class="bold">Weapons</span></a>&nbsp;<a href="<?php echo URL; ?>/weapon_list.php" target="_blank"><img src="images/silk/help.png" width="16" height="16" alt="Weapon List" title="Weapon List"/></a><br /><?php
 	if($ThisShip->hasWeapons()) { ?>
 		<div class="wep_drop1" id="hide-show" onclick="toggleWepD('<?php echo $ThisPlayer->getToggleWeaponHidingHREF(); ?>');">
@@ -146,3 +154,6 @@ if(isset($GameID)) { ?>
 		?><a href="<?php echo Globals::getBetaFunctionsHREF(); ?>"><span class="bold">Beta Functions</span></a><?php
 	}
 } ?>
+</td>
+</tr>
+</table>

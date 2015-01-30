@@ -1,4 +1,5 @@
 <?php
+require_once('config.specific.php');
 function logException(Exception $e) {
 	global $account,$var,$player;
 	$errorType = 'Error';

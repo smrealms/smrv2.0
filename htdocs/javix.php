@@ -49,15 +49,14 @@ try {
 	// *
 	// ********************************
 	
-	//echo '<pre>';echo_r($session);echo'</pre>';
-	//exit;
 	// do we have a session?
 	if (SmrSession::$account_id == 0) {
 		echo null;
 		exit;
 	}
   
-	
+	//this is where we decide what type of request it is
+	//then we gather or necessary variables and call the proper encoder
 	if ($_REQUEST['action'] == 'get_local') {
 		$ThisPlayer =& SmrPlayer::getPlayer(SmrSession::$account_id, SmrSession::$game_id);
 		$ThisSector =& $ThisPlayer->getSector(); 
