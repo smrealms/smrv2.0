@@ -124,7 +124,7 @@ foreach($feat_pics as $index => $pic){
 }
 $PHP_OUTPUT.='</div> ';
 $PHP_OUTPUT.='<div id="feat_preview" class="preview"> ';
-$PHP_OUTPUT.='<div id="f_preview" style="background-image:url(\''.$feat['image'].'\')"> </div>';
+$PHP_OUTPUT.='<div id="f_preview" style="background-image:url(\'images/features/thumb/'.$feat['image'].'\')"> </div>';
 $PHP_OUTPUT.='<div id="f_slider"> </div>';
 $PHP_OUTPUT.='</div>';
 $PHP_OUTPUT.='</div> ';
