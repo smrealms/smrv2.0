@@ -1,7 +1,7 @@
 <?php
 	//Branch the old views vs the new view
-	if ($TemplateBody == 'map_combined.php') { 
-		require('combined_old.php');
+	if (!isset($GameID)) { 
+		require('regular.php');
 	} else {
 		require('combined_old.php');
 	}

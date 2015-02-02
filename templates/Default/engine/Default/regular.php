@@ -10,7 +10,7 @@
 					<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
 			</div>
 		</div>
-		<table class="m" align="center">
+		<table class="m" style="width: 80%;" align="center">
 			<tr>
 				<td class="m0">
 					<div id="middle_panel"><?php
@@ -34,13 +34,7 @@
 						}
 						$this->includeTemplate($TemplateBody); ?>
 					</div>
-				</td><?php
-				if (isset($GameID)) { ?>
-				<td class="r0">
-					<div id="right_panel">
-						<?php $this->includeTemplate('includes/RightPanel.inc'); ?>
-					</div>
-				</td><?php } ?>
+				</td>
 			</tr>
 		</table>
 		<?php $this->includeTemplate('includes/EndingJavascript.inc'); ?>
