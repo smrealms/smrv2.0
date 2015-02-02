@@ -11,7 +11,8 @@
 			</div>
 		</div>
 		<table class="m" align="center">
-			<tr>
+			<tr><?php
+				if (isset($GameID)) { ?>
 				<td class="l0 left_side">
 					<div class="left_side_item_wrapper"><?php
 						$this->includeTemplate('includes/SectorPlanet.inc');
@@ -20,7 +21,7 @@
 						$this->includeTemplate('includes/SectorPlayers.inc',array('PlayersContainer'=>&$ThisSector));
 						$this->includeTemplate('includes/SectorForces.inc'); ?>
 					</div>
-				</td>
+				</td><?php } ?>
 				<td class="m0">
 					<div id="middle_panel"><?php
 						if(isset($PageTopic)) {
@@ -43,7 +44,7 @@
 						}
 						$this->includeTemplate($TemplateBody); ?>
 					</div>
-				</td>
+				</td><?php if (isset($GameID)) { ?>
 				<td class="r0 right_side">
 					<div class="right_side_item_wrapper"><?php
 					$this->includeTemplate('includes/PlottedCourse.inc');
@@ -81,8 +82,7 @@
 					if(isset($VarMessage)) {
 						echo $VarMessage; ?><br /><?php
 					} ?></div>
-				</td><?php
-				if (isset($GameID)) { ?>
+				</td>
 				<td class="r0">
 					<div id="right_panel">
 						<?php $this->includeTemplate('includes/RightPanel.inc'); ?>
