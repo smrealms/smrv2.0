@@ -3,6 +3,6 @@
 	if ($TemplateBody == 'map_combined.php') { 
 		require('combined_old.php');
 	} else {
-		require('regular.php');
+		require('combined_old.php');
 	}
 ?>

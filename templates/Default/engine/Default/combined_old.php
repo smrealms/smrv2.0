@@ -43,6 +43,44 @@
 						}
 						$this->includeTemplate($TemplateBody); ?>
 					</div>
+				</td>
+				<td class="r0 right_side">
+					<div class="right_side_item_wrapper"><?php
+					$this->includeTemplate('includes/PlottedCourse.inc');
+					$this->includeTemplate('includes/Ticker.inc');
+					$this->includeTemplate('includes/Missions.inc'); 
+					if(isset($ErrorMessage)) {
+						echo $ErrorMessage; ?><br /><?php
+					}
+					if(isset($ProtectionMessage)) {
+						echo $ProtectionMessage; ?><br /><?php
+					}
+					if(isset($TurnsMessage)) {
+						echo $TurnsMessage; ?><br /><?php
+					}
+					if(isset($TradeMessage)) {
+						echo $TradeMessage; ?><br /><?php
+					}
+					if(isset($ForceRefreshMessage)) {
+						echo $ForceRefreshMessage; ?><br /><?php
+					}
+					if(isset($AttackResults)) {
+						if($AttackResultsType=='PLAYER') {
+							$this->includeTemplate('includes/TraderFullCombatResults.inc',array('TraderCombatResults'=>$AttackResults,'MinimalDisplay'=>true));
+						}
+						else if($AttackResultsType=='FORCE') {
+							$this->includeTemplate('includes/ForceFullCombatResults.inc',array('FullForceCombatResults'=>$AttackResults,'MinimalDisplay'=>true));
+						}
+						else if($AttackResultsType=='PORT') {
+							$this->includeTemplate('includes/PortFullCombatResults.inc',array('FullPortCombatResults'=>$AttackResults,'MinimalDisplay'=>true));
+						}
+						else if($AttackResultsType=='PLANET') {
+							$this->includeTemplate('includes/PlanetFullCombatResults.inc',array('FullPlanetCombatResults'=>$AttackResults,'MinimalDisplay'=>true));
+						} ?><br /><?php
+					}
+					if(isset($VarMessage)) {
+						echo $VarMessage; ?><br /><?php
+					} ?></div>
 				</td><?php
 				if (isset($GameID)) { ?>
 				<td class="r0">

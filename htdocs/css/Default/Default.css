@@ -377,6 +377,13 @@ table.csForces th.header {
 	display: block;
 	overflow-x: hidden;
 }
+.right_side {
+	width: 380px;
+	height: 100%;
+	padding: 5px;
+	display: block;
+	overflow-x: hidden;
+}
 .top_combined {
 	padding: 5px;
 	display: block;
@@ -455,10 +462,14 @@ table.csForces th.header {
 	background-repeat:no-repeat; 
 	background-size:contain;
 	background-position:center center;
-	
 }
 
 .left_side_item_wrapper  {
+	width: 100%;
+	padding: 5px;
+}
+
+.right_side_item_wrapper  {
 	width: 100%;
 	padding: 5px;
 }
