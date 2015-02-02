@@ -4,17 +4,14 @@
 <br><?php
 if(isset($GameID)) {
 	?><big><?php
-	if(!$ThisPlayer->isLandedOnPlanet()) {
-		?><a class="bold" href="<?php echo Globals::getCurrentSectorHREF(); ?>">Current Sector</a><br><?php
+	if(!$ThisPlayer->isLandedOnPlanet() && isset($CombinedMapLink)) {
+		?><a class="bold" href="<?php echo Globals::getCombinedMapHREF(); ?>">Combined View</a><br><?php
 	}
 	if(isset($PlanetMainLink)) {
 		?><a class="bold" href="<?php echo $PlanetMainLink; ?>">Planet Main</a><br><?php
 	}
 	if(isset($LocalMapLink)) {
-		?><a class="bold" href="<?php echo Globals::getLocalMapHREF(); ?>">Local Map</a><br><?php
-	}
-	if(isset($CombinedMapLink)) {
-		?><a class="bold" href="<?php echo Globals::getCombinedMapHREF(); ?>">Combined View</a><br><?php
+		?><a href="<?php echo Globals::getLocalMapHREF(); ?>">Local Map</a><br><?php
 	}
 	if(isset($PlotCourseLink)) {
 		?><a class="bold" href="<?php echo $PlotCourseLink; ?>">Plot A Course</a><br><?php
