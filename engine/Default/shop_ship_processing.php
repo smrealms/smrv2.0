@@ -47,7 +47,7 @@ $player->update();
 
 $account->log(LOG_TYPE_HARDWARE, 'Buys a '.$ship->getName().' for '.$cost.' credits', $player->getSectorID());
 
-$container = create_container('skeleton.php', 'current_sector.php');
+$container = create_container('skeleton.php', 'map_combined.php');
 transfer('LocationID');
 forward($container);
 

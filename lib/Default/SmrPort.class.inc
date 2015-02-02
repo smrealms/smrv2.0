@@ -1009,7 +1009,7 @@ class SmrPort {
 			$container['PayoutType'] = 'Loot';
 		}
 		else {
-			$container = create_container('skeleton.php','current_sector.php');
+			$container = create_container('skeleton.php','map_combined.php');
 			$container['msg'] = 'This port has already been looted.';
 		}
 		return $justContainer === false ? SmrSession::getNewHREF($container) : $container;

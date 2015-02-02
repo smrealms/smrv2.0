@@ -6,5 +6,5 @@ if (count($player->getMissions()) >= 3)
 
 $player->addMission($var['MissionID']);
 
-forward(create_container('skeleton.php', 'current_sector.php'));
+forward(create_container('skeleton.php', 'map_combined.php'));
 ?>

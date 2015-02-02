@@ -7,7 +7,7 @@ if (in_array($player->getAccountID(), Globals::getHiddenPlayers())) {
 	$player->setSectorID($target);
 	$player->update();
 	$sector->markVisited($player);
-	forward(create_container('skeleton.php', 'current_sector.php'));
+	forward(create_container('skeleton.php', 'map_combined.php'));
 }
 $action = $_REQUEST['action'];
 if ($action == 'No')
@@ -122,7 +122,7 @@ foreach($sectorForces as &$forces) {
 } unset($forces);
 if($mineOwnerID) {
 	if ($player->hasNewbieTurns()) {
-		$container = create_container('skeleton.php', 'current_sector.php');
+		$container = create_container('skeleton.php', 'map_combined.php');
 		$container['msg'] = 'You have just flown past a sprinkle of mines.<br />Because of your newbie status you have been spared from the harsh reality of the forces.';
 		forward($container);
 	}

@@ -15,6 +15,6 @@ elseif ($_REQUEST['action'] == 'Become a gang member') {
 	$player->update();
 }
 
-forward(create_container('skeleton.php', 'current_sector.php'));
+forward(create_container('skeleton.php', 'map_combined.php'));
 
 ?>

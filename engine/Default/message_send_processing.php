@@ -42,7 +42,7 @@ if(isset($var['alliance_id'])) {
 else if ($player->isLandedOnPlanet())
 	$container['body'] = 'planet_main.php';
 else
-	$container['body'] = 'current_sector.php';
+	$container['body'] = 'map_combined.php';
 $container['msg'] = '<span class="green">SUCCESS: </span>Your message has been sent.';
 forward($container);
 

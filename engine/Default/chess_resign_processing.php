@@ -7,7 +7,7 @@ $container = create_container('skeleton.php');
 if ($player->isLandedOnPlanet())
 	$container['body'] = 'planet_main.php';
 else
-	$container['body'] = 'current_sector.php';
+	$container['body'] = 'map_combined.php';
 switch($result) {
 	case 0:
 		$container['msg'] = '[color=green]Success:[/color] You have resigned from [chess=' . $var['ChessGameID'] . '].';

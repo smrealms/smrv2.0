@@ -76,7 +76,7 @@ $PHP_OUTPUT.=create_echo_form(create_container('skeleton.php', 'shop_goods.php')
 $PHP_OUTPUT.=create_submit('Select a different good');
 $PHP_OUTPUT.=('</form>');
 $PHP_OUTPUT.=('<br /><br />');
-$PHP_OUTPUT.=create_echo_form(create_container('skeleton.php', 'current_sector.php'));
+$PHP_OUTPUT.=create_echo_form(create_container('skeleton.php', 'map_combined.php'));
 $PHP_OUTPUT.=create_submit('Leave Port');
 $PHP_OUTPUT.=('</form>');
 

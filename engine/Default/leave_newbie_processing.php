@@ -7,7 +7,7 @@ if ($action == 'Yes!') {
 if ($player->isLandedOnPlanet())
 	$area = 'planet_main.php';
 else
-	$area = 'current_sector.php';
+	$area = 'map_combined.php';
 $account->log(LOG_TYPE_MOVEMENT, 'Player drops newbie turns.', $player->getSectorID());
 forward(create_container('skeleton.php', $area));
 

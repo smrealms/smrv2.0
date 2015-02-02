@@ -33,7 +33,7 @@ else {
 					AND sector_id = ' . $db->escapeNumber($player->getSectorID()) . ' AND owner_id=' . $db->escapeNumber($db->getInt('account_id')) . ' LIMIT 1');
 }
 $message = '[Force Check]'; //this notifies the CS to look for info.
-$container = create_container('skeleton.php', 'current_sector.php');
+$container = create_container('skeleton.php', 'map_combined.php');
 $container['msg'] = $message;
 forward($container);
 

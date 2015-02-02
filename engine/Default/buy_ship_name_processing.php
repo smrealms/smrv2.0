@@ -53,7 +53,7 @@ if(!isset($var['ShipName'])) {
 			$db->query('REPLACE INTO ship_has_name (game_id, account_id, ship_name)
 						VALUES (' . $db->escapeNumber($player->getGameID()) . ', ' . $db->escapeNumber($player->getAccountID()) . ', ' . $db->escapeString($name) . ')');
 			$account->decreaseTotalSmrCredits($cred_cost);
-			$container = create_container('skeleton.php','current_sector.php');
+			$container = create_container('skeleton.php','map_combined.php');
 			$container['msg'] = '<div align="center">Your logo was successfully painted!</div><br />';
 			forward($container);
 		}
@@ -157,7 +157,7 @@ if (isset($var['ShipName'])) {
 	$message .= '<br />If your ship is found to use HTML inappropriately you may be banned.  If your ship does contain inappropriate HTML talk to an admin ASAP.';
 }
 $message .= '</div>';
-$container=create_container('skeleton.php','current_sector.php');
+$container=create_container('skeleton.php','map_combined.php');
 $container['msg'] = $message;
 forward($container);
 

@@ -18,7 +18,7 @@ else if ($player->isLandedOnPlanet()) {
 	$container['body'] = 'planet_main.php';
 }
 else {
-	$container['body'] = 'current_sector.php';
+	$container['body'] = 'map_combined.php';
 }
 
 forward($container);

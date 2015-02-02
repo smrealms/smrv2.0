@@ -409,7 +409,7 @@ class Globals {
 	}
 
 	public static function getCurrentSectorHREF() {
-		return self::$AVAILABLE_LINKS['CurrentSector'] = SmrSession::getNewHREF(create_container('skeleton.php','current_sector.php'));
+		return self::$AVAILABLE_LINKS['CurrentSector'] = SmrSession::getNewHREF(create_container('skeleton.php','map_combined.php'));
 	}
 
 	public static function getLocalMapHREF() {

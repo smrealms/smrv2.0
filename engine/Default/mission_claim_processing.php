@@ -6,5 +6,5 @@ if ($var['MissionID']) {
 
 $rewardText = $player->claimMissionReward($var['MissionID']);
 
-forward(create_container('skeleton.php', 'current_sector.php', array('MissionMessage' => $rewardText)));
+forward(create_container('skeleton.php', 'map_combined.php', array('MissionMessage' => $rewardText)));
 ?>
