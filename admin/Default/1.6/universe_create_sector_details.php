@@ -175,7 +175,7 @@ if ($sector->hasLinkRight()) $PHP_OUTPUT.= ' checked';
 $PHP_OUTPUT.= '></td></tr>';
 $PHP_OUTPUT.= '<tr><td width="5%" class="center">&nbsp;</td><td width="90%" class="center"><input type="checkbox" name="down" value="down"';
 if ($sector->hasLinkDown()) $PHP_OUTPUT.= ' checked';
-$PHP_OUTPUT.= '></td><td width="5%" class="center">Warp:<br /><input type="number" size="5" name="warp" value="';
+$PHP_OUTPUT.= '></td></tr></tr><td width="5%" colspan="3" class="center">Warp:<br /><input type="number" size="5" name="warp" value="';
 if ($sector->hasWarp()) {
 	$warpSector=& $sector->getWarpSector();
 	$PHP_OUTPUT.= $warpSector->getSectorID();
