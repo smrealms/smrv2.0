@@ -4,103 +4,100 @@
 		Sorter::sortByNumMethod($Forces,'getExpire');
 		$RefreshAny = false; ?>
 		<table class="standard fullwidth csForces">
-			<tbody>
-				<tr>
-					<th class="header" colspan="6">Forces (<?php echo count($Forces); ?>)</th>
-				</tr>
-				<tr>
-					<th>Mines</th>
-					<th>Combat</th>
-					<th>Scout</th>
-					<th>Expires</th>
-					<th>Owner</th>
-					<th>Option</th>
-				</tr><?php
-				foreach($Forces as $Force) {
-					$Owner =& $Force->getOwner();
-					$SharedForceAlliance = $Owner->sharedForceAlliance($ThisPlayer);
-					if($SharedForceAlliance) {
-						$RefreshAny = true;
-					} ?>
-				
-					<tr>
-						<td class="center shrink noWrap"><?php
+			<tr>
+				<th class="header">Forces (<?php echo count($Forces); ?>)</th>
+			</tr>	
+			
+		<?php
+		foreach($Forces as $Force) {
+			$Owner =& $Force->getOwner();
+			$SharedForceAlliance = $Owner->sharedForceAlliance($ThisPlayer);
+			if($SharedForceAlliance) {
+				$RefreshAny = true;
+			} ?>
+			<tr>
+				<td>
+					<table style="border: 0; width: 100%;">
+						<tr>
+							<th colspan=3><?php
+	//							if($SharedForceAlliance) {
+									echo $Owner->getLinkedDisplayName();
+	//							}
+	//							else {
+	//								<span class="red">UNKNOWN</span>
+	//							} ?>
+							</th>
+						</tr>
+						<tr>
+							<td style="border: 0; width: 35px;">
+							<?php
 							if($SharedForceAlliance && $ThisShip->canAcceptMines()&&$Force->hasMines()) {
-								?><a href="<?php echo $Force->getTakeMineHREF() ?>">[-]</a><?php								
+								?><a href="<?php echo $Force->getTakeMineHREF() ?>" class="buttonA">&nbsp;-&nbsp;</a><?php								
 							}
-							echo$Force->getMines();
 							if($SharedForceAlliance && $ThisShip->hasMines()&&$Force->canAcceptMines()) {
-								?><a href="<?php echo $Force->getDropMineHREF() ?>">[+]</a><?php
+								?><a href="<?php echo $Force->getDropMineHREF() ?>" class="buttonA">&nbsp;+&nbsp;</a><?php
 							} ?>
-						</td>
-						<td class="center shrink noWrap"><?php
-							if($SharedForceAlliance) {
-								if ($ThisShip->canAcceptCDs()&&$Force->hasCDs()) {
-								?><a href="<?php echo $Force->getTakeCDHREF() ?>">[-]</a><?php
-								}
-								if ($Force->getCDs()>1&&$ThisShip->canAcceptCDs($Force->getCDs())&&$Force->hasCDs()) {
-								?><a href="<?php echo $Force->getTakeCDHREF($Force->getCDs()) ?>">[--]</a><?php
-								}
-							}
-							echo $Force->getCDs();
-							if($SharedForceAlliance && $ThisShip->hasCDs()&&$Force->canAcceptCDs()) {
-								?><a href="<?php echo $Force->getDropCDHREF() ?>">[+]</a><?php
-							} ?>
-						</td>
-						<td class="center shrink noWrap"><?php
-							if($SharedForceAlliance && $ThisShip->canAcceptSDs()&&$Force->hasSDs()) {
-								?><a href="<?php echo $Force->getTakeSDHREF() ?>">[-]</a><?php
-							}
-							echo $Force->getSDs();
-							if($SharedForceAlliance && $ThisShip->hasSDs()&&$Force->canAcceptSDs()) {
-								?><a href="<?php echo $Force->getDropSDHREF() ?>">[+]</a><?php
-							} ?>
-						</td>
-						<td class="shrink noWrap center"><?php
-							if($SharedForceAlliance) {
-								?><span class="green"><?php echo date(DATE_FULL_SHORT,$Force->getExpire());?></span><?php
-							}
-							else {
-								?><span class="red">WAR</span><?php
-							} ?>
-						</td>
-						<td><?php
-//							if($SharedForceAlliance) {
-								echo $Owner->getLinkedDisplayName();
-//							}
-//							else {
-//								<span class="red">UNKNOWN</span>
-//							} ?>
-						</td>
-						<td align="center" class="shrink center">
-							
-							<div class="buttonA">
-								<a href="<?php
-									if($SharedForceAlliance) {
-										echo $Force->getExamineDropForcesHREF();
+							</td>
+							<td style="border: 0;">
+								<?php echo $Force->getMines();?> Mines 
+							</td>
+							<td style="border: 0;">
+							<a href="<?php
+								if($SharedForceAlliance) {
+									echo $Force->getExamineDropForcesHREF();
+								} else {
+									echo $Force->getExamineAttackForcesHREF();
+								} ?>" class="buttonA<?php if(!$SharedForceAlliance){ ?> enemyExamine<?php } ?>"> Examine </a>
+							</td>
+						</tr>
+						<tr>
+							<td style="border: 0;"><?php
+								if($SharedForceAlliance) {
+									if ($ThisShip->canAcceptCDs()&&$Force->hasCDs()) {
+									?><a href="<?php echo $Force->getTakeCDHREF() ?>" class="buttonA">&nbsp;-&nbsp;</a><?php
 									}
-									else {
-										echo $Force->getExamineAttackForcesHREF();
-									} ?>" class="buttonA<?php if(!$SharedForceAlliance){ ?> enemyExamine<?php } ?>"> Examine </a>
-							</div><?php
+									if ($Force->getCDs()>1&&$ThisShip->canAcceptCDs($Force->getCDs())&&$Force->hasCDs()) {
+									?><a href="<?php echo $Force->getTakeCDHREF($Force->getCDs()) ?>" class="buttonA">&nbsp;--</a><?php
+									}
+								}
+								if($SharedForceAlliance && $ThisShip->hasCDs()&&$Force->canAcceptCDs()) {
+								?><a href="<?php echo $Force->getDropCDHREF() ?>" class="buttonA">&nbsp;+&nbsp;</a><?php
+								} ?>
+							</td>
+							<td style="border: 0;">
+								<?php echo $Force->getCDs();?> Combat 
+							</td>
+							<td style="border: 0;"><?php
 							if($SharedForceAlliance) { ?>
-								<br />
-								<br />
-								<div class="buttonA">
-									<a href="<?php echo $Force->getRefreshHREF() ?>" class="buttonA"> Refresh </a>
-								</div><?php
+								<a href="<?php echo $Force->getRefreshHREF() ?>" class="buttonA"> Refresh </a><?php
 							} ?>
-						</td>
-					</tr><?php
-				}
-				if($RefreshAny) { ?>
-					<tr>
-						<td class="center" colspan="6">
-							<div class="buttonA"><a href="<?php echo $Force->getRefreshAllHREF() ?>" class="buttonA"> Refresh All </a></div>
-						</td>
-					</tr><?php
-				} ?>
-			</tbody>
+							</td>
+						</tr>	
+						<tr>
+							<td style="border: 0;"><?php
+								if($SharedForceAlliance && $ThisShip->canAcceptSDs()&&$Force->hasSDs()) {
+									?><a href="<?php echo $Force->getTakeSDHREF() ?>" class="buttonA">&nbsp;-&nbsp;</a><?php
+								}
+								if($SharedForceAlliance && $ThisShip->hasSDs()&&$Force->canAcceptSDs()) {
+									?><a href="<?php echo $Force->getDropSDHREF() ?>" class="buttonA">&nbsp;+&nbsp;</a><?php
+								} ?>
+							</td>
+							<td style="border: 0;"><?php 
+								echo $Force->getSDs();?> Scout 
+							</td>
+							
+							<td style="border: 0;"></td>
+						</tr>
+					</table>
+				</td>
+			</tr><?php 
+		} if($RefreshAny) { ?>
+			<tr>
+				<td class="center" colspan="6">
+					<div class="buttonA"><a href="<?php echo $Force->getRefreshAllHREF() ?>" class="buttonA"> Refresh All </a></div>
+				</td>
+			</tr><?php
+		} ?>
 		</table><?php
 	} ?>
 </div>

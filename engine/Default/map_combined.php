@@ -176,6 +176,7 @@ if($sector->hasPort()) {
 	$template->assign('PortIsAtWar',$player->getRelation($port->getRaceID()) < -300);
 }
 
+
 function checkForForceRefreshMessage(&$msg) {
 	global $db,$player,$template;
 	$contains = 0;

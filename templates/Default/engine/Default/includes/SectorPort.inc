@@ -3,12 +3,10 @@
 		$Port =& $ThisSector->getPort(); ?>
 		<table class="standard csl">
 			<tr>
-				<th colspan="2">Port</th>
-				<th>Option</th>
+				<th colspan="3"><a href="<?php echo Globals::getTraderRelationsHREF(); ?>"><?php echo $ThisPlayer->getColouredRaceName($Port->getRaceID()); ?></a> Port <?php echo $Port->getSectorID(); ?> (Level <?php echo $Port->getLevel(); ?>)</th>
 			</tr>
 			<tr>
-				<td>
-					<a href="<?php echo Globals::getTraderRelationsHREF(); ?>"><?php echo $ThisPlayer->getColouredRaceName($Port->getRaceID()); ?></a> Port <?php echo $Port->getSectorID(); ?> (Level <?php echo $Port->getLevel(); ?>)<br />
+				<td style="border:0;">
 					<div class="goods">
 						<div style="display: inline;" 
 							data-tip="<?php echo $Port->getRaceName(); ?> Port">
@@ -24,7 +22,6 @@
 								</div><?php
 							} ?>
 						
-						
 						<br /><div style="display:inline;" 
 							data-tip="<?php echo $Port->getRaceName(); ?> Port">
 						<img src="images/port/sell.png" width="5" height="16" alt="Sell (<?php echo $Port->getRaceName(); ?>)" 
@@ -38,12 +35,15 @@
 									/>
 								</div><?php
 							} ?>
+						</div>
 					</div>
 				</td>
-				<td style="text-align: center;padding-right:1px;vertical-align:bottom;" class="right">
-					<img height="<?php echo $Port->getUpgradePercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/green.gif" alt="Upgrade" title="Upgrade" /><img height="<?php echo $Port->getCreditsPercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/blue.gif" alt="Credits" title="Credits" /><img height="<?php echo $Port->getReinforcePercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/red.gif" alt="Defense" title="Defense" />
+				<td style="border:0;">
+					<div style="text-align: center;padding-right:1px;vertical-align:top;" class="right">
+						<img height="<?php echo $Port->getUpgradePercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/green.gif" alt="Upgrade" title="Upgrade" /><img height="<?php echo $Port->getCreditsPercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/blue.gif" alt="Credits" title="Credits" /><img height="<?php echo $Port->getReinforcePercent()*32; ?>" width="6px" style="border:2px solid #000000;border-bottom:none;" src="images/red.gif" alt="Defense" title="Defense" />
+					</div>	
 				</td>
-				<td class="center shrink noWrap"><?php
+				<td class="center shrink noWrap" style="border:0;"><?php
 					if($Port->isUnderAttack()) {
 						?><span class="red bold">ALERT!!</span><?php
 					}
@@ -51,11 +51,11 @@
 						?><span class="red bold">WAR!!</span><?php
 					}
 					else { ?>
-						<div class="buttonA">
+						<div class="buttonA" style="display: block;">
 							<a class="buttonA" href="<?php echo Globals::getTradeHREF() ?>">&nbsp;Trade&nbsp;</a>
 						</div><?php
 					} ?>&nbsp;
-					<div class="buttonA">
+					<div class="buttonA"  style="display: block;">
 						<a class="buttonA" href="<?php echo $Port->getRaidWarningHREF() ?>">&nbsp;Raid&nbsp;</a>
 					</div>
 				</td>

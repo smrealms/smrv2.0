@@ -9,7 +9,7 @@ if($ThisPlayer->hasPlottedCourse()) {
 			</td>
 			<td class="top right">
 				<div class="buttonA">
-					<a class="buttonA" href="<?php echo $NextSector->getCurrentSectorHREF(); ?>">&nbsp; Follow Course (<?php echo $PlottedCourse->getNextOnPath(); ?>) &nbsp;</a>
+					<a class="buttonA" href="<?php echo $NextSector->getCombinedMapHREF(); ?>">&nbsp; Follow Course (<?php echo $PlottedCourse->getNextOnPath(); ?>) &nbsp;</a>
 				</div>
 			</td>
 		</tr>
