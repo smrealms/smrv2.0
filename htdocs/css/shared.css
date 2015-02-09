@@ -329,7 +329,7 @@ div.lmRight.con {
 
 /* Walls */
 div.wall {
-	background: rgba(128,128,128,0.8);;
+	background: rgba(128,128,128,0.8);
 }
 /* Local map wall/connector containers */
 a.lmUp, a.lmLeft, a.lmRight, a.lmDown {
