@@ -16,7 +16,7 @@
 						<tr<?php if($Player->getAccount()->isNewbie()) { ?> class="newbie"<?php } ?>><?php
 						if($PlayersContainer instanceof SmrPlanet) {
 							if($ThisPlanet->getOwnerID() == $ThisPlayer->getAccountID()) {
-								?><td onclick="document.location='<?php echo $Player->getPlanetKickHREF() ?>'">
+								?><td onclick="document.location='<?php echo $Player->getPlanetKickHREF() ?>' class="clickable"">
 									<?php /*if(!$ThisPlayer->traderNAPAlliance($Player)){ 
 										if ($Player->canFight()) {
 											enemy 
@@ -31,7 +31,7 @@
 							}
 						
 						} else { ?>
-							<td onclick="document.location='<?php echo $Player->getExamineTraderHREF() ?>'"><?php
+							<td onclick="document.location='<?php echo $Player->getExamineTraderHREF() ?>'" class="clickable"><?php
 						} ?>
 								<?php echo $Player->getLinkedDisplayName(); ?>
 							<br /><?php
