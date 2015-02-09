@@ -1,1 +1,1 @@
-<?php $isCombinedSector = true; $this->includeTemplate('combined/SectorMap.inc'); ?>
+<?php $isCombinedSector = true; $this->includeTemplate('includes/SectorMap.inc'); ?>

@@ -36,7 +36,7 @@ $account->log(LOG_TYPE_MOVEMENT, 'Player plots to '.$target.'.', $player->getSec
 
 $container = array();
 $container['url'] = 'skeleton.php';
-$container['body'] = 'course_plot_result.php';
+$container['body'] = 'map_combined.php';
 
 require_once(get_file_loc('Plotter.class.inc'));
 $path =& Plotter::findDistanceToX(SmrSector::getSector($player->getGameID(),max($target,$start)), SmrSector::getSector($player->getGameID(),min($target,$start)), true);

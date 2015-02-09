@@ -18,7 +18,7 @@ else {
 }
 
 
-$container = create_container('skeleton.php', 'course_plot_result.php');
+$container = create_container('skeleton.php', 'map_combined.php');
 
 $sector =& $player->getSector();
 if($sector->hasX($realX,$player))
