@@ -425,6 +425,18 @@ table.csForces th.header {
 	cursor:pointer;
 }
 
+.clickable {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	cursor:pointer;
+}
+.clickable:hover {
+	background-color: #4C93E0;
+}
 
 .picker {
 	height:152px;

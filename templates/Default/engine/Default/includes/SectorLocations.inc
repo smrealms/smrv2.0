@@ -4,14 +4,13 @@ if($ThisSector->hasLocation()) {
 	<table class="standard csl">
 		<tr>
 			<th>Location</th>
-			<?php
-			if($ThisSector->hasAnyLocationsWithAction()) {
-				?><th>Option</th><?php
-			} ?>
 		</tr><?php
 		foreach($Locations as $Location) { ?>
 			<tr>
-				<td<?php if(!$Location->hasAction() && $ThisSector->hasAnyLocationsWithAction()){ ?> colspan="2"<?php } ?>>
+				<td<?php 
+				if($Location->hasAction()) { ?>
+				 onclick="document.location='<?php echo $Location->getExamineHREF(); ?>'" class="clickable"<?php 
+				} ?>>
 					<div style="" 
 						data-img="../<?php echo $Location->getImage(); ?>"
 						data-tip="<?php echo $Location->getName(); ?>">
@@ -21,12 +20,7 @@ if($ThisSector->hasLocation()) {
 						alt="<?php echo $Location->getName(); ?>"/> 
 					</div>
 					&nbsp;<?php echo $Location->getName(); ?>
-				</td><?php
-				if($Location->hasAction()) { ?>
-					<td class="shrink noWrap">
-						<div class="buttonA"><a class="buttonA" href="<?php echo $Location->getExamineHREF(); ?>">&nbsp;Examine&nbsp;</a></div>
-					</td><?php
-				} ?>
+				</td>
 			</tr><?php
 			} ?>
 	</table><br /><?php

@@ -4,24 +4,37 @@
 		if(!($PlayersContainer instanceof SmrSector) || $ThisPlayer->canSeeAny($Players)) { ?>
 			<table class="standard fullwidth csShips">
 				<tr>
-					<th class="header" colspan="5">Ships (<?php echo count($Players) ?>)</th>
+					<th class="header">Ships (<?php echo count($Players) ?>)</th>
 				</tr>
 				<tr>
-					<th>Trader</th>
-					<th>Ship</th>
-					<th>Rating</th>
-					<th>Level</th>
-					<th>Option</th>
+					<th>Trader Ship Rating Level Option</th>
 				</tr>
 				<?php
 				foreach($Players as &$Player) {
 					if(!($PlayersContainer instanceof SmrSector) || $ThisPlayer->canSee($Player)) {
 						$Ship =& $Player->getShip();?>
-						<tr<?php if($Player->getAccount()->isNewbie()) { ?> class="newbie"<?php } ?>>
-							<td>
+						<tr<?php if($Player->getAccount()->isNewbie()) { ?> class="newbie"<?php } ?>><?php
+						if($PlayersContainer instanceof SmrPlanet) {
+							if($ThisPlanet->getOwnerID() == $ThisPlayer->getAccountID()) {
+								?><td onclick="document.location='<?php echo $Player->getPlanetKickHREF() ?>'">
+									<?php /*if(!$ThisPlayer->traderNAPAlliance($Player)){ 
+										if ($Player->canFight()) {
+											enemy 
+										} else {
+											neutral
+										}
+									} else {
+										friendly
+									}*/
+							} else { ?>
+								<td><?php 
+							}
+						
+						} else { ?>
+							<td onclick="document.location='<?php echo $Player->getExamineTraderHREF() ?>'"><?php
+						} ?>
 								<?php echo $Player->getLinkedDisplayName(); ?>
-							</td>
-							<td><?php
+							<br /><?php
 								if($Player->hasCustomShipName()&&($ThisAccount->isDisplayShipImages()||stripos($Player->getCustomShipName(),'<img')===false)) {
 									echo $Player->getCustomShipName();
 								}
@@ -39,8 +52,7 @@
 								if($Ship->isCloaked()) {
 									?> <span class="red">[Cloaked]</span><?php
 								} ?>
-							</td>
-							<td class="shrink center noWrap"><?php
+							<br /><?php
 								if($ThisPlayer->traderMAPAlliance($Player) || !$Ship->hasActiveIllusion()) {
 									echo $Ship->getAttackRating(); ?> / <?php echo $Ship->getDefenseRating();
 								}
@@ -51,39 +63,8 @@
 									else if($Ship->getAttackRating() != $Ship->getIllusionAttack() || $Ship->getDefenseRating() != $Ship->getIllusionDefense()) {
 										?> <span class="npcColour">(<?php echo $Ship->getIllusionAttack(); ?> / <?php echo $Ship->getIllusionDefense(); ?>)</span><?php
 									}
-								} ?></td>
-							<td class="shrink center noWrap"><?php echo $Player->getLevelID() ?></td>
-							<td class="shrink center noWrap">
-								<div class="buttonA"><?php
-									if($PlayersContainer instanceof SmrPlanet) {
-										if($ThisPlanet->getOwnerID() == $ThisPlayer->getAccountID()) {
-											?><a href="<?php echo $Player->getPlanetKickHREF() ?>" class="kick
-												<?php if(!$ThisPlayer->traderNAPAlliance($Player)){ 
-													if ($Player->canFight()) {
-														?> enemy<?php 
-													} else {
-														?> neutral<?php 
-													}
-												} else {
-													?> friendly<?php 
-												}
-												?>"> Kick </a><?php
-										}
-									}
-									else {
-										?><a href="<?php echo $Player->getExamineTraderHREF() ?>" class="
-											<?php if(!$ThisPlayer->traderNAPAlliance($Player)){ 
-												if ($Player->canFight()) {
-													?> enemy<?php 
-												} else {
-													?> neutral<?php 
-												}	
-											} else {
-												?> friendly<?php 
-											}
-										?>"> Examine </a><?php
-									} ?>
-								</div>
+								} ?> 
+							Level: <?php echo $Player->getLevelID() ?></td>
 							</td>
 						</tr><?php
 					}
