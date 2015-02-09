@@ -355,6 +355,34 @@ if(isset($GameID)) { ?>
 		</tr>
 		
 		<tr>
+			<td>Template</td>
+			<td>
+				<select name="template" id="InputFields"><?php
+					foreach(Globals::getAvailableTemplates() as $AvailableTemplate => $ColourSchemes) {
+						?><option value="<?php echo $AvailableTemplate; ?>"<?php if($ThisAccount->getTemplate()==$AvailableTemplate){ ?>selected="selected"<?php } ?>><?php echo $AvailableTemplate; ?></option><?php
+					} ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Colour Scheme</td>
+			<td>
+				<select name="colour_scheme" id="InputFields"><?php
+					foreach(Globals::getAvailableColourSchemes($ThisAccount->getTemplate()) as $ColourScheme) {
+						?><option value="<?php echo $ColourScheme; ?>"<?php if($ThisAccount->getColourScheme()==$ColourScheme){ ?>selected="selected"<?php } ?>><?php echo $ColourScheme; ?></option><?php
+					} ?>
+				</select> - This only shows colour schemes available for the current template, if you are changing templates then save the change first to see the colour schemes for the new template.
+			</td>
+		</tr>
+		<tr>
+			<td>Classic Icons</td>
+			<td>
+				Yes: <input type="radio" name="classicicons" id="InputFields" value="Yes"<?php if($ThisAccount->getOverrideIcons()=='TRUE'){ ?> checked="checked"<?php } ?> /><br />
+				No: <input type="radio" name="classicicons" id="InputFields" value="No"<?php if($ThisAccount->getOverrideIcons()=='FALSE'){ ?> checked="checked"<?php } ?> /><br />
+			</td>
+		</tr>
+		
+		<tr>
 			<td>&nbsp;</td>
 			<td><input type="submit" name="action" value="Change CSS Options" id="InputFields" /></td>
 		</tr>

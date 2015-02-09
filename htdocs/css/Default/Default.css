@@ -448,7 +448,7 @@ table.csForces th.header {
 	height:150px;
 	width:170px;
 	display: inline-block; 
-	margin:0 15px;
+	margin:0;
 }
 .preview #preview {
 	height:137px;
