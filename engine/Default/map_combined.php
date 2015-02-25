@@ -24,13 +24,13 @@ if(isset($var['Dir'])) {
 		$player->increaseZoom(1);
 	}
 }
-$dist = 3;
+$dist = 2;
 
 $template->assign('isZoomOn',$zoomOn);
 
 $container = array();
 $container['url'] = 'skeleton.php';
-$container['body'] = 'combined_map.php';
+$container['body'] = 'map_combined.php';
 $span = 1 + ($dist * 2);
 
 $topLeft =& $player->getSector();
