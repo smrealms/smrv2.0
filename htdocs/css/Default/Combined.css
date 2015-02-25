@@ -1,0 +1,53 @@
+/* COMMON */
+.create td, th {
+	border: 0px solid #4C93E0;
+}
+table.create {
+	border: 0px solid #4C93E0;
+}
+td.border_left {
+	border-left-width: 3px;
+}
+td.border_right {
+	border-right-width: 3px;
+}
+td.border_bottom {
+	border-bottom-width: 3px;
+}
+td.border_top {
+	border-top-width: 3px;
+}table.m {
+	border-spacing: 3px;
+	height: 98%;
+	width: 95%;
+}
+td.m0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+}
+td.l0, td.r0, td.t0 {
+	border-radius: 5px;
+	border: 1px solid #4C93E0;
+}
+td.has_port {
+	background-color: gray;
+}
+table.nobord td {
+	border: none;
+}
+.attack_warning {
+	border: 1px solid #BB0;
+	background-color: #500;
+	color: #F00;
+}
+div.bar1 {
+	border: 1px solid #4C93E0;
+	border-radius: 5px;
+}
+div.bar1{
+	background-color: rgba(58,112,173,0.4);
+	color: #4C93E0;
+}
+table.bar1 td, table.bar1 th {
+	border: 1px solid #0B8D35;
+}

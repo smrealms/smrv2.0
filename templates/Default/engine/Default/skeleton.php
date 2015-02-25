@@ -3,6 +3,6 @@
 	if (!isset($GameID)) { 
 		require('regular.php');
 	} else {
-		require('combined_old.php');
+		require('combined_new.php');
 	}
 ?>

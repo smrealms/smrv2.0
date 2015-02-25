@@ -37,10 +37,15 @@ background-color: #<?php echo $ThisAccount->getNeutralColour(); ?>;
 if(isset($HeaderTemplateInclude)) {
 $this->includeTemplate($HeaderTemplateInclude);
 } ?>
+
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="css/colorpicker.css" />
+<link rel="stylesheet" href="css/Default/Combined.css" />
+<link rel="stylesheet" media="(max-width: 1024px)" href="css/Default/1024.css" />
+<link rel="stylesheet" media="(min-width: 1025px) and (max-width: 1600px)" href="css/Default/1600.css" />
+<link rel="stylesheet" media="(min-width: 1600px)" href="css/Default/template.css" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/smr15.js"></script>
 <script type="text/javascript" src="js/smr2.js"></script>
 <script type="text/javascript" src="js/colorpicker.js"></script>
