@@ -5,12 +5,13 @@
 		$this->includeTemplate('includes/Head.inc'); ?>	
 	</head>
 	<body align="center">
-		<div class="view_wrap"><!-- Outter wrap -->
-			<div id="menu_container">
-				<div id="menu">
-						<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
-				</div>
+		<div id="menu_container">
+			<div id="menu">
+					<?php $this->includeTemplate('includes/LeftPanel.inc'); ?>
 			</div>
+		</div>
+		<div class="view_wrap"><!-- Outter wrap -->
+			
 
 
 			<div class="column left_column"><!-- Sector view --><?php
