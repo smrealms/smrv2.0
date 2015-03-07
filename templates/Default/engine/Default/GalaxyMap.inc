@@ -1,32 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head><?php
-		if(!is_object($ThisAccount) || $ThisAccount->isDefaultCSSEnabled()) { ?>
-			<link rel="stylesheet" type="text/css" href="<?php echo $CSSLink; ?>">
-			<link rel="stylesheet" type="text/css" href="<?php echo $CSSColourLink; ?>" /><?php
-		}
-		if(isset($ExtraCSSLink)) {
-			?><link rel="stylesheet" type="text/css" href="<?php echo $ExtraCSSLink; ?>" /><?php
-		} ?>
-		<title>Galaxy Map</title>
-		<meta http-equiv="pragma" content="no-cache">
-		<style type="text/css">
-			body {
-				font-size:<?php echo $ThisAccount->getFontSize(); ?>%;
-			}
-		</style>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><?php
-		if(isset($FocusSector)) { ?>
-			<script>
-				$(function() {
-					var focusSector = $('#sector<?php echo $FocusSector; ?>'),
-						body = $('html, body'),
-						offset = focusSector.offset();
-					body.scrollTop(offset.top + focusSector.height() / 2 - window.innerHeight / 2);
-					body.scrollLeft(offset.left + focusSector.width() / 2 - window.innerWidth / 2);
-				});
-			</script><?php
-		} ?>
+		$this->includeTemplate('includes/Head.inc'); ?>	
     </head>
 	
 	<body>
